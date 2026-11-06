@@ -319,11 +319,11 @@ html[data-tablero="morado"] { --cas-clara: #efefef; --cas-oscura: #8877b7; }
 @media (max-width: 600px) {
   .menu {
     position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; width: auto !important;
-    display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px;
+    display: grid; grid-template-columns: repeat(6, 1fr); gap: 4px;
     padding: 8px max(10px, env(safe-area-inset-left)) max(8px, env(safe-area-inset-bottom));
     background: var(--panel); border-top: 1px solid var(--borde); box-shadow: 0 -4px 14px rgba(0,0,0,.08);
   }
-  .menu a { min-width: 0; padding: 7px 2px; font-size: 12px; }
+  .menu a { min-width: 0; padding: 7px 1px; font-size: 11px; }
   .app { padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
 }
 /* Recuadros de modos de la portada */
@@ -409,3 +409,7 @@ html[data-tablero="morado"] { --cas-clara: #efefef; --cas-oscura: #8877b7; }
 .explicacion-clubes { margin-top: 14px; }
 .lista.clubes td { vertical-align: middle; }
 .tarjeta.nivel small { display: block; }
+
+/* Encuentra la casilla */
+.titulo-casilla { font-size: 1.3rem; margin: 4px 0 8px; }
+.casilla-sol { font-family: ui-monospace, monospace; background: var(--acento-suave); padding: 1px 6px; border-radius: 5px; }

@@ -1,0 +1,2722 @@
+[
+ {
+  "id": "casilla-captura-001",
+  "tipo": "captura",
+  "fen": "8/3KR3/5b2/k6P/N7/2n4P/8/2N5 b - - 0 1",
+  "elo": 1020,
+  "solucion": "a4",
+  "jugada": "Kxa4",
+  "desde": "a5",
+  "objetivos": [
+   "a4"
+  ],
+  "titulo": "La pieza sin defensa",
+  "pregunta": "Una de las piezas de las blancas no tiene defensa. Cómetela.",
+  "pista": "Para cada pieza rival que puedes comer, pregúntate: ¿alguien la defiende?",
+  "explicacion": "Nadie defendía el caballo de a4: el rey de a5 se come la pieza gratis. Las otras piezas que podías comer sí estaban defendidas."
+ },
+ {
+  "id": "casilla-captura-002",
+  "tipo": "captura",
+  "fen": "4R3/4n1K1/1p1b4/6b1/8/4k1pN/8/8 w - - 0 1",
+  "elo": 1000,
+  "solucion": "g5",
+  "jugada": "Nxg5",
+  "desde": "h3",
+  "objetivos": [
+   "g5"
+  ],
+  "titulo": "La pieza sin defensa",
+  "pregunta": "Una de las piezas de las negras no tiene defensa. Cómetela.",
+  "pista": "Para cada pieza rival que puedes comer, pregúntate: ¿alguien la defiende?",
+  "explicacion": "Nadie defendía el alfil de g5: el caballo de h3 se come la pieza gratis. Las otras piezas que podías comer sí estaban defendidas."
+ },
+ {
+  "id": "casilla-captura-003",
+  "tipo": "captura",
+  "fen": "6N1/4N3/6P1/4qb2/8/K1BP4/8/2k5 b - - 0 1",
+  "elo": 1010,
+  "solucion": "c3",
+  "jugada": "Qxc3+",
+  "desde": "e5",
+  "objetivos": [
+   "c3"
+  ],
+  "titulo": "La pieza sin defensa",
+  "pregunta": "Una de las piezas de las blancas no tiene defensa. Cómetela.",
+  "pista": "Para cada pieza rival que puedes comer, pregúntate: ¿alguien la defiende?",
+  "explicacion": "Nadie defendía el alfil de c3: la dama de e5 se come la pieza gratis. Las otras piezas que podías comer sí estaban defendidas."
+ },
+ {
+  "id": "casilla-captura-004",
+  "tipo": "captura",
+  "fen": "6N1/2Q3n1/8/1k6/5K2/p2p2r1/8/5b2 w - - 0 1",
+  "elo": 1010,
+  "solucion": "g3",
+  "jugada": "Kxg3",
+  "desde": "f4",
+  "objetivos": [
+   "g3"
+  ],
+  "titulo": "La pieza sin defensa",
+  "pregunta": "Una de las piezas de las negras no tiene defensa. Cómetela.",
+  "pista": "Para cada pieza rival que puedes comer, pregúntate: ¿alguien la defiende?",
+  "explicacion": "Nadie defendía la torre de g3: el rey de f4 se come la pieza gratis. Las otras piezas que podías comer sí estaban defendidas."
+ },
+ {
+  "id": "casilla-captura-005",
+  "tipo": "captura",
+  "fen": "1b6/8/8/3P4/B1r1N3/7K/1P2k3/R7 b - - 0 1",
+  "elo": 1000,
+  "solucion": "e4",
+  "jugada": "Rxe4",
+  "desde": "c4",
+  "objetivos": [
+   "e4"
+  ],
+  "titulo": "La pieza sin defensa",
+  "pregunta": "Una de las piezas de las blancas no tiene defensa. Cómetela.",
+  "pista": "Para cada pieza rival que puedes comer, pregúntate: ¿alguien la defiende?",
+  "explicacion": "Nadie defendía el caballo de e4: la torre de c4 se come la pieza gratis. Las otras piezas que podías comer sí estaban defendidas."
+ },
+ {
+  "id": "casilla-captura-006",
+  "tipo": "captura",
+  "fen": "8/8/2n5/2k5/4p3/rQ3b2/2B1p2K/8 w - - 0 1",
+  "elo": 980,
+  "solucion": "a3",
+  "jugada": "Qxa3+",
+  "desde": "b3",
+  "objetivos": [
+   "a3"
+  ],
+  "titulo": "La pieza sin defensa",
+  "pregunta": "Una de las piezas de las negras no tiene defensa. Cómetela.",
+  "pista": "Para cada pieza rival que puedes comer, pregúntate: ¿alguien la defiende?",
+  "explicacion": "Nadie defendía la torre de a3: la dama de b3 se come la pieza gratis. Las otras piezas que podías comer sí estaban defendidas."
+ },
+ {
+  "id": "casilla-captura-007",
+  "tipo": "captura",
+  "fen": "8/7q/2N1P3/2KR4/b7/1BP1k3/8/8 b - - 0 1",
+  "elo": 1000,
+  "solucion": "b3",
+  "jugada": "Bxb3",
+  "desde": "a4",
+  "objetivos": [
+   "b3"
+  ],
+  "titulo": "La pieza sin defensa",
+  "pregunta": "Una de las piezas de las blancas no tiene defensa. Cómetela.",
+  "pista": "Para cada pieza rival que puedes comer, pregúntate: ¿alguien la defiende?",
+  "explicacion": "Nadie defendía el alfil de b3: el alfil de a4 se come la pieza gratis. Las otras piezas que podías comer sí estaban defendidas."
+ },
+ {
+  "id": "casilla-captura-008",
+  "tipo": "captura",
+  "fen": "8/3b2B1/8/4R1r1/8/2K1P3/3P4/k2N4 b - - 0 1",
+  "elo": 990,
+  "solucion": "g7",
+  "jugada": "Rxg7",
+  "desde": "g5",
+  "objetivos": [
+   "g7"
+  ],
+  "titulo": "La pieza sin defensa",
+  "pregunta": "Una de las piezas de las blancas no tiene defensa. Cómetela.",
+  "pista": "Para cada pieza rival que puedes comer, pregúntate: ¿alguien la defiende?",
+  "explicacion": "Nadie defendía el alfil de g7: la torre de g5 se come la pieza gratis. Las otras piezas que podías comer sí estaban defendidas."
+ },
+ {
+  "id": "casilla-captura-009",
+  "tipo": "captura",
+  "fen": "7b/2k5/5b2/8/1p4K1/8/1QrRp3/8 w - - 0 1",
+  "elo": 1010,
+  "solucion": "c2",
+  "jugada": "Qxc2+",
+  "desde": "b2",
+  "objetivos": [
+   "c2"
+  ],
+  "titulo": "La pieza sin defensa",
+  "pregunta": "Una de las piezas de las negras no tiene defensa. Cómetela.",
+  "pista": "Para cada pieza rival que puedes comer, pregúntate: ¿alguien la defiende?",
+  "explicacion": "Nadie defendía la torre de c2: la dama de b2 se come la pieza gratis. Las otras piezas que podías comer sí estaban defendidas."
+ },
+ {
+  "id": "casilla-captura-010",
+  "tipo": "captura",
+  "fen": "7K/2N5/8/B7/2P3P1/Rr6/3b3k/8 b - - 0 1",
+  "elo": 1020,
+  "solucion": "a3",
+  "jugada": "Rxa3",
+  "desde": "b3",
+  "objetivos": [
+   "a3"
+  ],
+  "titulo": "La pieza sin defensa",
+  "pregunta": "Una de las piezas de las blancas no tiene defensa. Cómetela.",
+  "pista": "Para cada pieza rival que puedes comer, pregúntate: ¿alguien la defiende?",
+  "explicacion": "Nadie defendía la torre de a3: la torre de b3 se come la pieza gratis. Las otras piezas que podías comer sí estaban defendidas."
+ },
+ {
+  "id": "casilla-captura-011",
+  "tipo": "captura",
+  "fen": "8/4Rr2/2k1b3/8/p5p1/8/5N1n/1K6 w - - 0 1",
+  "elo": 980,
+  "solucion": "e6",
+  "jugada": "Rxe6+",
+  "desde": "e7",
+  "objetivos": [
+   "e6"
+  ],
+  "titulo": "La pieza sin defensa",
+  "pregunta": "Una de las piezas de las negras no tiene defensa. Cómetela.",
+  "pista": "Para cada pieza rival que puedes comer, pregúntate: ¿alguien la defiende?",
+  "explicacion": "Nadie defendía el alfil de e6: la torre de e7 se come la pieza gratis. Las otras piezas que podías comer sí estaban defendidas."
+ },
+ {
+  "id": "casilla-captura-012",
+  "tipo": "captura",
+  "fen": "1k2b3/8/8/5B2/1P2q3/1P2N2B/8/2K5 b - - 0 1",
+  "elo": 980,
+  "solucion": "e3",
+  "jugada": "Qxe3+",
+  "desde": "e4",
+  "objetivos": [
+   "e3"
+  ],
+  "titulo": "La pieza sin defensa",
+  "pregunta": "Una de las piezas de las blancas no tiene defensa. Cómetela.",
+  "pista": "Para cada pieza rival que puedes comer, pregúntate: ¿alguien la defiende?",
+  "explicacion": "Nadie defendía el caballo de e3: la dama de e4 se come la pieza gratis. Las otras piezas que podías comer sí estaban defendidas."
+ },
+ {
+  "id": "casilla-dama2-013",
+  "tipo": "dama2",
+  "fen": "n1b5/8/8/3k4/8/3K4/8/1Q6 w - - 0 1",
+  "elo": 1030,
+  "solucion": "b8",
+  "jugada": "Qb8",
+  "desde": "b1",
+  "objetivos": [
+   "a8",
+   "c8"
+  ],
+  "titulo": "La dama ataca a dos",
+  "pregunta": "Lleva la dama a la casilla desde la que ataca a la vez a las dos piezas de las negras.",
+  "pista": "La dama ataca en línea recta y en diagonal. Busca la casilla que está en línea con las dos.",
+  "explicacion": "La dama de b1 va a b8 y ataca a la vez al caballo de a8 y al alfil de c8. Las negras no pueden salvar las dos piezas con una sola jugada, así que ganas material. Además, en b8 nadie puede comerse la dama."
+ },
+ {
+  "id": "casilla-dama2-014",
+  "tipo": "dama2",
+  "fen": "4k2B/4q3/8/8/K7/7N/8/8 b - - 0 1",
+  "elo": 1010,
+  "solucion": "h7",
+  "jugada": "Qh7",
+  "desde": "e7",
+  "objetivos": [
+   "h8",
+   "h3"
+  ],
+  "titulo": "La dama ataca a dos",
+  "pregunta": "Lleva la dama a la casilla desde la que ataca a la vez a las dos piezas de las blancas.",
+  "pista": "La dama ataca en línea recta y en diagonal. Busca la casilla que está en línea con las dos.",
+  "explicacion": "La dama de e7 va a h7 y ataca a la vez al alfil de h8 y al caballo de h3. Las blancas no pueden salvar las dos piezas con una sola jugada, así que ganas material. Además, en h7 nadie puede comerse la dama."
+ },
+ {
+  "id": "casilla-dama2-015",
+  "tipo": "dama2",
+  "fen": "8/3N4/1q6/8/5B2/k7/8/7K b - - 0 1",
+  "elo": 1010,
+  "solucion": "d4",
+  "jugada": "Qd4",
+  "desde": "b6",
+  "objetivos": [
+   "d7",
+   "f4"
+  ],
+  "titulo": "La dama ataca a dos",
+  "pregunta": "Lleva la dama a la casilla desde la que ataca a la vez a las dos piezas de las blancas.",
+  "pista": "La dama ataca en línea recta y en diagonal. Busca la casilla que está en línea con las dos.",
+  "explicacion": "La dama de b6 va a d4 y ataca a la vez al caballo de d7 y al alfil de f4. Las blancas no pueden salvar las dos piezas con una sola jugada, así que ganas material. Además, en d4 nadie puede comerse la dama."
+ },
+ {
+  "id": "casilla-dama2-016",
+  "tipo": "dama2",
+  "fen": "5k2/8/8/2q5/K7/8/8/B2N4 b - - 0 1",
+  "elo": 1040,
+  "solucion": "c1",
+  "jugada": "Qc1",
+  "desde": "c5",
+  "objetivos": [
+   "a1",
+   "d1"
+  ],
+  "titulo": "La dama ataca a dos",
+  "pregunta": "Lleva la dama a la casilla desde la que ataca a la vez a las dos piezas de las blancas.",
+  "pista": "La dama ataca en línea recta y en diagonal. Busca la casilla que está en línea con las dos.",
+  "explicacion": "La dama de c5 va a c1 y ataca a la vez al alfil de a1 y al caballo de d1. Las blancas no pueden salvar las dos piezas con una sola jugada, así que ganas material. Además, en c1 nadie puede comerse la dama."
+ },
+ {
+  "id": "casilla-dama2-017",
+  "tipo": "dama2",
+  "fen": "K7/7B/5k2/8/N7/8/3q4/8 b - - 0 1",
+  "elo": 1020,
+  "solucion": "d7",
+  "jugada": "Qd7",
+  "desde": "d2",
+  "objetivos": [
+   "h7",
+   "a4"
+  ],
+  "titulo": "La dama ataca a dos",
+  "pregunta": "Lleva la dama a la casilla desde la que ataca a la vez a las dos piezas de las blancas.",
+  "pista": "La dama ataca en línea recta y en diagonal. Busca la casilla que está en línea con las dos.",
+  "explicacion": "La dama de d2 va a d7 y ataca a la vez al alfil de h7 y al caballo de a4. Las blancas no pueden salvar las dos piezas con una sola jugada, así que ganas material. Además, en d7 nadie puede comerse la dama."
+ },
+ {
+  "id": "casilla-dama2-018",
+  "tipo": "dama2",
+  "fen": "1K1Q4/5n2/8/8/8/8/8/2k2n2 w - - 0 1",
+  "elo": 1020,
+  "solucion": "f6",
+  "jugada": "Qf6",
+  "desde": "d8",
+  "objetivos": [
+   "f1",
+   "f7"
+  ],
+  "titulo": "La dama ataca a dos",
+  "pregunta": "Lleva la dama a la casilla desde la que ataca a la vez a las dos piezas de las negras.",
+  "pista": "La dama ataca en línea recta y en diagonal. Busca la casilla que está en línea con las dos.",
+  "explicacion": "La dama de d8 va a f6 y ataca a la vez al caballo de f1 y al caballo de f7. Las negras no pueden salvar las dos piezas con una sola jugada, así que ganas material. Además, en f6 nadie puede comerse la dama."
+ },
+ {
+  "id": "casilla-dama2-019",
+  "tipo": "dama2",
+  "fen": "5q2/3k4/8/8/8/4N1B1/K7/8 b - - 0 1",
+  "elo": 1000,
+  "solucion": "f3",
+  "jugada": "Qf3",
+  "desde": "f8",
+  "objetivos": [
+   "e3",
+   "g3"
+  ],
+  "titulo": "La dama ataca a dos",
+  "pregunta": "Lleva la dama a la casilla desde la que ataca a la vez a las dos piezas de las blancas.",
+  "pista": "La dama ataca en línea recta y en diagonal. Busca la casilla que está en línea con las dos.",
+  "explicacion": "La dama de f8 va a f3 y ataca a la vez al caballo de e3 y al alfil de g3. Las blancas no pueden salvar las dos piezas con una sola jugada, así que ganas material. Además, en f3 nadie puede comerse la dama."
+ },
+ {
+  "id": "casilla-dama2-020",
+  "tipo": "dama2",
+  "fen": "2Q5/6K1/8/1n6/1b6/8/7k/8 w - - 0 1",
+  "elo": 1010,
+  "solucion": "c4",
+  "jugada": "Qc4",
+  "desde": "c8",
+  "objetivos": [
+   "b4",
+   "b5"
+  ],
+  "titulo": "La dama ataca a dos",
+  "pregunta": "Lleva la dama a la casilla desde la que ataca a la vez a las dos piezas de las negras.",
+  "pista": "La dama ataca en línea recta y en diagonal. Busca la casilla que está en línea con las dos.",
+  "explicacion": "La dama de c8 va a c4 y ataca a la vez al alfil de b4 y al caballo de b5. Las negras no pueden salvar las dos piezas con una sola jugada, así que ganas material. Además, en c4 nadie puede comerse la dama."
+ },
+ {
+  "id": "casilla-dama2-021",
+  "tipo": "dama2",
+  "fen": "5N1B/8/8/k7/8/8/K7/2q5 b - - 0 1",
+  "elo": 1030,
+  "solucion": "h6",
+  "jugada": "Qh6",
+  "desde": "c1",
+  "objetivos": [
+   "f8",
+   "h8"
+  ],
+  "titulo": "La dama ataca a dos",
+  "pregunta": "Lleva la dama a la casilla desde la que ataca a la vez a las dos piezas de las blancas.",
+  "pista": "La dama ataca en línea recta y en diagonal. Busca la casilla que está en línea con las dos.",
+  "explicacion": "La dama de c1 va a h6 y ataca a la vez al caballo de f8 y al alfil de h8. Las blancas no pueden salvar las dos piezas con una sola jugada, así que ganas material. Además, en h6 nadie puede comerse la dama."
+ },
+ {
+  "id": "casilla-dama2-022",
+  "tipo": "dama2",
+  "fen": "8/2n5/5Q1K/8/4k3/8/2b5/8 w - - 0 1",
+  "elo": 1000,
+  "solucion": "c3",
+  "jugada": "Qc3",
+  "desde": "f6",
+  "objetivos": [
+   "c2",
+   "c7"
+  ],
+  "titulo": "La dama ataca a dos",
+  "pregunta": "Lleva la dama a la casilla desde la que ataca a la vez a las dos piezas de las negras.",
+  "pista": "La dama ataca en línea recta y en diagonal. Busca la casilla que está en línea con las dos.",
+  "explicacion": "La dama de f6 va a c3 y ataca a la vez al alfil de c2 y al caballo de c7. Las negras no pueden salvar las dos piezas con una sola jugada, así que ganas material. Además, en c3 nadie puede comerse la dama."
+ },
+ {
+  "id": "casilla-dama2-023",
+  "tipo": "dama2",
+  "fen": "8/7K/8/5Q2/7n/8/4r3/6k1 w - - 0 1",
+  "elo": 1020,
+  "solucion": "h5",
+  "jugada": "Qh5",
+  "desde": "f5",
+  "objetivos": [
+   "e2",
+   "h4"
+  ],
+  "titulo": "La dama ataca a dos",
+  "pregunta": "Lleva la dama a la casilla desde la que ataca a la vez a las dos piezas de las negras.",
+  "pista": "La dama ataca en línea recta y en diagonal. Busca la casilla que está en línea con las dos.",
+  "explicacion": "La dama de f5 va a h5 y ataca a la vez a la torre de e2 y al caballo de h4. Las negras no pueden salvar las dos piezas con una sola jugada, así que ganas material. Además, en h5 nadie puede comerse la dama."
+ },
+ {
+  "id": "casilla-dama2-024",
+  "tipo": "dama2",
+  "fen": "3K1B2/8/8/8/4k3/7N/1q6/8 b - - 0 1",
+  "elo": 1030,
+  "solucion": "h8",
+  "jugada": "Qh8",
+  "desde": "b2",
+  "objetivos": [
+   "f8",
+   "h3"
+  ],
+  "titulo": "La dama ataca a dos",
+  "pregunta": "Lleva la dama a la casilla desde la que ataca a la vez a las dos piezas de las blancas.",
+  "pista": "La dama ataca en línea recta y en diagonal. Busca la casilla que está en línea con las dos.",
+  "explicacion": "La dama de b2 va a h8 y ataca a la vez al alfil de f8 y al caballo de h3. Las blancas no pueden salvar las dos piezas con una sola jugada, así que ganas material. Además, en h8 nadie puede comerse la dama."
+ },
+ {
+  "id": "casilla-dama3-025",
+  "tipo": "dama3",
+  "fen": "8/3k4/6BN/2q5/5R2/7K/8/8 b - - 0 1",
+  "elo": 1100,
+  "solucion": "g5",
+  "jugada": "Qg5",
+  "desde": "c5",
+  "objetivos": [
+   "g6",
+   "h6",
+   "f4"
+  ],
+  "titulo": "La dama ataca a tres",
+  "pregunta": "Lleva la dama a la casilla desde la que ataca a la vez a las tres piezas de las blancas.",
+  "pista": "Busca la casilla que comparte fila, columna o diagonal con las tres piezas.",
+  "explicacion": "La dama de c5 va a g5 y ataca a la vez al alfil de g6, al caballo de h6 y a la torre de f4. Las blancas no pueden salvar las tres piezas con una sola jugada, así que ganas material. Además, en g5 nadie puede comerse la dama."
+ },
+ {
+  "id": "casilla-dama3-026",
+  "tipo": "dama3",
+  "fen": "8/3q4/2k5/8/N6B/4R3/6K1/8 b - - 0 1",
+  "elo": 1090,
+  "solucion": "d4",
+  "jugada": "Qd4",
+  "desde": "d7",
+  "objetivos": [
+   "a4",
+   "h4",
+   "e3"
+  ],
+  "titulo": "La dama ataca a tres",
+  "pregunta": "Lleva la dama a la casilla desde la que ataca a la vez a las tres piezas de las blancas.",
+  "pista": "Busca la casilla que comparte fila, columna o diagonal con las tres piezas.",
+  "explicacion": "La dama de d7 va a d4 y ataca a la vez al caballo de a4, al alfil de h4 y a la torre de e3. Las blancas no pueden salvar las tres piezas con una sola jugada, así que ganas material. Además, en d4 nadie puede comerse la dama."
+ },
+ {
+  "id": "casilla-dama3-027",
+  "tipo": "dama3",
+  "fen": "N7/8/8/8/3B1B2/K6k/8/4q3 b - - 0 1",
+  "elo": 1080,
+  "solucion": "e4",
+  "jugada": "Qe4",
+  "desde": "e1",
+  "objetivos": [
+   "a8",
+   "d4",
+   "f4"
+  ],
+  "titulo": "La dama ataca a tres",
+  "pregunta": "Lleva la dama a la casilla desde la que ataca a la vez a las tres piezas de las blancas.",
+  "pista": "Busca la casilla que comparte fila, columna o diagonal con las tres piezas.",
+  "explicacion": "La dama de e1 va a e4 y ataca a la vez al caballo de a8, al alfil de d4 y al alfil de f4. Las blancas no pueden salvar las tres piezas con una sola jugada, así que ganas material. Además, en e4 nadie puede comerse la dama."
+ },
+ {
+  "id": "casilla-dama3-028",
+  "tipo": "dama3",
+  "fen": "8/3KQ3/8/8/2b2b2/5n2/k7/8 w - - 0 1",
+  "elo": 1120,
+  "solucion": "e4",
+  "jugada": "Qe4",
+  "desde": "e7",
+  "objetivos": [
+   "f3",
+   "c4",
+   "f4"
+  ],
+  "titulo": "La dama ataca a tres",
+  "pregunta": "Lleva la dama a la casilla desde la que ataca a la vez a las tres piezas de las negras.",
+  "pista": "Busca la casilla que comparte fila, columna o diagonal con las tres piezas.",
+  "explicacion": "La dama de e7 va a e4 y ataca a la vez al caballo de f3, al alfil de c4 y al alfil de f4. Las negras no pueden salvar las tres piezas con una sola jugada, así que ganas material. Además, en e4 nadie puede comerse la dama."
+ },
+ {
+  "id": "casilla-dama3-029",
+  "tipo": "dama3",
+  "fen": "8/8/k4BN1/q7/8/8/5N2/3K4 b - - 0 1",
+  "elo": 1080,
+  "solucion": "f5",
+  "jugada": "Qf5",
+  "desde": "a5",
+  "objetivos": [
+   "f6",
+   "g6",
+   "f2"
+  ],
+  "titulo": "La dama ataca a tres",
+  "pregunta": "Lleva la dama a la casilla desde la que ataca a la vez a las tres piezas de las blancas.",
+  "pista": "Busca la casilla que comparte fila, columna o diagonal con las tres piezas.",
+  "explicacion": "La dama de a5 va a f5 y ataca a la vez al alfil de f6, al caballo de g6 y al caballo de f2. Las blancas no pueden salvar las tres piezas con una sola jugada, así que ganas material. Además, en f5 nadie puede comerse la dama."
+ },
+ {
+  "id": "casilla-dama3-030",
+  "tipo": "dama3",
+  "fen": "8/3k4/n7/3r4/5K2/8/7n/1Q6 w - - 0 1",
+  "elo": 1090,
+  "solucion": "a2",
+  "jugada": "Qa2",
+  "desde": "b1",
+  "objetivos": [
+   "h2",
+   "d5",
+   "a6"
+  ],
+  "titulo": "La dama ataca a tres",
+  "pregunta": "Lleva la dama a la casilla desde la que ataca a la vez a las tres piezas de las negras.",
+  "pista": "Busca la casilla que comparte fila, columna o diagonal con las tres piezas.",
+  "explicacion": "La dama de b1 va a a2 y ataca a la vez al caballo de h2, a la torre de d5 y al caballo de a6. Las negras no pueden salvar las tres piezas con una sola jugada, así que ganas material. Además, en a2 nadie puede comerse la dama."
+ },
+ {
+  "id": "casilla-dama3-031",
+  "tipo": "dama3",
+  "fen": "8/6n1/8/K3k3/1Q6/5nb1/8/8 w - - 0 1",
+  "elo": 1120,
+  "solucion": "g4",
+  "jugada": "Qg4",
+  "desde": "b4",
+  "objetivos": [
+   "f3",
+   "g3",
+   "g7"
+  ],
+  "titulo": "La dama ataca a tres",
+  "pregunta": "Lleva la dama a la casilla desde la que ataca a la vez a las tres piezas de las negras.",
+  "pista": "Busca la casilla que comparte fila, columna o diagonal con las tres piezas.",
+  "explicacion": "La dama de b4 va a g4 y ataca a la vez al caballo de f3, al alfil de g3 y al caballo de g7. Las negras no pueden salvar las tres piezas con una sola jugada, así que ganas material. Además, en g4 nadie puede comerse la dama."
+ },
+ {
+  "id": "casilla-dama3-032",
+  "tipo": "dama3",
+  "fen": "2k5/8/8/4B1N1/8/7q/3K4/1R6 b - - 0 1",
+  "elo": 1090,
+  "solucion": "f5",
+  "jugada": "Qf5",
+  "desde": "h3",
+  "objetivos": [
+   "e5",
+   "g5",
+   "b1"
+  ],
+  "titulo": "La dama ataca a tres",
+  "pregunta": "Lleva la dama a la casilla desde la que ataca a la vez a las tres piezas de las blancas.",
+  "pista": "Busca la casilla que comparte fila, columna o diagonal con las tres piezas.",
+  "explicacion": "La dama de h3 va a f5 y ataca a la vez al alfil de e5, al caballo de g5 y a la torre de b1. Las blancas no pueden salvar las tres piezas con una sola jugada, así que ganas material. Además, en f5 nadie puede comerse la dama."
+ },
+ {
+  "id": "casilla-dama3-033",
+  "tipo": "dama3",
+  "fen": "1K6/4k3/1B6/3q4/8/6N1/8/1B6 b - - 0 1",
+  "elo": 1110,
+  "solucion": "b3",
+  "jugada": "Qb3",
+  "desde": "d5",
+  "objetivos": [
+   "b6",
+   "g3",
+   "b1"
+  ],
+  "titulo": "La dama ataca a tres",
+  "pregunta": "Lleva la dama a la casilla desde la que ataca a la vez a las tres piezas de las blancas.",
+  "pista": "Busca la casilla que comparte fila, columna o diagonal con las tres piezas.",
+  "explicacion": "La dama de d5 va a b3 y ataca a la vez al alfil de b6, al caballo de g3 y al alfil de b1. Las blancas no pueden salvar las tres piezas con una sola jugada, así que ganas material. Además, en b3 nadie puede comerse la dama."
+ },
+ {
+  "id": "casilla-dama3-034",
+  "tipo": "dama3",
+  "fen": "1r6/4b1k1/8/8/8/8/Q7/4K1n1 w - - 0 1",
+  "elo": 1110,
+  "solucion": "a7",
+  "jugada": "Qa7",
+  "desde": "a2",
+  "objetivos": [
+   "g1",
+   "e7",
+   "b8"
+  ],
+  "titulo": "La dama ataca a tres",
+  "pregunta": "Lleva la dama a la casilla desde la que ataca a la vez a las tres piezas de las negras.",
+  "pista": "Busca la casilla que comparte fila, columna o diagonal con las tres piezas.",
+  "explicacion": "La dama de a2 va a a7 y ataca a la vez al caballo de g1, al alfil de e7 y a la torre de b8. Las negras no pueden salvar las tres piezas con una sola jugada, así que ganas material. Además, en a7 nadie puede comerse la dama."
+ },
+ {
+  "id": "casilla-dama3-035",
+  "tipo": "dama3",
+  "fen": "N1k1q3/8/8/8/7B/3N4/5K2/8 b - - 0 1",
+  "elo": 1120,
+  "solucion": "e4",
+  "jugada": "Qe4",
+  "desde": "e8",
+  "objetivos": [
+   "a8",
+   "h4",
+   "d3"
+  ],
+  "titulo": "La dama ataca a tres",
+  "pregunta": "Lleva la dama a la casilla desde la que ataca a la vez a las tres piezas de las blancas.",
+  "pista": "Busca la casilla que comparte fila, columna o diagonal con las tres piezas.",
+  "explicacion": "La dama de e8 va a e4 y ataca a la vez al caballo de a8, al alfil de h4 y al caballo de d3. Las blancas no pueden salvar las tres piezas con una sola jugada, así que ganas material. Además, en e4 nadie puede comerse la dama."
+ },
+ {
+  "id": "casilla-dama3-036",
+  "tipo": "dama3",
+  "fen": "8/k1n5/3r4/6n1/8/8/5K2/4Q3 w - - 0 1",
+  "elo": 1100,
+  "solucion": "e7",
+  "jugada": "Qe7",
+  "desde": "e1",
+  "objetivos": [
+   "g5",
+   "d6",
+   "c7"
+  ],
+  "titulo": "La dama ataca a tres",
+  "pregunta": "Lleva la dama a la casilla desde la que ataca a la vez a las tres piezas de las negras.",
+  "pista": "Busca la casilla que comparte fila, columna o diagonal con las tres piezas.",
+  "explicacion": "La dama de e1 va a e7 y ataca a la vez al caballo de g5, a la torre de d6 y al caballo de c7. Las negras no pueden salvar las tres piezas con una sola jugada, así que ganas material. Además, en e7 nadie puede comerse la dama."
+ },
+ {
+  "id": "casilla-dama3-037",
+  "tipo": "dama3",
+  "fen": "8/5r2/K1Q5/7n/3n4/8/5k2/8 w - - 0 1",
+  "elo": 1080,
+  "solucion": "d5",
+  "jugada": "Qd5",
+  "desde": "c6",
+  "objetivos": [
+   "d4",
+   "h5",
+   "f7"
+  ],
+  "titulo": "La dama ataca a tres",
+  "pregunta": "Lleva la dama a la casilla desde la que ataca a la vez a las tres piezas de las negras.",
+  "pista": "Busca la casilla que comparte fila, columna o diagonal con las tres piezas.",
+  "explicacion": "La dama de c6 va a d5 y ataca a la vez al caballo de d4, al caballo de h5 y a la torre de f7. Las negras no pueden salvar las tres piezas con una sola jugada, así que ganas material. Además, en d5 nadie puede comerse la dama."
+ },
+ {
+  "id": "casilla-dama3-038",
+  "tipo": "dama3",
+  "fen": "8/8/1Q6/8/k6r/4K3/8/n4b2 w - - 0 1",
+  "elo": 1090,
+  "solucion": "f6",
+  "jugada": "Qf6",
+  "desde": "b6",
+  "objetivos": [
+   "a1",
+   "f1",
+   "h4"
+  ],
+  "titulo": "La dama ataca a tres",
+  "pregunta": "Lleva la dama a la casilla desde la que ataca a la vez a las tres piezas de las negras.",
+  "pista": "Busca la casilla que comparte fila, columna o diagonal con las tres piezas.",
+  "explicacion": "La dama de b6 va a f6 y ataca a la vez al caballo de a1, al alfil de f1 y a la torre de h4. Las negras no pueden salvar las tres piezas con una sola jugada, así que ganas material. Además, en f6 nadie puede comerse la dama."
+ },
+ {
+  "id": "casilla-caballo-039",
+  "tipo": "caballo",
+  "fen": "8/6K1/1k6/8/5Q2/6n1/8/8 b - - 0 1",
+  "elo": 1130,
+  "solucion": "h5",
+  "jugada": "Nh5+",
+  "desde": "g3",
+  "objetivos": [
+   "g7",
+   "f4"
+  ],
+  "titulo": "Horquilla de caballo",
+  "pregunta": "Salta con el caballo a la casilla desde la que ataca a la vez dos piezas valiosas.",
+  "pista": "El caballo salta en forma de L. ¿Desde qué casilla toca a las dos piezas a la vez?",
+  "explicacion": "El caballo de g3 va a h5 y ataca a la vez al rey (jaque) y a la dama de f4. Las blancas tienen que salir del jaque y después cae la dama de f4. Además, en h5 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-caballo-040",
+  "tipo": "caballo",
+  "fen": "7K/1k6/8/8/N3q3/8/8/8 w - - 0 1",
+  "elo": 1120,
+  "solucion": "c5",
+  "jugada": "Nc5+",
+  "desde": "a4",
+  "objetivos": [
+   "e4",
+   "b7"
+  ],
+  "titulo": "Horquilla de caballo",
+  "pregunta": "Salta con el caballo a la casilla desde la que ataca a la vez dos piezas valiosas.",
+  "pista": "El caballo salta en forma de L. ¿Desde qué casilla toca a las dos piezas a la vez?",
+  "explicacion": "El caballo de a4 va a c5 y ataca a la vez al rey (jaque) y a la dama de e4. Las negras tienen que salir del jaque y después cae la dama de e4. Además, en c5 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-caballo-041",
+  "tipo": "caballo",
+  "fen": "8/3N4/8/8/r1k5/8/8/2K5 w - - 0 1",
+  "elo": 1130,
+  "solucion": "b6",
+  "jugada": "Nb6+",
+  "desde": "d7",
+  "objetivos": [
+   "a4",
+   "c4"
+  ],
+  "titulo": "Horquilla de caballo",
+  "pregunta": "Salta con el caballo a la casilla desde la que ataca a la vez dos piezas valiosas.",
+  "pista": "El caballo salta en forma de L. ¿Desde qué casilla toca a las dos piezas a la vez?",
+  "explicacion": "El caballo de d7 va a b6 y ataca a la vez al rey (jaque) y a la torre de a4. Las negras tienen que salir del jaque y después cae la torre de a4. Además, en b6 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-caballo-042",
+  "tipo": "caballo",
+  "fen": "8/8/k7/8/7K/3N4/q7/8 w - - 0 1",
+  "elo": 1140,
+  "solucion": "b4",
+  "jugada": "Nb4+",
+  "desde": "d3",
+  "objetivos": [
+   "a2",
+   "a6"
+  ],
+  "titulo": "Horquilla de caballo",
+  "pregunta": "Salta con el caballo a la casilla desde la que ataca a la vez dos piezas valiosas.",
+  "pista": "El caballo salta en forma de L. ¿Desde qué casilla toca a las dos piezas a la vez?",
+  "explicacion": "El caballo de d3 va a b4 y ataca a la vez al rey (jaque) y a la dama de a2. Las negras tienen que salir del jaque y después cae la dama de a2. Además, en b4 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-caballo-043",
+  "tipo": "caballo",
+  "fen": "1K6/8/1k6/4R3/1n6/8/8/8 b - - 0 1",
+  "elo": 1140,
+  "solucion": "c6",
+  "jugada": "Nc6+",
+  "desde": "b4",
+  "objetivos": [
+   "b8",
+   "e5"
+  ],
+  "titulo": "Horquilla de caballo",
+  "pregunta": "Salta con el caballo a la casilla desde la que ataca a la vez dos piezas valiosas.",
+  "pista": "El caballo salta en forma de L. ¿Desde qué casilla toca a las dos piezas a la vez?",
+  "explicacion": "El caballo de b4 va a c6 y ataca a la vez al rey (jaque) y a la torre de e5. Las blancas tienen que salir del jaque y después cae la torre de e5. Además, en c6 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-caballo-044",
+  "tipo": "caballo",
+  "fen": "8/8/1k6/8/2n3Q1/3K4/8/8 b - - 0 1",
+  "elo": 1110,
+  "solucion": "e5",
+  "jugada": "Ne5+",
+  "desde": "c4",
+  "objetivos": [
+   "g4",
+   "d3"
+  ],
+  "titulo": "Horquilla de caballo",
+  "pregunta": "Salta con el caballo a la casilla desde la que ataca a la vez dos piezas valiosas.",
+  "pista": "El caballo salta en forma de L. ¿Desde qué casilla toca a las dos piezas a la vez?",
+  "explicacion": "El caballo de c4 va a e5 y ataca a la vez al rey (jaque) y a la dama de g4. Las blancas tienen que salir del jaque y después cae la dama de g4. Además, en e5 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-caballo-045",
+  "tipo": "caballo",
+  "fen": "8/4q3/8/8/3K3k/6N1/8/8 w - - 0 1",
+  "elo": 1100,
+  "solucion": "f5",
+  "jugada": "Nf5+",
+  "desde": "g3",
+  "objetivos": [
+   "h4",
+   "e7"
+  ],
+  "titulo": "Horquilla de caballo",
+  "pregunta": "Salta con el caballo a la casilla desde la que ataca a la vez dos piezas valiosas.",
+  "pista": "El caballo salta en forma de L. ¿Desde qué casilla toca a las dos piezas a la vez?",
+  "explicacion": "El caballo de g3 va a f5 y ataca a la vez al rey (jaque) y a la dama de e7. Las negras tienen que salir del jaque y después cae la dama de e7. Además, en f5 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-caballo-046",
+  "tipo": "caballo",
+  "fen": "8/8/1K6/N7/8/4k3/3q4/8 w - - 0 1",
+  "elo": 1130,
+  "solucion": "c4",
+  "jugada": "Nc4+",
+  "desde": "a5",
+  "objetivos": [
+   "d2",
+   "e3"
+  ],
+  "titulo": "Horquilla de caballo",
+  "pregunta": "Salta con el caballo a la casilla desde la que ataca a la vez dos piezas valiosas.",
+  "pista": "El caballo salta en forma de L. ¿Desde qué casilla toca a las dos piezas a la vez?",
+  "explicacion": "El caballo de a5 va a c4 y ataca a la vez al rey (jaque) y a la dama de d2. Las negras tienen que salir del jaque y después cae la dama de d2. Además, en c4 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-caballo-047",
+  "tipo": "caballo",
+  "fen": "8/8/8/8/1k1N3K/4q3/8/8 w - - 0 1",
+  "elo": 1110,
+  "solucion": "c2",
+  "jugada": "Nc2+",
+  "desde": "d4",
+  "objetivos": [
+   "e3",
+   "b4"
+  ],
+  "titulo": "Horquilla de caballo",
+  "pregunta": "Salta con el caballo a la casilla desde la que ataca a la vez dos piezas valiosas.",
+  "pista": "El caballo salta en forma de L. ¿Desde qué casilla toca a las dos piezas a la vez?",
+  "explicacion": "El caballo de d4 va a c2 y ataca a la vez al rey (jaque) y a la dama de e3. Las negras tienen que salir del jaque y después cae la dama de e3. Además, en c2 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-caballo-048",
+  "tipo": "caballo",
+  "fen": "8/8/1Q6/n3K3/8/8/7k/8 b - - 0 1",
+  "elo": 1100,
+  "solucion": "c4",
+  "jugada": "Nc4+",
+  "desde": "a5",
+  "objetivos": [
+   "b6",
+   "e5"
+  ],
+  "titulo": "Horquilla de caballo",
+  "pregunta": "Salta con el caballo a la casilla desde la que ataca a la vez dos piezas valiosas.",
+  "pista": "El caballo salta en forma de L. ¿Desde qué casilla toca a las dos piezas a la vez?",
+  "explicacion": "El caballo de a5 va a c4 y ataca a la vez al rey (jaque) y a la dama de b6. Las blancas tienen que salir del jaque y después cae la dama de b6. Además, en c4 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-caballo-049",
+  "tipo": "caballo",
+  "fen": "8/1K5k/8/1R6/4n3/8/8/8 b - - 0 1",
+  "elo": 1130,
+  "solucion": "d6",
+  "jugada": "Nd6+",
+  "desde": "e4",
+  "objetivos": [
+   "b7",
+   "b5"
+  ],
+  "titulo": "Horquilla de caballo",
+  "pregunta": "Salta con el caballo a la casilla desde la que ataca a la vez dos piezas valiosas.",
+  "pista": "El caballo salta en forma de L. ¿Desde qué casilla toca a las dos piezas a la vez?",
+  "explicacion": "El caballo de e4 va a d6 y ataca a la vez al rey (jaque) y a la torre de b5. Las blancas tienen que salir del jaque y después cae la torre de b5. Además, en d6 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-caballo-050",
+  "tipo": "caballo",
+  "fen": "8/3k2n1/8/8/3K3Q/8/8/8 b - - 0 1",
+  "elo": 1110,
+  "solucion": "f5",
+  "jugada": "Nf5+",
+  "desde": "g7",
+  "objetivos": [
+   "d4",
+   "h4"
+  ],
+  "titulo": "Horquilla de caballo",
+  "pregunta": "Salta con el caballo a la casilla desde la que ataca a la vez dos piezas valiosas.",
+  "pista": "El caballo salta en forma de L. ¿Desde qué casilla toca a las dos piezas a la vez?",
+  "explicacion": "El caballo de g7 va a f5 y ataca a la vez al rey (jaque) y a la dama de h4. Las blancas tienen que salir del jaque y después cae la dama de h4. Además, en f5 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-mate-051",
+  "tipo": "mate",
+  "fen": "1q6/P7/5P2/8/8/4k3/8/4K3 b - - 0 1",
+  "elo": 1150,
+  "solucion": "b1",
+  "jugada": "Qb1#",
+  "desde": "b8",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La dama de b8 va a b1 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-052",
+  "tipo": "mate",
+  "fen": "8/8/8/1P5q/8/5kP1/8/5K2 b - - 0 1",
+  "elo": 1180,
+  "solucion": "h1",
+  "jugada": "Qh1#",
+  "desde": "h5",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La dama de h5 va a h1 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-053",
+  "tipo": "mate",
+  "fen": "7k/8/p5K1/Q7/8/8/4p3/8 w - - 0 1",
+  "elo": 1180,
+  "solucion": "d8",
+  "jugada": "Qd8#",
+  "desde": "a5",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La dama de a5 va a d8 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-054",
+  "tipo": "mate",
+  "fen": "8/3q4/8/2P2k1K/P7/8/8/8 b - - 0 1",
+  "elo": 1180,
+  "solucion": "h7",
+  "jugada": "Qh7#",
+  "desde": "d7",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La dama de d7 va a h7 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-055",
+  "tipo": "mate",
+  "fen": "8/5P2/P1q5/5k1K/8/8/8/8 b - - 0 1",
+  "elo": 1180,
+  "solucion": "h1",
+  "jugada": "Qh1#",
+  "desde": "c6",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La dama de c6 va a h1 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-056",
+  "tipo": "mate",
+  "fen": "8/5p2/6Q1/8/8/4p3/7k/5K2 w - - 0 1",
+  "elo": 1190,
+  "solucion": "g2",
+  "jugada": "Qg2#",
+  "desde": "g6",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La dama de g6 va a g2 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-057",
+  "tipo": "mate",
+  "fen": "5k2/8/4K3/8/2p4p/8/8/Q7 w - - 0 1",
+  "elo": 1190,
+  "solucion": "h8",
+  "jugada": "Qh8#",
+  "desde": "a1",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La dama de a1 va a h8 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-058",
+  "tipo": "mate",
+  "fen": "7K/7P/8/3k4/1q6/5P2/8/8 b - - 0 1",
+  "elo": 1190,
+  "solucion": "f8",
+  "jugada": "Qf8#",
+  "desde": "b4",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La dama de b4 va a f8 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-059",
+  "tipo": "mate",
+  "fen": "2k5/8/1K1Q2p1/8/8/8/4p3/8 w - - 0 1",
+  "elo": 1180,
+  "solucion": "c7",
+  "jugada": "Qc7#",
+  "desde": "d6",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La dama de d6 va a c7 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-060",
+  "tipo": "mate",
+  "fen": "8/2K5/k7/8/6p1/6p1/2Q5/8 w - - 0 1",
+  "elo": 1190,
+  "solucion": "a4",
+  "jugada": "Qa4#",
+  "desde": "c2",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La dama de c2 va a a4 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-captura-061",
+  "tipo": "captura",
+  "fen": "8/2p2pr1/k7/b6K/1B1p4/nPp4P/N7/8 w - - 0 1",
+  "elo": 1190,
+  "solucion": "a3",
+  "jugada": "Bxa3",
+  "desde": "b4",
+  "objetivos": [
+   "a3"
+  ],
+  "titulo": "La pieza sin defensa",
+  "pregunta": "Una de las piezas de las negras no tiene defensa. Cómetela.",
+  "pista": "Para cada pieza rival que puedes comer, pregúntate: ¿alguien la defiende?",
+  "explicacion": "Nadie defendía el caballo de a3: el alfil de b4 se come la pieza gratis. Las otras piezas que podías comer sí estaban defendidas."
+ },
+ {
+  "id": "casilla-captura-062",
+  "tipo": "captura",
+  "fen": "Q6n/2P5/1b6/3b1p2/3k1KR1/2pp4/1pP5/8 w - - 0 1",
+  "elo": 1210,
+  "solucion": "h8",
+  "jugada": "Qxh8+",
+  "desde": "a8",
+  "objetivos": [
+   "h8"
+  ],
+  "titulo": "La pieza sin defensa",
+  "pregunta": "Una de las piezas de las negras no tiene defensa. Cómetela.",
+  "pista": "Para cada pieza rival que puedes comer, pregúntate: ¿alguien la defiende?",
+  "explicacion": "Nadie defendía el caballo de h8: la dama de a8 se come la pieza gratis. Las otras piezas que podías comer sí estaban defendidas."
+ },
+ {
+  "id": "casilla-captura-063",
+  "tipo": "captura",
+  "fen": "8/k1K5/4P3/4BP2/1p3b2/8/pPPq2R1/5B2 b - - 0 1",
+  "elo": 1200,
+  "solucion": "e5",
+  "jugada": "Bxe5+",
+  "desde": "f4",
+  "objetivos": [
+   "e5"
+  ],
+  "titulo": "La pieza sin defensa",
+  "pregunta": "Una de las piezas de las blancas no tiene defensa. Cómetela.",
+  "pista": "Para cada pieza rival que puedes comer, pregúntate: ¿alguien la defiende?",
+  "explicacion": "Nadie defendía el alfil de e5: el alfil de f4 se come la pieza gratis. Las otras piezas que podías comer sí estaban defendidas."
+ },
+ {
+  "id": "casilla-captura-064",
+  "tipo": "captura",
+  "fen": "1K3k2/4r3/4Pp2/pb6/1B4Q1/2Ppp2b/8/8 w - - 0 1",
+  "elo": 1180,
+  "solucion": "h3",
+  "jugada": "Qxh3",
+  "desde": "g4",
+  "objetivos": [
+   "h3"
+  ],
+  "titulo": "La pieza sin defensa",
+  "pregunta": "Una de las piezas de las negras no tiene defensa. Cómetela.",
+  "pista": "Para cada pieza rival que puedes comer, pregúntate: ¿alguien la defiende?",
+  "explicacion": "Nadie defendía el alfil de h3: la dama de g4 se come la pieza gratis. Las otras piezas que podías comer sí estaban defendidas."
+ },
+ {
+  "id": "casilla-captura-065",
+  "tipo": "captura",
+  "fen": "2N5/K7/2qPPp2/kPR5/5B2/2p5/2r3P1/8 b - - 0 1",
+  "elo": 1220,
+  "solucion": "c5",
+  "jugada": "Qxc5+",
+  "desde": "c6",
+  "objetivos": [
+   "c5"
+  ],
+  "titulo": "La pieza sin defensa",
+  "pregunta": "Una de las piezas de las blancas no tiene defensa. Cómetela.",
+  "pista": "Para cada pieza rival que puedes comer, pregúntate: ¿alguien la defiende?",
+  "explicacion": "Nadie defendía la torre de c5: la dama de c6 se come la pieza gratis. Las otras piezas que podías comer sí estaban defendidas."
+ },
+ {
+  "id": "casilla-captura-066",
+  "tipo": "captura",
+  "fen": "2k1b1N1/4B2K/6PP/3P4/4q3/p2BP3/4p3/8 b - - 0 1",
+  "elo": 1210,
+  "solucion": "d3",
+  "jugada": "Qxd3",
+  "desde": "e4",
+  "objetivos": [
+   "d3"
+  ],
+  "titulo": "La pieza sin defensa",
+  "pregunta": "Una de las piezas de las blancas no tiene defensa. Cómetela.",
+  "pista": "Para cada pieza rival que puedes comer, pregúntate: ¿alguien la defiende?",
+  "explicacion": "Nadie defendía el alfil de d3: la dama de e4 se come la pieza gratis. Las otras piezas que podías comer sí estaban defendidas."
+ },
+ {
+  "id": "casilla-captura-067",
+  "tipo": "captura",
+  "fen": "5b2/2p5/2k3p1/p4P2/2K4p/2nr4/3P1Q2/R7 w - - 0 1",
+  "elo": 1210,
+  "solucion": "d3",
+  "jugada": "Kxd3",
+  "desde": "c4",
+  "objetivos": [
+   "d3"
+  ],
+  "titulo": "La pieza sin defensa",
+  "pregunta": "Una de las piezas de las negras no tiene defensa. Cómetela.",
+  "pista": "Para cada pieza rival que puedes comer, pregúntate: ¿alguien la defiende?",
+  "explicacion": "Nadie defendía la torre de d3: el rey de c4 se come la pieza gratis. Las otras piezas que podías comer sí estaban defendidas."
+ },
+ {
+  "id": "casilla-captura-068",
+  "tipo": "captura",
+  "fen": "8/4k3/q4R2/P3N3/Pp3pP1/1n6/3P4/5NK1 b - - 0 1",
+  "elo": 1220,
+  "solucion": "f6",
+  "jugada": "Kxf6",
+  "desde": "e7",
+  "objetivos": [
+   "f6"
+  ],
+  "titulo": "La pieza sin defensa",
+  "pregunta": "Una de las piezas de las blancas no tiene defensa. Cómetela.",
+  "pista": "Para cada pieza rival que puedes comer, pregúntate: ¿alguien la defiende?",
+  "explicacion": "Nadie defendía la torre de f6: el rey de e7 se come la pieza gratis. Las otras piezas que podías comer sí estaban defendidas."
+ },
+ {
+  "id": "casilla-dama3-069",
+  "tipo": "dama3",
+  "fen": "3q4/3k4/B7/4B3/6p1/3P4/1PK1p3/4N3 b - - 0 1",
+  "elo": 1230,
+  "solucion": "a5",
+  "jugada": "Qa5",
+  "desde": "d8",
+  "objetivos": [
+   "a6",
+   "e5",
+   "e1"
+  ],
+  "titulo": "La dama ataca a tres",
+  "pregunta": "Lleva la dama a la casilla desde la que ataca a la vez a las tres piezas de las blancas.",
+  "pista": "Busca la casilla que comparte fila, columna o diagonal con las tres piezas.",
+  "explicacion": "La dama de d8 va a a5 y ataca a la vez al alfil de a6, al alfil de e5 y al caballo de e1. Las blancas no pueden salvar las tres piezas con una sola jugada, así que ganas material. Además, en a5 nadie puede comerse la dama."
+ },
+ {
+  "id": "casilla-dama3-070",
+  "tipo": "dama3",
+  "fen": "8/8/P1B1R1p1/2p5/2P4k/8/3q4/1N4K1 b - - 0 1",
+  "elo": 1210,
+  "solucion": "a2",
+  "jugada": "Qa2",
+  "desde": "d2",
+  "objetivos": [
+   "a6",
+   "c4",
+   "b1"
+  ],
+  "titulo": "La dama ataca a tres",
+  "pregunta": "Lleva la dama a la casilla desde la que ataca a la vez a las tres piezas de las blancas.",
+  "pista": "Busca la casilla que comparte fila, columna o diagonal con las tres piezas.",
+  "explicacion": "La dama de d2 va a a2 y ataca a la vez al caballo de b1. Las blancas no pueden salvar todas sus piezas con una sola jugada, así que ganas material. Además, en a2 nadie puede comerse la dama."
+ },
+ {
+  "id": "casilla-dama3-071",
+  "tipo": "dama3",
+  "fen": "3k2q1/8/6p1/1p6/8/B1P5/4NPK1/1R6 b - - 0 1",
+  "elo": 1210,
+  "solucion": "a2",
+  "jugada": "Qa2",
+  "desde": "g8",
+  "objetivos": [
+   "a3",
+   "e2",
+   "b1"
+  ],
+  "titulo": "La dama ataca a tres",
+  "pregunta": "Lleva la dama a la casilla desde la que ataca a la vez a las tres piezas de las blancas.",
+  "pista": "Busca la casilla que comparte fila, columna o diagonal con las tres piezas.",
+  "explicacion": "La dama de g8 va a a2 y ataca a la vez al alfil de a3, al caballo de e2 y a la torre de b1. Las blancas no pueden salvar las tres piezas con una sola jugada, así que ganas material. Además, en a2 nadie puede comerse la dama."
+ },
+ {
+  "id": "casilla-dama3-072",
+  "tipo": "dama3",
+  "fen": "8/KR6/p7/1p5P/2k2P2/8/q7/6NB b - - 0 1",
+  "elo": 1210,
+  "solucion": "h2",
+  "jugada": "Qh2",
+  "desde": "a2",
+  "objetivos": [
+   "h5",
+   "f4",
+   "g1",
+   "h1"
+  ],
+  "titulo": "La dama ataca a tres",
+  "pregunta": "Lleva la dama a la casilla desde la que ataca a la vez a las tres piezas de las blancas.",
+  "pista": "Busca la casilla que comparte fila, columna o diagonal con las tres piezas.",
+  "explicacion": "La dama de a2 va a h2 y ataca a la vez al caballo de g1 y al alfil de h1. Las blancas no pueden salvar las dos piezas con una sola jugada, así que ganas material. Además, en h2 nadie puede comerse la dama."
+ },
+ {
+  "id": "casilla-dama3-073",
+  "tipo": "dama3",
+  "fen": "5R2/4N3/p1p3K1/5P2/3q4/1P4k1/4B3/8 b - - 0 1",
+  "elo": 1240,
+  "solucion": "e3",
+  "jugada": "Qe3",
+  "desde": "d4",
+  "objetivos": [
+   "e7",
+   "b3",
+   "e2"
+  ],
+  "titulo": "La dama ataca a tres",
+  "pregunta": "Lleva la dama a la casilla desde la que ataca a la vez a las tres piezas de las blancas.",
+  "pista": "Busca la casilla que comparte fila, columna o diagonal con las tres piezas.",
+  "explicacion": "La dama de d4 va a e3 y ataca a la vez al caballo de e7 y al alfil de e2. Las blancas no pueden salvar las dos piezas con una sola jugada, así que ganas material. Además, en e3 nadie puede comerse la dama."
+ },
+ {
+  "id": "casilla-dama3-074",
+  "tipo": "dama3",
+  "fen": "8/k7/8/2PB4/P1p5/7R/pq6/4N2K b - - 0 1",
+  "elo": 1230,
+  "solucion": "b4",
+  "jugada": "Qb4",
+  "desde": "b2",
+  "objetivos": [
+   "c5",
+   "a4",
+   "e1"
+  ],
+  "titulo": "La dama ataca a tres",
+  "pregunta": "Lleva la dama a la casilla desde la que ataca a la vez a las tres piezas de las blancas.",
+  "pista": "Busca la casilla que comparte fila, columna o diagonal con las tres piezas.",
+  "explicacion": "La dama de b2 va a b4 y ataca a la vez al caballo de e1. Las blancas no pueden salvar todas sus piezas con una sola jugada, así que ganas material. Además, en b4 nadie puede comerse la dama."
+ },
+ {
+  "id": "casilla-dama3-075",
+  "tipo": "dama3",
+  "fen": "8/3q4/1P6/1p2N3/4p3/R7/2B1k2P/K7 b - - 0 1",
+  "elo": 1220,
+  "solucion": "d6",
+  "jugada": "Qd6",
+  "desde": "d7",
+  "objetivos": [
+   "b6",
+   "e5",
+   "a3"
+  ],
+  "titulo": "La dama ataca a tres",
+  "pregunta": "Lleva la dama a la casilla desde la que ataca a la vez a las tres piezas de las blancas.",
+  "pista": "Busca la casilla que comparte fila, columna o diagonal con las tres piezas.",
+  "explicacion": "La dama de d7 va a d6 y ataca a la vez al caballo de e5 y a la torre de a3. Las blancas no pueden salvar las dos piezas con una sola jugada, así que ganas material. Además, en d6 nadie puede comerse la dama."
+ },
+ {
+  "id": "casilla-dama3-076",
+  "tipo": "dama3",
+  "fen": "4k3/4q3/2P2p2/3N1P2/4p3/8/6K1/2N2B2 b - - 0 1",
+  "elo": 1240,
+  "solucion": "c5",
+  "jugada": "Qc5",
+  "desde": "e7",
+  "objetivos": [
+   "c6",
+   "d5",
+   "c1"
+  ],
+  "titulo": "La dama ataca a tres",
+  "pregunta": "Lleva la dama a la casilla desde la que ataca a la vez a las tres piezas de las blancas.",
+  "pista": "Busca la casilla que comparte fila, columna o diagonal con las tres piezas.",
+  "explicacion": "La dama de e7 va a c5 y ataca a la vez al caballo de d5 y al caballo de c1. Las blancas no pueden salvar las dos piezas con una sola jugada, así que ganas material. Además, en c5 nadie puede comerse la dama."
+ },
+ {
+  "id": "casilla-mate-077",
+  "tipo": "mate",
+  "fen": "2R5/3K4/3p3k/p7/8/2P5/5pR1/8 w - - 0 1",
+  "elo": 1280,
+  "solucion": "h8",
+  "jugada": "Rh8#",
+  "desde": "c8",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La torre de c8 va a h8 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-078",
+  "tipo": "mate",
+  "fen": "3k4/5K2/p1R5/8/5R2/3p3p/2P5/8 w - - 0 1",
+  "elo": 1250,
+  "solucion": "d4",
+  "jugada": "Rd4#",
+  "desde": "f4",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La torre de f4 va a d4 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-079",
+  "tipo": "mate",
+  "fen": "8/1P6/1k5p/3K3p/2p5/R7/8/2R5 w - - 0 1",
+  "elo": 1250,
+  "solucion": "b8",
+  "jugada": "b8=Q#",
+  "desde": "b7",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "El peón de b7 corona en b8 (nueva dama) y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-080",
+  "tipo": "mate",
+  "fen": "8/8/pp6/P1Rp1K2/8/5k2/7R/8 w - - 0 1",
+  "elo": 1270,
+  "solucion": "c3",
+  "jugada": "Rc3#",
+  "desde": "c5",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La torre de c5 va a c3 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-081",
+  "tipo": "mate",
+  "fen": "8/7K/1Pp5/8/1P6/3P1r2/6r1/1k6 b - - 0 1",
+  "elo": 1270,
+  "solucion": "h3",
+  "jugada": "Rh3#",
+  "desde": "f3",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La torre de f3 va a h3 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-082",
+  "tipo": "mate",
+  "fen": "1R6/p1R5/3P4/8/k1p2K2/8/7p/8 w - - 0 1",
+  "elo": 1270,
+  "solucion": "a7",
+  "jugada": "Rxa7#",
+  "desde": "c7",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La torre de c7 va a a7 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-083",
+  "tipo": "mate",
+  "fen": "k7/8/1RP5/5p2/8/6p1/4R2p/K7 w - - 0 1",
+  "elo": 1290,
+  "solucion": "a2",
+  "jugada": "Ra2#",
+  "desde": "e2",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La torre de e2 va a a2 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-084",
+  "tipo": "mate",
+  "fen": "6k1/8/K6P/8/6P1/1r5P/3p4/5r2 b - - 0 1",
+  "elo": 1270,
+  "solucion": "a1",
+  "jugada": "Ra1#",
+  "desde": "f1",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La torre de f1 va a a1 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-085",
+  "tipo": "mate",
+  "fen": "1K1k4/5P2/8/2P5/5p2/8/4r1P1/r7 b - - 0 1",
+  "elo": 1280,
+  "solucion": "b2",
+  "jugada": "Rb2#",
+  "desde": "e2",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La torre de e2 va a b2 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-086",
+  "tipo": "mate",
+  "fen": "4k3/1R6/1P6/4pp2/7R/K7/5p2/8 w - - 0 1",
+  "elo": 1260,
+  "solucion": "h8",
+  "jugada": "Rh8#",
+  "desde": "h4",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La torre de h4 va a h8 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-torre-087",
+  "tipo": "torre",
+  "fen": "k7/8/4Q3/3r1p2/2K5/8/4PP2/N5N1 b - - 0 1",
+  "elo": 1300,
+  "solucion": "d1",
+  "jugada": "Rd1",
+  "desde": "d5",
+  "objetivos": [
+   "a1",
+   "g1"
+  ],
+  "titulo": "Doble ataque de torre",
+  "pregunta": "Lleva la torre a una casilla desde la que ataque a la vez a dos piezas rivales.",
+  "pista": "La torre ataca por filas y columnas: busca dos piezas en la misma fila o columna que una casilla libre.",
+  "explicacion": "La torre de d5 va a d1 y ataca a la vez al caballo de a1 y al caballo de g1. Las blancas no pueden salvar las dos piezas con una sola jugada, así que ganas material. Además, en d1 nadie puede comerse la torre."
+ },
+ {
+  "id": "casilla-torre-088",
+  "tipo": "torre",
+  "fen": "8/7N/8/7P/2P1N3/kp6/1r6/B5K1 b - - 0 1",
+  "elo": 1270,
+  "solucion": "b1",
+  "jugada": "Rb1+",
+  "desde": "b2",
+  "objetivos": [
+   "a1",
+   "g1"
+  ],
+  "titulo": "Doble ataque de torre",
+  "pregunta": "Lleva la torre a una casilla desde la que ataque a la vez a dos piezas rivales.",
+  "pista": "La torre ataca por filas y columnas: busca dos piezas en la misma fila o columna que una casilla libre.",
+  "explicacion": "La torre de b2 va a b1 y ataca a la vez al rey (jaque) y al alfil de a1. Las blancas tienen que salir del jaque y después cae el alfil de a1. Además, en b1 nadie puede comerse la torre."
+ },
+ {
+  "id": "casilla-torre-089",
+  "tipo": "torre",
+  "fen": "1n6/5r1p/3K4/8/pk4b1/8/6P1/3R4 w - - 0 1",
+  "elo": 1300,
+  "solucion": "d4",
+  "jugada": "Rd4+",
+  "desde": "d1",
+  "objetivos": [
+   "b4",
+   "g4"
+  ],
+  "titulo": "Doble ataque de torre",
+  "pregunta": "Lleva la torre a una casilla desde la que ataque a la vez a dos piezas rivales.",
+  "pista": "La torre ataca por filas y columnas: busca dos piezas en la misma fila o columna que una casilla libre.",
+  "explicacion": "La torre de d1 va a d4 y ataca a la vez al rey (jaque) y al alfil de g4. Las negras tienen que salir del jaque y después cae el alfil de g4. Además, en d4 nadie puede comerse la torre."
+ },
+ {
+  "id": "casilla-torre-090",
+  "tipo": "torre",
+  "fen": "8/7B/1P2p2Q/1N2K3/6k1/P7/8/2r5 b - - 0 1",
+  "elo": 1270,
+  "solucion": "c5",
+  "jugada": "Rc5+",
+  "desde": "c1",
+  "objetivos": [
+   "b5",
+   "e5"
+  ],
+  "titulo": "Doble ataque de torre",
+  "pregunta": "Lleva la torre a una casilla desde la que ataque a la vez a dos piezas rivales.",
+  "pista": "La torre ataca por filas y columnas: busca dos piezas en la misma fila o columna que una casilla libre.",
+  "explicacion": "La torre de c1 va a c5 y ataca a la vez al rey (jaque) y al caballo de b5. Las blancas tienen que salir del jaque y después cae el caballo de b5. Además, en c5 nadie puede comerse la torre."
+ },
+ {
+  "id": "casilla-torre-091",
+  "tipo": "torre",
+  "fen": "8/8/4r3/pP3k2/2K4B/1Q6/1P6/2R5 b - - 0 1",
+  "elo": 1290,
+  "solucion": "e4",
+  "jugada": "Re4+",
+  "desde": "e6",
+  "objetivos": [
+   "c4",
+   "h4"
+  ],
+  "titulo": "Doble ataque de torre",
+  "pregunta": "Lleva la torre a una casilla desde la que ataque a la vez a dos piezas rivales.",
+  "pista": "La torre ataca por filas y columnas: busca dos piezas en la misma fila o columna que una casilla libre.",
+  "explicacion": "La torre de e6 va a e4 y ataca a la vez al rey (jaque) y al alfil de h4. Las blancas tienen que salir del jaque y después cae el alfil de h4. Además, en e4 nadie puede comerse la torre."
+ },
+ {
+  "id": "casilla-torre-092",
+  "tipo": "torre",
+  "fen": "8/pp6/1b6/1k4K1/8/3P4/6R1/1n3n2 w - - 0 1",
+  "elo": 1270,
+  "solucion": "b2",
+  "jugada": "Rb2+",
+  "desde": "g2",
+  "objetivos": [
+   "b1",
+   "b5"
+  ],
+  "titulo": "Doble ataque de torre",
+  "pregunta": "Lleva la torre a una casilla desde la que ataque a la vez a dos piezas rivales.",
+  "pista": "La torre ataca por filas y columnas: busca dos piezas en la misma fila o columna que una casilla libre.",
+  "explicacion": "La torre de g2 va a b2 y ataca a la vez al rey (jaque) y al caballo de b1. Las negras tienen que salir del jaque y después cae el caballo de b1. Además, en b2 nadie puede comerse la torre."
+ },
+ {
+  "id": "casilla-torre-093",
+  "tipo": "torre",
+  "fen": "8/P1k1K2Q/5N2/N1P4p/8/8/8/1r6 b - - 0 1",
+  "elo": 1310,
+  "solucion": "b5",
+  "jugada": "Rb5",
+  "desde": "b1",
+  "objetivos": [
+   "a5",
+   "c5"
+  ],
+  "titulo": "Doble ataque de torre",
+  "pregunta": "Lleva la torre a una casilla desde la que ataque a la vez a dos piezas rivales.",
+  "pista": "La torre ataca por filas y columnas: busca dos piezas en la misma fila o columna que una casilla libre.",
+  "explicacion": "La torre de b1 va a b5 y ataca a la vez al caballo de a5. Las blancas no pueden salvar todas sus piezas con una sola jugada, así que ganas material. Además, en b5 nadie puede comerse la torre."
+ },
+ {
+  "id": "casilla-torre-094",
+  "tipo": "torre",
+  "fen": "3N4/r7/1P3R1P/6p1/8/3K4/1k6/5N2 b - - 0 1",
+  "elo": 1300,
+  "solucion": "d7",
+  "jugada": "Rd7+",
+  "desde": "a7",
+  "objetivos": [
+   "d8",
+   "d3"
+  ],
+  "titulo": "Doble ataque de torre",
+  "pregunta": "Lleva la torre a una casilla desde la que ataque a la vez a dos piezas rivales.",
+  "pista": "La torre ataca por filas y columnas: busca dos piezas en la misma fila o columna que una casilla libre.",
+  "explicacion": "La torre de a7 va a d7 y ataca a la vez al rey (jaque) y al caballo de d8. Las blancas tienen que salir del jaque y después cae el caballo de d8. Además, en d7 nadie puede comerse la torre."
+ },
+ {
+  "id": "casilla-alfil-095",
+  "tipo": "alfil",
+  "fen": "7N/P7/8/3K2p1/6b1/2k3P1/6N1/4R3 b - - 0 1",
+  "elo": 1290,
+  "solucion": "f3",
+  "jugada": "Bf3+",
+  "desde": "g4",
+  "objetivos": [
+   "d5",
+   "g2"
+  ],
+  "titulo": "Doble ataque de alfil",
+  "pregunta": "Lleva el alfil a una casilla desde la que ataque a la vez a dos piezas rivales.",
+  "pista": "El alfil ataca en diagonal: busca una casilla que esté en diagonal con dos piezas.",
+  "explicacion": "El alfil de g4 va a f3 y ataca a la vez al rey (jaque) y al caballo de g2. Las blancas tienen que salir del jaque y después cae el caballo de g2. Además, en f3 nadie puede comerse el alfil."
+ },
+ {
+  "id": "casilla-alfil-096",
+  "tipo": "alfil",
+  "fen": "1K6/8/8/2b5/2k1BN2/6N1/PPp5/8 b - - 0 1",
+  "elo": 1310,
+  "solucion": "d6",
+  "jugada": "Bd6+",
+  "desde": "c5",
+  "objetivos": [
+   "b8",
+   "f4"
+  ],
+  "titulo": "Doble ataque de alfil",
+  "pregunta": "Lleva el alfil a una casilla desde la que ataque a la vez a dos piezas rivales.",
+  "pista": "El alfil ataca en diagonal: busca una casilla que esté en diagonal con dos piezas.",
+  "explicacion": "El alfil de c5 va a d6 y ataca a la vez al rey (jaque) y al caballo de f4. Las blancas tienen que salir del jaque y después cae el caballo de f4. Además, en d6 nadie puede comerse el alfil."
+ },
+ {
+  "id": "casilla-alfil-097",
+  "tipo": "alfil",
+  "fen": "3K4/B6q/3n2p1/8/Pn3p2/6k1/8/8 w - - 0 1",
+  "elo": 1310,
+  "solucion": "c5",
+  "jugada": "Bc5",
+  "desde": "a7",
+  "objetivos": [
+   "b4",
+   "d6"
+  ],
+  "titulo": "Doble ataque de alfil",
+  "pregunta": "Lleva el alfil a una casilla desde la que ataque a la vez a dos piezas rivales.",
+  "pista": "El alfil ataca en diagonal: busca una casilla que esté en diagonal con dos piezas.",
+  "explicacion": "El alfil de a7 va a c5 y ataca a la vez al caballo de b4 y al caballo de d6. Las negras no pueden salvar las dos piezas con una sola jugada, así que ganas material. Además, en c5 nadie puede comerse el alfil."
+ },
+ {
+  "id": "casilla-alfil-098",
+  "tipo": "alfil",
+  "fen": "8/6P1/8/5k2/p1P2b1Q/5B1K/1R6/8 b - - 0 1",
+  "elo": 1330,
+  "solucion": "e5",
+  "jugada": "Be5",
+  "desde": "f4",
+  "objetivos": [
+   "g7",
+   "b2"
+  ],
+  "titulo": "Doble ataque de alfil",
+  "pregunta": "Lleva el alfil a una casilla desde la que ataque a la vez a dos piezas rivales.",
+  "pista": "El alfil ataca en diagonal: busca una casilla que esté en diagonal con dos piezas.",
+  "explicacion": "El alfil de f4 va a e5 y ataca a la vez a la torre de b2. Las blancas no pueden salvar todas sus piezas con una sola jugada, así que ganas material. Además, en e5 nadie puede comerse el alfil."
+ },
+ {
+  "id": "casilla-alfil-099",
+  "tipo": "alfil",
+  "fen": "k7/2R5/4N3/2p5/6N1/2Kb4/P2P4/8 b - - 0 1",
+  "elo": 1290,
+  "solucion": "f5",
+  "jugada": "Bf5",
+  "desde": "d3",
+  "objetivos": [
+   "e6",
+   "g4"
+  ],
+  "titulo": "Doble ataque de alfil",
+  "pregunta": "Lleva el alfil a una casilla desde la que ataque a la vez a dos piezas rivales.",
+  "pista": "El alfil ataca en diagonal: busca una casilla que esté en diagonal con dos piezas.",
+  "explicacion": "El alfil de d3 va a f5 y ataca a la vez al caballo de e6 y al caballo de g4. Las blancas no pueden salvar las dos piezas con una sola jugada, así que ganas material. Además, en f5 nadie puede comerse el alfil."
+ },
+ {
+  "id": "casilla-alfil-100",
+  "tipo": "alfil",
+  "fen": "6n1/3P4/1nb2B2/8/6p1/1K5p/8/6k1 w - - 0 1",
+  "elo": 1310,
+  "solucion": "d4",
+  "jugada": "Bd4+",
+  "desde": "f6",
+  "objetivos": [
+   "g1",
+   "b6"
+  ],
+  "titulo": "Doble ataque de alfil",
+  "pregunta": "Lleva el alfil a una casilla desde la que ataque a la vez a dos piezas rivales.",
+  "pista": "El alfil ataca en diagonal: busca una casilla que esté en diagonal con dos piezas.",
+  "explicacion": "El alfil de f6 va a d4 y ataca a la vez al rey (jaque) y al caballo de b6. Las negras tienen que salir del jaque y después cae el caballo de b6. Además, en d4 nadie puede comerse el alfil."
+ },
+ {
+  "id": "casilla-alfil-101",
+  "tipo": "alfil",
+  "fen": "8/8/k3N3/2K3b1/2P5/5Pp1/1N6/6R1 b - - 0 1",
+  "elo": 1290,
+  "solucion": "e3",
+  "jugada": "Be3+",
+  "desde": "g5",
+  "objetivos": [
+   "c5",
+   "g1"
+  ],
+  "titulo": "Doble ataque de alfil",
+  "pregunta": "Lleva el alfil a una casilla desde la que ataque a la vez a dos piezas rivales.",
+  "pista": "El alfil ataca en diagonal: busca una casilla que esté en diagonal con dos piezas.",
+  "explicacion": "El alfil de g5 va a e3 y ataca a la vez al rey (jaque) y a la torre de g1. Las blancas tienen que salir del jaque y después cae la torre de g1. Además, en e3 nadie puede comerse el alfil."
+ },
+ {
+  "id": "casilla-alfil-102",
+  "tipo": "alfil",
+  "fen": "8/k2P4/5BK1/8/8/3p2p1/2r5/2n3n1 w - - 0 1",
+  "elo": 1310,
+  "solucion": "d4",
+  "jugada": "Bd4+",
+  "desde": "f6",
+  "objetivos": [
+   "g1",
+   "a7"
+  ],
+  "titulo": "Doble ataque de alfil",
+  "pregunta": "Lleva el alfil a una casilla desde la que ataque a la vez a dos piezas rivales.",
+  "pista": "El alfil ataca en diagonal: busca una casilla que esté en diagonal con dos piezas.",
+  "explicacion": "El alfil de f6 va a d4 y ataca a la vez al rey (jaque) y al caballo de g1. Las negras tienen que salir del jaque y después cae el caballo de g1. Además, en d4 nadie puede comerse el alfil."
+ },
+ {
+  "id": "casilla-peon-103",
+  "tipo": "peon",
+  "fen": "8/5r2/6k1/2P1pp2/n1n5/2P5/1P3KP1/5N2 w - - 0 1",
+  "elo": 1360,
+  "solucion": "b3",
+  "jugada": "b3",
+  "desde": "b2",
+  "objetivos": [
+   "a4",
+   "c4"
+  ],
+  "titulo": "Horquilla de peón",
+  "pregunta": "Avanza un peón para que ataque a la vez a dos piezas rivales.",
+  "pista": "Un peón ataca las dos casillas en diagonal delante de él.",
+  "explicacion": "El peón de b2 va a b3 y ataca a la vez al caballo de a4 y al caballo de c4. Las negras no pueden salvar las dos piezas con una sola jugada, así que ganas material. Además, en b3 nadie puede comerse el peón."
+ },
+ {
+  "id": "casilla-peon-104",
+  "tipo": "peon",
+  "fen": "8/8/8/1Q1Pp1K1/1p6/1k1N1Npp/4P3/7n b - - 0 1",
+  "elo": 1320,
+  "solucion": "e4",
+  "jugada": "e4",
+  "desde": "e5",
+  "objetivos": [
+   "d3",
+   "f3"
+  ],
+  "titulo": "Horquilla de peón",
+  "pregunta": "Avanza un peón para que ataque a la vez a dos piezas rivales.",
+  "pista": "Un peón ataca las dos casillas en diagonal delante de él.",
+  "explicacion": "El peón de e5 va a e4 y ataca a la vez al caballo de d3 y al caballo de f3. Las blancas no pueden salvar las dos piezas con una sola jugada, así que ganas material. Además, en e4 nadie puede comerse el peón."
+ },
+ {
+  "id": "casilla-peon-105",
+  "tipo": "peon",
+  "fen": "4r1n1/P1K5/5PN1/4P3/3k4/p1p3P1/5b2/8 w - - 0 1",
+  "elo": 1340,
+  "solucion": "f7",
+  "jugada": "f7",
+  "desde": "f6",
+  "objetivos": [
+   "e8",
+   "g8"
+  ],
+  "titulo": "Horquilla de peón",
+  "pregunta": "Avanza un peón para que ataque a la vez a dos piezas rivales.",
+  "pista": "Un peón ataca las dos casillas en diagonal delante de él.",
+  "explicacion": "El peón de f6 va a f7 y ataca a la vez a la torre de e8 y al caballo de g8. Las negras no pueden salvar las dos piezas con una sola jugada, así que ganas material. Además, en f7 nadie puede comerse el peón."
+ },
+ {
+  "id": "casilla-peon-106",
+  "tipo": "peon",
+  "fen": "4k3/3pp1Qp/8/P2R1N2/3P2n1/1Kp5/8/8 b - - 0 1",
+  "elo": 1340,
+  "solucion": "e6",
+  "jugada": "e6",
+  "desde": "e7",
+  "objetivos": [
+   "d5",
+   "f5"
+  ],
+  "titulo": "Horquilla de peón",
+  "pregunta": "Avanza un peón para que ataque a la vez a dos piezas rivales.",
+  "pista": "Un peón ataca las dos casillas en diagonal delante de él.",
+  "explicacion": "El peón de e7 va a e6 y ataca a la vez a la torre de d5 y al caballo de f5. Las blancas no pueden salvar las dos piezas con una sola jugada, así que ganas material. Además, en e6 nadie puede comerse el peón."
+ },
+ {
+  "id": "casilla-caballo-107",
+  "tipo": "caballo",
+  "fen": "8/4k3/8/N1bP3P/4p1Kp/8/6n1/3R4 b - - 0 1",
+  "elo": 1350,
+  "solucion": "e3",
+  "jugada": "Ne3+",
+  "desde": "g2",
+  "objetivos": [
+   "g4",
+   "d1"
+  ],
+  "titulo": "Horquilla de caballo",
+  "pregunta": "Salta con el caballo a la casilla desde la que ataca a la vez dos piezas valiosas.",
+  "pista": "El caballo salta en forma de L. ¿Desde qué casilla toca a las dos piezas a la vez?",
+  "explicacion": "El caballo de g2 va a e3 y ataca a la vez al rey (jaque) y a la torre de d1. Las blancas tienen que salir del jaque y después cae la torre de d1. Además, en e3 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-caballo-108",
+  "tipo": "caballo",
+  "fen": "6b1/n1P5/NP1K4/4p3/8/6Q1/7p/1k6 b - - 0 1",
+  "elo": 1350,
+  "solucion": "c8",
+  "jugada": "Nc8+",
+  "desde": "a7",
+  "objetivos": [
+   "b6",
+   "d6"
+  ],
+  "titulo": "Horquilla de caballo",
+  "pregunta": "Salta con el caballo a la casilla desde la que ataca a la vez dos piezas valiosas.",
+  "pista": "El caballo salta en forma de L. ¿Desde qué casilla toca a las dos piezas a la vez?",
+  "explicacion": "El caballo de a7 va a c8 y ataca a la vez al rey (jaque) y al peón de b6. Las blancas tienen que salir del jaque y después cae el peón de b6. Además, en c8 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-caballo-109",
+  "tipo": "caballo",
+  "fen": "2r1k3/1p2P2B/8/P5p1/2N4n/8/1K6/8 w - - 0 1",
+  "elo": 1350,
+  "solucion": "d6",
+  "jugada": "Nd6+",
+  "desde": "c4",
+  "objetivos": [
+   "b7",
+   "c8",
+   "e8"
+  ],
+  "titulo": "Horquilla de caballo",
+  "pregunta": "Salta con el caballo a la casilla desde la que ataca a la vez dos piezas valiosas.",
+  "pista": "El caballo salta en forma de L. ¿Desde qué casilla toca a las dos piezas a la vez?",
+  "explicacion": "El caballo de c4 va a d6 y ataca a la vez al rey (jaque) y a la torre de c8. Las negras tienen que salir del jaque y después cae la torre de c8. Además, en d6 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-caballo-110",
+  "tipo": "caballo",
+  "fen": "2b5/8/3p3k/1P1K4/3P4/N7/R5p1/3n4 b - - 0 1",
+  "elo": 1390,
+  "solucion": "c3",
+  "jugada": "Nc3+",
+  "desde": "d1",
+  "objetivos": [
+   "d5",
+   "a2"
+  ],
+  "titulo": "Horquilla de caballo",
+  "pregunta": "Salta con el caballo a la casilla desde la que ataca a la vez dos piezas valiosas.",
+  "pista": "El caballo salta en forma de L. ¿Desde qué casilla toca a las dos piezas a la vez?",
+  "explicacion": "El caballo de d1 va a c3 y ataca a la vez al rey (jaque) y a la torre de a2. Las blancas tienen que salir del jaque y después cae la torre de a2. Además, en c3 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-caballo-111",
+  "tipo": "caballo",
+  "fen": "2k3b1/4n3/8/2N1P3/7K/4p2R/p1P5/8 b - - 0 1",
+  "elo": 1380,
+  "solucion": "g6",
+  "jugada": "Ng6+",
+  "desde": "e7",
+  "objetivos": [
+   "e5",
+   "h4"
+  ],
+  "titulo": "Horquilla de caballo",
+  "pregunta": "Salta con el caballo a la casilla desde la que ataca a la vez dos piezas valiosas.",
+  "pista": "El caballo salta en forma de L. ¿Desde qué casilla toca a las dos piezas a la vez?",
+  "explicacion": "El caballo de e7 va a g6 y ataca a la vez al rey (jaque) y al peón de e5. Las blancas tienen que salir del jaque y después cae el peón de e5. Además, en g6 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-caballo-112",
+  "tipo": "caballo",
+  "fen": "2r5/3k1p2/5p2/BK5n/P1N5/P7/8/8 w - - 0 1",
+  "elo": 1370,
+  "solucion": "b6",
+  "jugada": "Nb6+",
+  "desde": "c4",
+  "objetivos": [
+   "d7",
+   "c8"
+  ],
+  "titulo": "Horquilla de caballo",
+  "pregunta": "Salta con el caballo a la casilla desde la que ataca a la vez dos piezas valiosas.",
+  "pista": "El caballo salta en forma de L. ¿Desde qué casilla toca a las dos piezas a la vez?",
+  "explicacion": "El caballo de c4 va a b6 y ataca a la vez al rey (jaque) y a la torre de c8. Las negras tienen que salir del jaque y después cae la torre de c8. Además, en b6 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-caballo-113",
+  "tipo": "caballo",
+  "fen": "8/p2P3B/8/2K5/4P2k/p7/4n2N/4r3 w - - 0 1",
+  "elo": 1380,
+  "solucion": "f3",
+  "jugada": "Nf3+",
+  "desde": "h2",
+  "objetivos": [
+   "e1",
+   "h4"
+  ],
+  "titulo": "Horquilla de caballo",
+  "pregunta": "Salta con el caballo a la casilla desde la que ataca a la vez dos piezas valiosas.",
+  "pista": "El caballo salta en forma de L. ¿Desde qué casilla toca a las dos piezas a la vez?",
+  "explicacion": "El caballo de h2 va a f3 y ataca a la vez al rey (jaque) y a la torre de e1. Las negras tienen que salir del jaque y después cae la torre de e1. Además, en f3 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-caballo-114",
+  "tipo": "caballo",
+  "fen": "4k3/7n/1p1BN3/4P2r/4p3/6P1/5K2/8 w - - 0 1",
+  "elo": 1350,
+  "solucion": "g7",
+  "jugada": "Ng7+",
+  "desde": "e6",
+  "objetivos": [
+   "h5",
+   "e8"
+  ],
+  "titulo": "Horquilla de caballo",
+  "pregunta": "Salta con el caballo a la casilla desde la que ataca a la vez dos piezas valiosas.",
+  "pista": "El caballo salta en forma de L. ¿Desde qué casilla toca a las dos piezas a la vez?",
+  "explicacion": "El caballo de e6 va a g7 y ataca a la vez al rey (jaque) y a la torre de h5. Las negras tienen que salir del jaque y después cae la torre de h5. Además, en g7 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-mate-115",
+  "tipo": "mate",
+  "fen": "2b2k2/P7/3R1KP1/8/pQ3p2/8/p4r2/8 w - - 0 1",
+  "elo": 1410,
+  "solucion": "d8",
+  "jugada": "Rd8#",
+  "desde": "d6",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La torre de d6 va a d8 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-116",
+  "tipo": "mate",
+  "fen": "5K2/5P2/3B1qP1/1pr5/8/3Pk3/1p4R1/8 b - - 0 1",
+  "elo": 1420,
+  "solucion": "c8",
+  "jugada": "Rc8#",
+  "desde": "c5",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La torre de c5 va a c8 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-117",
+  "tipo": "mate",
+  "fen": "5b2/1K1p4/3R4/7k/1Q6/5Ppp/2r3P1/8 w - - 0 1",
+  "elo": 1430,
+  "solucion": "g4",
+  "jugada": "Qg4#",
+  "desde": "b4",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La dama de b4 va a g4 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-118",
+  "tipo": "mate",
+  "fen": "r7/pP6/2P5/5BqP/2R5/8/3p1k1K/8 b - - 0 1",
+  "elo": 1440,
+  "solucion": "g2",
+  "jugada": "Qg2#",
+  "desde": "g5",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La dama de g5 va a g2 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-119",
+  "tipo": "mate",
+  "fen": "6R1/kp1b3p/8/1P3P1K/6p1/2Q5/8/1r6 w - - 0 1",
+  "elo": 1440,
+  "solucion": "a5",
+  "jugada": "Qa5#",
+  "desde": "c3",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La dama de c3 va a a5 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-120",
+  "tipo": "mate",
+  "fen": "8/3K4/8/p4kp1/2R5/3PQ1pb/r1P5/8 w - - 0 1",
+  "elo": 1420,
+  "solucion": "e6",
+  "jugada": "Qe6#",
+  "desde": "e3",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La dama de e3 va a e6 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-121",
+  "tipo": "mate",
+  "fen": "Kb6/8/p7/2rQp2k/P7/p7/3P4/6R1 w - - 0 1",
+  "elo": 1410,
+  "solucion": "h1",
+  "jugada": "Qh1#",
+  "desde": "d5",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La dama de d5 va a h1 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-122",
+  "tipo": "mate",
+  "fen": "8/4r3/6pP/5p2/3P3K/5k2/PR3B2/2q5 b - - 0 1",
+  "elo": 1410,
+  "solucion": "h6",
+  "jugada": "Qxh6#",
+  "desde": "c1",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La dama de c1 va a h6 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-123",
+  "tipo": "mate",
+  "fen": "7Q/4P3/3k4/1K6/p2p4/4R1pr/1b3P2/8 w - - 0 1",
+  "elo": 1440,
+  "solucion": "d8",
+  "jugada": "Qd8#",
+  "desde": "h8",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La dama de h8 va a d8 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-124",
+  "tipo": "mate",
+  "fen": "2K5/1p1r4/6P1/7p/p7/2b2Q2/PR6/6k1 w - - 0 1",
+  "elo": 1440,
+  "solucion": "g2",
+  "jugada": "Qg2#",
+  "desde": "f3",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La dama de f3 va a g2 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-125",
+  "tipo": "mate",
+  "fen": "7k/4PP2/8/5p2/Rr1q2B1/K7/4p1P1/8 b - - 0 1",
+  "elo": 1450,
+  "solucion": "b2",
+  "jugada": "Qb2#",
+  "desde": "d4",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La dama de d4 va a b2 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-126",
+  "tipo": "mate",
+  "fen": "1q6/8/2R5/3P1p2/B1r5/1PP2K2/3p4/5k2 b - - 0 1",
+  "elo": 1430,
+  "solucion": "f4",
+  "jugada": "Qf4#",
+  "desde": "b8",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La dama de b8 va a f4 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-horquilla-127",
+  "tipo": "horquilla",
+  "fen": "8/5PpR/n1K2p2/2bQ4/P5N1/1P6/5r2/3B1k2 b - - 0 1",
+  "elo": 1470,
+  "solucion": "b4",
+  "jugada": "Nb4+",
+  "desde": "a6",
+  "objetivos": [
+   "c6",
+   "d5"
+  ],
+  "titulo": "Busca el doble ataque",
+  "pregunta": "Una de tus piezas puede atacar a la vez a dos piezas rivales y ganar material. Encuentra la casilla.",
+  "pista": "Revisa una a una tus piezas. Fíjate en las piezas rivales sin defensa y en el rey.",
+  "explicacion": "El caballo de a6 va a b4 y ataca a la vez al rey (jaque) y a la dama de d5. Las blancas tienen que salir del jaque y después cae la dama de d5. Además, en b4 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-horquilla-128",
+  "tipo": "horquilla",
+  "fen": "B1b5/2p5/p4k2/p7/3P2qn/2N1r3/6P1/2R2K2 w - - 0 1",
+  "elo": 1490,
+  "solucion": "d5",
+  "jugada": "Nd5+",
+  "desde": "c3",
+  "objetivos": [
+   "e3",
+   "f6",
+   "c7"
+  ],
+  "titulo": "Busca el doble ataque",
+  "pregunta": "Una de tus piezas puede atacar a la vez a dos piezas rivales y ganar material. Encuentra la casilla.",
+  "pista": "Revisa una a una tus piezas. Fíjate en las piezas rivales sin defensa y en el rey.",
+  "explicacion": "El caballo de c3 va a d5 y ataca a la vez al rey (jaque) y a la torre de e3. Las negras tienen que salir del jaque y después cae la torre de e3. Además, en d5 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-horquilla-129",
+  "tipo": "horquilla",
+  "fen": "6r1/1PR5/N3P3/4P3/2p5/Q6K/1p2n3/3B1kb1 b - - 0 1",
+  "elo": 1490,
+  "solucion": "f4",
+  "jugada": "Nf4+",
+  "desde": "e2",
+  "objetivos": [
+   "e6",
+   "h3"
+  ],
+  "titulo": "Busca el doble ataque",
+  "pregunta": "Una de tus piezas puede atacar a la vez a dos piezas rivales y ganar material. Encuentra la casilla.",
+  "pista": "Revisa una a una tus piezas. Fíjate en las piezas rivales sin defensa y en el rey.",
+  "explicacion": "El caballo de e2 va a f4 y ataca a la vez al rey (jaque) y al peón de e6. Las blancas tienen que salir del jaque y después cae el peón de e6. Además, en f4 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-horquilla-130",
+  "tipo": "horquilla",
+  "fen": "3B4/7R/2nPb1rP/1p5k/q1p5/3Np3/8/1K6 w - - 0 1",
+  "elo": 1460,
+  "solucion": "f4",
+  "jugada": "Nf4+",
+  "desde": "d3",
+  "objetivos": [
+   "h5",
+   "g6"
+  ],
+  "titulo": "Busca el doble ataque",
+  "pregunta": "Una de tus piezas puede atacar a la vez a dos piezas rivales y ganar material. Encuentra la casilla.",
+  "pista": "Revisa una a una tus piezas. Fíjate en las piezas rivales sin defensa y en el rey.",
+  "explicacion": "El caballo de d3 va a f4 y ataca a la vez al rey (jaque) y a la torre de g6. Las negras tienen que salir del jaque y después cae la torre de g6. Además, en f4 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-horquilla-131",
+  "tipo": "horquilla",
+  "fen": "5r2/p1P1k3/5b2/QBp5/6N1/1K1P1R2/2P1n3/8 b - - 0 1",
+  "elo": 1490,
+  "solucion": "d4",
+  "jugada": "Nd4+",
+  "desde": "e2",
+  "objetivos": [
+   "b3",
+   "f3"
+  ],
+  "titulo": "Busca el doble ataque",
+  "pregunta": "Una de tus piezas puede atacar a la vez a dos piezas rivales y ganar material. Encuentra la casilla.",
+  "pista": "Revisa una a una tus piezas. Fíjate en las piezas rivales sin defensa y en el rey.",
+  "explicacion": "El caballo de e2 va a d4 y ataca a la vez al rey (jaque) y a la torre de f3. Las blancas tienen que salir del jaque y después cae la torre de f3. Además, en d4 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-horquilla-132",
+  "tipo": "horquilla",
+  "fen": "8/P7/3k4/NB1p3r/1p3Pn1/6P1/3R2Q1/3b1K2 b - - 0 1",
+  "elo": 1470,
+  "solucion": "e3",
+  "jugada": "Ne3+",
+  "desde": "g4",
+  "objetivos": [
+   "g2",
+   "f1"
+  ],
+  "titulo": "Busca el doble ataque",
+  "pregunta": "Una de tus piezas puede atacar a la vez a dos piezas rivales y ganar material. Encuentra la casilla.",
+  "pista": "Revisa una a una tus piezas. Fíjate en las piezas rivales sin defensa y en el rey.",
+  "explicacion": "El caballo de g4 va a e3 y ataca a la vez al rey (jaque) y a la dama de g2. Las blancas tienen que salir del jaque y después cae la dama de g2. Además, en e3 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-horquilla-133",
+  "tipo": "horquilla",
+  "fen": "2k2r2/8/p1p2P1b/BN5n/4q3/6p1/KP6/1R6 w - - 0 1",
+  "elo": 1460,
+  "solucion": "d6",
+  "jugada": "Nd6+",
+  "desde": "b5",
+  "objetivos": [
+   "e4",
+   "c8"
+  ],
+  "titulo": "Busca el doble ataque",
+  "pregunta": "Una de tus piezas puede atacar a la vez a dos piezas rivales y ganar material. Encuentra la casilla.",
+  "pista": "Revisa una a una tus piezas. Fíjate en las piezas rivales sin defensa y en el rey.",
+  "explicacion": "El caballo de b5 va a d6 y ataca a la vez al rey (jaque) y a la dama de e4. Las negras tienen que salir del jaque y después cae la dama de e4. Además, en d6 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-horquilla-134",
+  "tipo": "horquilla",
+  "fen": "r5BR/7P/k4P1p/1p1N2q1/6p1/3n4/1b6/5K2 w - - 0 1",
+  "elo": 1470,
+  "solucion": "c7",
+  "jugada": "Nc7+",
+  "desde": "d5",
+  "objetivos": [
+   "a6",
+   "a8"
+  ],
+  "titulo": "Busca el doble ataque",
+  "pregunta": "Una de tus piezas puede atacar a la vez a dos piezas rivales y ganar material. Encuentra la casilla.",
+  "pista": "Revisa una a una tus piezas. Fíjate en las piezas rivales sin defensa y en el rey.",
+  "explicacion": "El caballo de d5 va a c7 y ataca a la vez al rey (jaque) y a la torre de a8. Las negras tienen que salir del jaque y después cae la torre de a8. Además, en c7 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-horquilla-135",
+  "tipo": "horquilla",
+  "fen": "K1k5/B4b1P/4n1r1/3QR2p/2P4p/8/7P/7N b - - 0 1",
+  "elo": 1470,
+  "solucion": "c7",
+  "jugada": "Nc7#",
+  "desde": "e6",
+  "objetivos": [
+   "a8",
+   "d5"
+  ],
+  "titulo": "Busca el doble ataque",
+  "pregunta": "Una de tus piezas puede atacar a la vez a dos piezas rivales y ganar material. Encuentra la casilla.",
+  "pista": "Revisa una a una tus piezas. Fíjate en las piezas rivales sin defensa y en el rey.",
+  "explicacion": "El caballo de e6 va a c7 y ataca a la vez al rey (jaque) y a la dama de d5. Las blancas tienen que salir del jaque y después cae la dama de d5. Además, en c7 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-horquilla-136",
+  "tipo": "horquilla",
+  "fen": "6R1/n5P1/1kP5/4qp1p/1p6/8/3N1K2/2b2B1r w - - 0 1",
+  "elo": 1480,
+  "solucion": "c4",
+  "jugada": "Nc4+",
+  "desde": "d2",
+  "objetivos": [
+   "e5",
+   "b6"
+  ],
+  "titulo": "Busca el doble ataque",
+  "pregunta": "Una de tus piezas puede atacar a la vez a dos piezas rivales y ganar material. Encuentra la casilla.",
+  "pista": "Revisa una a una tus piezas. Fíjate en las piezas rivales sin defensa y en el rey.",
+  "explicacion": "El caballo de d2 va a c4 y ataca a la vez al rey (jaque) y a la dama de e5. Las negras tienen que salir del jaque y después cae la dama de e5. Además, en c4 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-horquilla-137",
+  "tipo": "horquilla",
+  "fen": "8/1N1R4/4P1p1/1K6/4q1pr/1k2P3/2pB2n1/7b w - - 0 1",
+  "elo": 1490,
+  "solucion": "c5",
+  "jugada": "Nc5+",
+  "desde": "b7",
+  "objetivos": [
+   "b3",
+   "e4"
+  ],
+  "titulo": "Busca el doble ataque",
+  "pregunta": "Una de tus piezas puede atacar a la vez a dos piezas rivales y ganar material. Encuentra la casilla.",
+  "pista": "Revisa una a una tus piezas. Fíjate en las piezas rivales sin defensa y en el rey.",
+  "explicacion": "El caballo de b7 va a c5 y ataca a la vez al rey (jaque) y a la dama de e4. Las negras tienen que salir del jaque y después cae la dama de e4. Además, en c5 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-horquilla-138",
+  "tipo": "horquilla",
+  "fen": "7n/4p3/3b4/1pp1NR2/7q/r1PK4/2P1B3/6k1 w - - 0 1",
+  "elo": 1480,
+  "solucion": "f3",
+  "jugada": "Nf3+",
+  "desde": "e5",
+  "objetivos": [
+   "g1",
+   "h4"
+  ],
+  "titulo": "Busca el doble ataque",
+  "pregunta": "Una de tus piezas puede atacar a la vez a dos piezas rivales y ganar material. Encuentra la casilla.",
+  "pista": "Revisa una a una tus piezas. Fíjate en las piezas rivales sin defensa y en el rey.",
+  "explicacion": "El caballo de e5 va a f3 y ataca a la vez al rey (jaque) y a la dama de h4. Las negras tienen que salir del jaque y después cae la dama de h4. Además, en f3 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-horquilla-139",
+  "tipo": "horquilla",
+  "fen": "2k1N3/4PR2/3r3b/2K5/7P/P1n1p3/1Q4pB/8 b - - 0 1",
+  "elo": 1490,
+  "solucion": "a4",
+  "jugada": "Na4+",
+  "desde": "c3",
+  "objetivos": [
+   "c5",
+   "b2"
+  ],
+  "titulo": "Busca el doble ataque",
+  "pregunta": "Una de tus piezas puede atacar a la vez a dos piezas rivales y ganar material. Encuentra la casilla.",
+  "pista": "Revisa una a una tus piezas. Fíjate en las piezas rivales sin defensa y en el rey.",
+  "explicacion": "El caballo de c3 va a a4 y ataca a la vez al rey (jaque) y a la dama de b2. Las blancas tienen que salir del jaque y después cae la dama de b2. Además, en a4 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-mate-140",
+  "tipo": "mate",
+  "fen": "2k5/2r2P2/1R6/8/B1PP4/pp3p2/p7/1n2NK2 w - - 0 1",
+  "elo": 1520,
+  "solucion": "f8",
+  "jugada": "f8=Q#",
+  "desde": "f7",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "El peón de f7 corona en f8 (nueva dama) y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-141",
+  "tipo": "mate",
+  "fen": "1k6/pp1R4/1P3P2/2N3p1/2r2p2/8/3B2KP/2n5 w - - 0 1",
+  "elo": 1540,
+  "solucion": "d8",
+  "jugada": "Rd8#",
+  "desde": "d7",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La torre de d7 va a d8 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-142",
+  "tipo": "mate",
+  "fen": "8/6P1/3P4/1P3p1p/8/1kb1n2r/1P2p3/2K2NR1 b - - 0 1",
+  "elo": 1530,
+  "solucion": "e1",
+  "jugada": "e1=Q#",
+  "desde": "e2",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "El peón de e2 corona en e1 (nueva dama) y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-143",
+  "tipo": "mate",
+  "fen": "7r/1RbpK1k1/2pP4/P3n3/3p4/8/3PP3/7N b - - 0 1",
+  "elo": 1510,
+  "solucion": "d8",
+  "jugada": "Bd8#",
+  "desde": "c7",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "El alfil de c7 va a d8 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-144",
+  "tipo": "mate",
+  "fen": "8/1p2r3/5n1K/2pkpPP1/1Pp5/5R1N/6B1/8 w - - 0 1",
+  "elo": 1510,
+  "solucion": "d3",
+  "jugada": "Rd3#",
+  "desde": "f3",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La torre de f3 va a d3 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-145",
+  "tipo": "mate",
+  "fen": "1R6/2k2PN1/2P5/b2P3n/1r6/3p1p2/1P3p2/7K b - - 0 1",
+  "elo": 1530,
+  "solucion": "h4",
+  "jugada": "Rh4#",
+  "desde": "b4",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La torre de b4 va a h4 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-146",
+  "tipo": "mate",
+  "fen": "nk1b3N/8/8/7P/4P2p/1p6/1PP1r1p1/2K2R2 b - - 0 1",
+  "elo": 1540,
+  "solucion": "f1",
+  "jugada": "gxf1=Q#",
+  "desde": "g2",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "El peón de g2 corona en f1 (nueva dama) y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-147",
+  "tipo": "mate",
+  "fen": "5k2/pP1p3P/1p5N/1r4Bp/4Kn2/8/P7/5R2 w - - 0 1",
+  "elo": 1530,
+  "solucion": "h8",
+  "jugada": "h8=Q#",
+  "desde": "h7",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "El peón de h7 corona en h8 (nueva dama) y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-148",
+  "tipo": "mate",
+  "fen": "2n5/6P1/k2N2p1/b3PP2/5P2/2r1p1p1/4R3/4K3 b - - 0 1",
+  "elo": 1550,
+  "solucion": "c1",
+  "jugada": "Rc1#",
+  "desde": "c3",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La torre de c3 va a c1 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-mate-149",
+  "tipo": "mate",
+  "fen": "8/p2BNp2/6n1/4P3/4pPp1/2K5/R3r1P1/3k4 w - - 0 1",
+  "elo": 1540,
+  "solucion": "a1",
+  "jugada": "Ra1#",
+  "desde": "a2",
+  "objetivos": [],
+  "titulo": "Mate en una",
+  "pregunta": "Da jaque mate en una jugada.",
+  "pista": "Mira a qué casillas puede escapar el rey rival y busca un jaque que se las quite todas.",
+  "explicacion": "La torre de a2 va a a1 y da jaque mate: el rey no tiene casillas libres y nadie puede comer la pieza que da jaque ni ponerse en medio."
+ },
+ {
+  "id": "casilla-horquilla-150",
+  "tipo": "horquilla",
+  "fen": "2k1K3/2p2Q2/4Ppp1/qn6/7R/b4PP1/R4BP1/8 b - - 0 1",
+  "elo": 1560,
+  "solucion": "d6",
+  "jugada": "Nd6+",
+  "desde": "b5",
+  "objetivos": [
+   "e8",
+   "f7"
+  ],
+  "titulo": "Busca el doble ataque",
+  "pregunta": "Una de tus piezas puede atacar a la vez a dos piezas rivales y ganar material. Encuentra la casilla.",
+  "pista": "Revisa una a una tus piezas. Fíjate en las piezas rivales sin defensa y en el rey.",
+  "explicacion": "El caballo de b5 va a d6 y ataca a la vez al rey (jaque) y a la dama de f7. Las blancas tienen que salir del jaque y después cae la dama de f7. Además, en d6 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-horquilla-151",
+  "tipo": "horquilla",
+  "fen": "2KQ4/3P4/4pPP1/p3Rn2/2Pp4/b4R2/k1B5/q7 b - - 0 1",
+  "elo": 1570,
+  "solucion": "d6",
+  "jugada": "Nd6+",
+  "desde": "f5",
+  "objetivos": [
+   "c8",
+   "c4"
+  ],
+  "titulo": "Busca el doble ataque",
+  "pregunta": "Una de tus piezas puede atacar a la vez a dos piezas rivales y ganar material. Encuentra la casilla.",
+  "pista": "Revisa una a una tus piezas. Fíjate en las piezas rivales sin defensa y en el rey.",
+  "explicacion": "El caballo de f5 va a d6 y ataca a la vez al rey (jaque) y al peón de c4. Las blancas tienen que salir del jaque y después cae el peón de c4. Además, en d6 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-horquilla-152",
+  "tipo": "horquilla",
+  "fen": "8/1k6/3QP3/P7/8/n3KPP1/pp1BpR1R/bq6 b - - 0 1",
+  "elo": 1550,
+  "solucion": "c4",
+  "jugada": "Nc4+",
+  "desde": "a3",
+  "objetivos": [
+   "d6",
+   "e3"
+  ],
+  "titulo": "Busca el doble ataque",
+  "pregunta": "Una de tus piezas puede atacar a la vez a dos piezas rivales y ganar material. Encuentra la casilla.",
+  "pista": "Revisa una a una tus piezas. Fíjate en las piezas rivales sin defensa y en el rey.",
+  "explicacion": "El caballo de a3 va a c4 y ataca a la vez al rey (jaque) y a la dama de d6. Las blancas tienen que salir del jaque y después cae la dama de d6. Además, en c4 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-horquilla-153",
+  "tipo": "horquilla",
+  "fen": "3Q4/4P3/8/2pN3b/6pp/1KP5/3krpPB/4r2q w - - 0 1",
+  "elo": 1540,
+  "solucion": "f4",
+  "jugada": "Nf4+",
+  "desde": "d5",
+  "objetivos": [
+   "e2",
+   "h5"
+  ],
+  "titulo": "Busca el doble ataque",
+  "pregunta": "Una de tus piezas puede atacar a la vez a dos piezas rivales y ganar material. Encuentra la casilla.",
+  "pista": "Revisa una a una tus piezas. Fíjate en las piezas rivales sin defensa y en el rey.",
+  "explicacion": "El caballo de d5 va a f4 y ataca a la vez a la torre de e2 y al alfil de h5. Las negras no pueden salvar las dos piezas con una sola jugada, así que ganas material. Además, en f4 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-peon-154",
+  "tipo": "peon",
+  "fen": "5k2/5p1n/8/8/1Pp5/8/1N1R2K1/8 b - - 0 1",
+  "elo": 1350,
+  "solucion": "c3",
+  "jugada": "c3",
+  "desde": "c4",
+  "objetivos": [
+   "b2",
+   "d2"
+  ],
+  "titulo": "Horquilla de peón",
+  "pregunta": "Avanza un peón para que ataque a la vez a dos piezas rivales.",
+  "pista": "Un peón ataca las dos casillas en diagonal delante de él.",
+  "explicacion": "El peón de c4 va a c3 y ataca a la vez al caballo de b2 y a la torre de d2. Las blancas no pueden salvar las dos piezas con una sola jugada, así que ganas material. Además, en c3 nadie puede comerse el peón."
+ },
+ {
+  "id": "casilla-peon-155",
+  "tipo": "peon",
+  "fen": "2k4K/8/4r1r1/8/5P2/3Np3/p7/8 w - - 0 1",
+  "elo": 1330,
+  "solucion": "f5",
+  "jugada": "f5",
+  "desde": "f4",
+  "objetivos": [
+   "e6",
+   "g6"
+  ],
+  "titulo": "Horquilla de peón",
+  "pregunta": "Avanza un peón para que ataque a la vez a dos piezas rivales.",
+  "pista": "Un peón ataca las dos casillas en diagonal delante de él.",
+  "explicacion": "El peón de f4 va a f5 y ataca a la vez a la torre de e6 y a la torre de g6. Las negras no pueden salvar las dos piezas con una sola jugada, así que ganas material. Además, en f5 nadie puede comerse el peón."
+ },
+ {
+  "id": "casilla-peon-156",
+  "tipo": "peon",
+  "fen": "8/8/3k4/8/Pp3p2/3K4/R1N3n1/8 b - - 0 1",
+  "elo": 1360,
+  "solucion": "b3",
+  "jugada": "b3",
+  "desde": "b4",
+  "objetivos": [
+   "a2",
+   "c2"
+  ],
+  "titulo": "Horquilla de peón",
+  "pregunta": "Avanza un peón para que ataque a la vez a dos piezas rivales.",
+  "pista": "Un peón ataca las dos casillas en diagonal delante de él.",
+  "explicacion": "El peón de b4 va a b3 y ataca a la vez a la torre de a2 y al caballo de c2. Las blancas no pueden salvar las dos piezas con una sola jugada, así que ganas material. Además, en b3 nadie puede comerse el peón."
+ },
+ {
+  "id": "casilla-peon-157",
+  "tipo": "peon",
+  "fen": "8/4p1k1/5n1n/1P6/N5P1/8/4P1K1/8 w - - 0 1",
+  "elo": 1320,
+  "solucion": "g5",
+  "jugada": "g5",
+  "desde": "g4",
+  "objetivos": [
+   "f6",
+   "h6"
+  ],
+  "titulo": "Horquilla de peón",
+  "pregunta": "Avanza un peón para que ataque a la vez a dos piezas rivales.",
+  "pista": "Un peón ataca las dos casillas en diagonal delante de él.",
+  "explicacion": "El peón de g4 va a g5 y ataca a la vez al caballo de f6 y al caballo de h6. Las negras no pueden salvar las dos piezas con una sola jugada, así que ganas material. Además, en g5 nadie puede comerse el peón."
+ },
+ {
+  "id": "casilla-peon-158",
+  "tipo": "peon",
+  "fen": "8/1n6/2k3K1/1p3p2/4p3/8/3N1N2/8 b - - 0 1",
+  "elo": 1360,
+  "solucion": "e3",
+  "jugada": "e3",
+  "desde": "e4",
+  "objetivos": [
+   "d2",
+   "f2"
+  ],
+  "titulo": "Horquilla de peón",
+  "pregunta": "Avanza un peón para que ataque a la vez a dos piezas rivales.",
+  "pista": "Un peón ataca las dos casillas en diagonal delante de él.",
+  "explicacion": "El peón de e4 va a e3 y ataca a la vez al caballo de d2 y al caballo de f2. Las blancas no pueden salvar las dos piezas con una sola jugada, así que ganas material. Además, en e3 nadie puede comerse el peón."
+ },
+ {
+  "id": "casilla-peon-159",
+  "tipo": "peon",
+  "fen": "8/2p5/1p1p4/5k2/N1N4n/8/8/5K2 b - - 0 1",
+  "elo": 1330,
+  "solucion": "b5",
+  "jugada": "b5",
+  "desde": "b6",
+  "objetivos": [
+   "a4",
+   "c4"
+  ],
+  "titulo": "Horquilla de peón",
+  "pregunta": "Avanza un peón para que ataque a la vez a dos piezas rivales.",
+  "pista": "Un peón ataca las dos casillas en diagonal delante de él.",
+  "explicacion": "El peón de b6 va a b5 y ataca a la vez al caballo de a4 y al caballo de c4. Las blancas no pueden salvar las dos piezas con una sola jugada, así que ganas material. Además, en b5 nadie puede comerse el peón."
+ },
+ {
+  "id": "casilla-horquilla-160",
+  "tipo": "horquilla",
+  "fen": "7K/3pN1R1/8/7p/1P1k3q/5P2/3bp3/rB1n4 w - - 0 1",
+  "elo": 1480,
+  "solucion": "f5",
+  "jugada": "Nf5+",
+  "desde": "e7",
+  "objetivos": [
+   "d4",
+   "h4"
+  ],
+  "titulo": "Busca el doble ataque",
+  "pregunta": "Una de tus piezas puede atacar a la vez a dos piezas rivales y ganar material. Encuentra la casilla.",
+  "pista": "Revisa una a una tus piezas. Fíjate en las piezas rivales sin defensa y en el rey.",
+  "explicacion": "El caballo de e7 va a f5 y ataca a la vez al rey (jaque) y a la dama de h4. Las negras tienen que salir del jaque y después cae la dama de h4. Además, en f5 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-horquilla-161",
+  "tipo": "horquilla",
+  "fen": "1R2K3/1B5b/5P2/2p5/p5Pn/p7/q3k3/r2N4 w - - 0 1",
+  "elo": 1510,
+  "solucion": "c3",
+  "jugada": "Nc3+",
+  "desde": "d1",
+  "objetivos": [
+   "a2",
+   "e2",
+   "a4"
+  ],
+  "titulo": "Busca el doble ataque",
+  "pregunta": "Una de tus piezas puede atacar a la vez a dos piezas rivales y ganar material. Encuentra la casilla.",
+  "pista": "Revisa una a una tus piezas. Fíjate en las piezas rivales sin defensa y en el rey.",
+  "explicacion": "El caballo de d1 va a c3 y ataca a la vez al rey (jaque) y a la dama de a2. Las negras tienen que salir del jaque y después cae la dama de a2. Además, en c3 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-horquilla-162",
+  "tipo": "horquilla",
+  "fen": "8/2p4n/5P2/3p4/kr2N1P1/1q1b4/2p2KB1/6R1 w - - 0 1",
+  "elo": 1490,
+  "solucion": "c5",
+  "jugada": "Nc5+",
+  "desde": "e4",
+  "objetivos": [
+   "b3",
+   "a4"
+  ],
+  "titulo": "Busca el doble ataque",
+  "pregunta": "Una de tus piezas puede atacar a la vez a dos piezas rivales y ganar material. Encuentra la casilla.",
+  "pista": "Revisa una a una tus piezas. Fíjate en las piezas rivales sin defensa y en el rey.",
+  "explicacion": "El caballo de e4 va a c5 y ataca a la vez al rey (jaque) y a la dama de b3. Las negras tienen que salir del jaque y después cae la dama de b3. Además, en c5 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-horquilla-163",
+  "tipo": "horquilla",
+  "fen": "1k2r3/7b/1PK1n2p/1Q6/7B/2p4P/6NP/6R1 b - - 0 1",
+  "elo": 1480,
+  "solucion": "d4",
+  "jugada": "Nd4+",
+  "desde": "e6",
+  "objetivos": [
+   "c6",
+   "b5"
+  ],
+  "titulo": "Busca el doble ataque",
+  "pregunta": "Una de tus piezas puede atacar a la vez a dos piezas rivales y ganar material. Encuentra la casilla.",
+  "pista": "Revisa una a una tus piezas. Fíjate en las piezas rivales sin defensa y en el rey.",
+  "explicacion": "El caballo de e6 va a d4 y ataca a la vez al rey (jaque) y a la dama de b5. Las blancas tienen que salir del jaque y después cae la dama de b5. Además, en d4 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-horquilla-164",
+  "tipo": "horquilla",
+  "fen": "1N6/P4P2/2Pp4/b1nr1p2/4k2P/8/1Qp4B/2K4R b - - 0 1",
+  "elo": 1570,
+  "solucion": "d3",
+  "jugada": "Nd3+",
+  "desde": "c5",
+  "objetivos": [
+   "b2",
+   "c1"
+  ],
+  "titulo": "Busca el doble ataque",
+  "pregunta": "Una de tus piezas puede atacar a la vez a dos piezas rivales y ganar material. Encuentra la casilla.",
+  "pista": "Revisa una a una tus piezas. Fíjate en las piezas rivales sin defensa y en el rey.",
+  "explicacion": "El caballo de c5 va a d3 y ataca a la vez al rey (jaque) y a la dama de b2. Las blancas tienen que salir del jaque y después cae la dama de b2. Además, en d3 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-horquilla-165",
+  "tipo": "horquilla",
+  "fen": "B5R1/3p2N1/3q3k/bP1P4/1p6/p2P3K/1n1pr3/8 w - - 0 1",
+  "elo": 1580,
+  "solucion": "f5",
+  "jugada": "Nf5+",
+  "desde": "g7",
+  "objetivos": [
+   "d6",
+   "h6"
+  ],
+  "titulo": "Busca el doble ataque",
+  "pregunta": "Una de tus piezas puede atacar a la vez a dos piezas rivales y ganar material. Encuentra la casilla.",
+  "pista": "Revisa una a una tus piezas. Fíjate en las piezas rivales sin defensa y en el rey.",
+  "explicacion": "El caballo de g7 va a f5 y ataca a la vez al rey (jaque) y a la dama de d6. Las negras tienen que salir del jaque y después cae la dama de d6. Además, en f5 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-horquilla-166",
+  "tipo": "horquilla",
+  "fen": "6q1/RP1p3N/2pP4/2P1p2k/1K5p/B7/4n3/b2r4 w - - 0 1",
+  "elo": 1550,
+  "solucion": "f6",
+  "jugada": "Nf6+",
+  "desde": "h7",
+  "objetivos": [
+   "h5",
+   "d7",
+   "g8"
+  ],
+  "titulo": "Busca el doble ataque",
+  "pregunta": "Una de tus piezas puede atacar a la vez a dos piezas rivales y ganar material. Encuentra la casilla.",
+  "pista": "Revisa una a una tus piezas. Fíjate en las piezas rivales sin defensa y en el rey.",
+  "explicacion": "El caballo de h7 va a f6 y ataca a la vez al rey (jaque) y a la dama de g8. Las negras tienen que salir del jaque y después cae la dama de g8. Además, en f6 nadie puede comerse el caballo."
+ },
+ {
+  "id": "casilla-horquilla-167",
+  "tipo": "horquilla",
+  "fen": "4R3/1N6/7b/PK5p/Q1B5/1P1P2k1/Ppp5/3n3r b - - 0 1",
+  "elo": 1550,
+  "solucion": "c3",
+  "jugada": "Nc3+",
+  "desde": "d1",
+  "objetivos": [
+   "b5",
+   "a4"
+  ],
+  "titulo": "Busca el doble ataque",
+  "pregunta": "Una de tus piezas puede atacar a la vez a dos piezas rivales y ganar material. Encuentra la casilla.",
+  "pista": "Revisa una a una tus piezas. Fíjate en las piezas rivales sin defensa y en el rey.",
+  "explicacion": "El caballo de d1 va a c3 y ataca a la vez al rey (jaque) y a la dama de a4. Las blancas tienen que salir del jaque y después cae la dama de a4. Además, en c3 nadie puede comerse el caballo."
+ }
+]

@@ -5,9 +5,10 @@ import { aplicarResultado, estadoElo, eloEjercicio, multiplicador, problemaDelDi
 import { rankingActivo, jugador, nombreValido, enviarElo, tabla, MINIMO, enviarPuntos, buscarClubes, clubPorId, rankingClubes, miembrosClub, crearClub, unirseClub, borrarJugador } from "./ranking.js";
 
 // Súbela a la vez que versionName en movil/android/app/build.gradle.
-const VERSION_APP = "1.3.0";
+const VERSION_APP = "1.4.0";
 const app = document.getElementById("app");
 let POSICIONES = [];
+let CASILLAS = []; // ejercicios de "Encuentra la casilla" (datos/casillas.json)
 let tablero = null;
 let generacion = 0; // invalida tareas asíncronas de vistas anteriores
 
@@ -302,11 +303,13 @@ const ICONOS = {
   plan: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/>',
   adivina: '<path d="M8 20h9"/><path d="M9 20c0-4 2-6 2-9l-3 1-2-2 4-5c3 0 7 2 7 8 0 3-1 5-1 7"/><circle cx="12.5" cy="8.5" r=".8" fill="currentColor"/>',
   evalua: '<path d="M12 4v16M6 20h12M5 7h14"/><path d="M5 7l-3 6a3 3 0 006 0zM19 7l-3 6a3 3 0 006 0z"/>',
+  casilla: '<rect x="4" y="4" width="16" height="16" rx="1.5"/><path d="M12 4v16M4 12h16"/><rect x="12" y="4" width="8" height="8" fill="currentColor" stroke="none" opacity=".35"/>',
   ranking: '<path d="M8 4h8v5a4 4 0 01-8 0z"/><path d="M8 6H5a3 3 0 003 4M16 6h3a3 3 0 01-3 4M12 13v4M8 21h8M9.5 17h5l.5 4h-6z"/>',
 };
 const icono = (n) => `<svg class="icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONOS[n]}</svg>`;
 const MENU = [
   { modo: "", icono: "inicio", texto: "Inicio" },
+  { modo: "casilla", icono: "casilla", texto: "Casilla" },
   { modo: "plan", icono: "plan", texto: "Plan" },
   { modo: "adivina", icono: "adivina", texto: "Jugada" },
   { modo: "evalua", icono: "evalua", texto: "Evalúa" },
@@ -366,9 +369,10 @@ const TRAMOS = [
   { id: "auto", texto: "Automático", nota: "Se adapta a tu Elo" },
   { id: "iniciacion", texto: "Iniciación", nota: "Hasta 1200", min: 0, max: 1200 },
   { id: "principiante", texto: "Principiante", nota: "1200–1400", min: 1200, max: 1400 },
-  { id: "aficionado", texto: "Aficionado", nota: "1400–1900", min: 1400, max: 1900 },
-  { id: "club", texto: "Club", nota: "1900–2300", min: 1900, max: 2300 },
-  { id: "maestro", texto: "Maestro", nota: "2300 o más", min: 2300, max: 9999 },
+  { id: "aficionado", texto: "Aficionado", nota: "1400–1600", min: 1400, max: 1600 },
+  { id: "intermedio", texto: "Intermedio", nota: "1600–1800", min: 1600, max: 1800 },
+  { id: "club", texto: "Club", nota: "1800–2200", min: 1800, max: 2200 },
+  { id: "maestro", texto: "Maestro", nota: "2200 o más", min: 2200, max: 9999 },
 ];
 const tramoActual = () => TRAMOS.find((t) => t.id === (leerProgreso().tramo || "auto")) || TRAMOS[0];
 const FIJOS = TRAMOS.filter((t) => t.max);
@@ -376,7 +380,8 @@ const tramoDeElo = (elo) => FIJOS.find((t) => elo >= t.min && elo < t.max) || FI
 
 function tarjetasNiveles(actual) {
   return TRAMOS.map((t) => {
-    const n = t.max ? POSICIONES.filter((p) => eloEjercicio(p) >= t.min && eloEjercicio(p) < t.max).length : POSICIONES.length;
+    const todas = [...POSICIONES, ...CASILLAS];
+    const n = t.max ? todas.filter((p) => eloEjercicio(p) >= t.min && eloEjercicio(p) < t.max).length : todas.length;
     return `<button type="button" class="tarjeta nivel ${t.id === actual ? "elegida" : ""}" data-tramo="${t.id}">
       <b>${t.texto}</b><small>${t.nota}</small><small class="cuenta">${n} ejercicios</small></button>`;
   }).join("");
@@ -470,6 +475,7 @@ const sinAdornos = (san) => san.replace(/[+#!?]/g, "");
 function montarTablero(fen, opciones = {}) {
   if (tablero) tablero.destruir();
   tablero = new Tablero(document.getElementById("tablero"), fen, { orientacion: orientacion(fen), ...opciones });
+  if (new URLSearchParams(location.search).has("demo")) window.tableroDemo = tablero; // para pruebas automáticas
   return tablero;
 }
 
@@ -786,6 +792,53 @@ function vistaAdivina(id) {
   }
 }
 
+
+// ---------- Modo: Encuentra la casilla (para empezar) ----------
+function vistaCasilla(id) {
+  if (!CASILLAS.length) { app.innerHTML = `<div class="panel">No se pudieron cargar los ejercicios.</div>`; return; }
+  const p = CASILLAS.find((x) => x.id === id) || siguiente("casilla", CASILLAS);
+  if (!id) { location.replace(`#/casilla/${p.id}`); return; }
+  const bando = turnoDe(p.fen) === "w" ? "blancas" : "negras";
+  let conPista = false, hecho = false;
+  app.innerHTML = plantillaEjercicio(`
+    <p class="meta">Encuentra la casilla · nivel ${eloEjercicio(p)}</p>
+    <h1 class="titulo-casilla">${h(p.titulo)}</h1>
+    <p class="pregunta"><b>Juegan las ${bando}.</b> ${h(p.pregunta)}</p>
+    <p class="meta">Haz la jugada en el tablero.</p>
+    <div id="resultado"></div>
+    <div class="botones">
+      <button class="boton" id="pista">Pista</button>
+      <button class="boton principal" id="sig">Siguiente</button>
+    </div>`);
+  montarTablero(p.fen, { alMover: (m) => responder(m) });
+  document.getElementById("sig").onclick = () => { location.hash = `#/casilla/${siguiente("casilla", CASILLAS, p.id).id}`; };
+  document.getElementById("pista").onclick = (e) => {
+    conPista = true; e.target.disabled = true;
+    document.getElementById("resultado").insertAdjacentHTML("beforebegin", `<div class="aviso">${h(p.pista)}</div>`);
+  };
+
+  function responder(m) {
+    if (hecho) return;
+    hecho = true;
+    tablero.bloquear(true);
+    const bien = p.tipo === "mate" ? tablero.juego.isCheckmate()
+      : p.tipo === "captura" ? m.to === p.solucion
+      : m.from === p.desde && m.to === p.solucion;
+    const puntos = bien ? (conPista ? 1 : 2) : 0;
+    destello(bien ? (conPista ? "amarillo" : "verde") : "rojo");
+    if (!bien) { tablero.poner(p.fen); tablero.jugar(p.jugada); }
+    tablero.flechas([[p.desde, p.solucion], ...p.objetivos.map((o) => [o, null, "red"])]);
+    const cambio = registrar("casilla", p, puntos, 2);
+    document.getElementById("resultado").innerHTML = `
+      <div class="resultado ${bien ? "bien" : "neutro"}">
+        <p><b>${bien ? (conPista ? "¡Bien! (con pista)" : "¡Correcto!") : `No. La casilla era <span class="casilla-sol">${p.solucion}</span>.`}</b></p>
+        <p>${h(p.explicacion)}</p>
+        ${bloqueElo(cambio)}
+      </div>`;
+    document.getElementById("pista").disabled = true;
+  }
+}
+
 // ---------- Modo 3: Evalúa desequilibrios ----------
 function vistaEvalua(id) {
   const lista = POSICIONES.filter((p) => p.evaluacion);
@@ -921,6 +974,9 @@ function vistaPortada() {
       <h2 class="titulo-seccion">Nivel de los ejercicios</h2>
       <div class="tarjetas niveles" id="niveles">${tarjetasNiveles(t.id)}</div>
       <div class="modos">
+        ${CASILLAS.length ? `<a class="panel modo" href="#/casilla">${icono("casilla")}<h2>Encuentra la casilla</h2>
+          <p>Para empezar: dobles ataques, horquillas, piezas sin defensa y mates en una.</p>
+          <p>${hechas("casilla")}/${CASILLAS.length} hechas · acierto ${pct("casilla")}</p></a>` : ""}
         <a class="panel modo" href="#/plan">${icono("plan")}<h2>Encuentra el plan</h2>
           <p>Elige el plan correcto entre cuatro y lee por qué los demás fallan.</p>
           <p>${hechas("plan")}/${n((p) => p.plan)} hechas · acierto ${pct("plan")}</p></a>
@@ -1225,12 +1281,12 @@ function enrutar() {
   generacion++;
   const [, modo = "", id = ""] = location.hash.split("/");
   document.querySelectorAll(".menu a").forEach((a) => a.classList.toggle("activo", a.dataset.modo === modo));
-  if (tablero && !["plan", "adivina", "evalua"].includes(modo)) { tablero.destruir(); tablero = null; }
+  if (tablero && !["plan", "adivina", "evalua", "casilla"].includes(modo)) { tablero.destruir(); tablero = null; }
   // Primera vez: el asistente de bienvenida antes que nada.
   // (?demo en la URL lo salta: lo usa el previsualizador)
   if (!leerProgreso().perfil && modo !== "bienvenida" && !new URLSearchParams(location.search).has("demo")) { location.replace("#/bienvenida"); return; }
   if (modo !== "bienvenida") document.body.classList.remove("sin-menu");
-  ({ plan: vistaPlan, adivina: vistaAdivina, evalua: vistaEvalua, posiciones: vistaPosiciones, ranking: vistaRanking,
+  ({ casilla: vistaCasilla, plan: vistaPlan, adivina: vistaAdivina, evalua: vistaEvalua, posiciones: vistaPosiciones, ranking: vistaRanking,
      bienvenida: vistaBienvenida, ajustes: vistaAjustes }[modo] || vistaPortada)(decodeURIComponent(id));
   window.scrollTo(0, 0);
 }
@@ -1243,6 +1299,7 @@ async function iniciar() {
     app.innerHTML = `<div class="panel">No se pudieron cargar las posiciones.</div>`;
     return;
   }
+  try { CASILLAS = await (await fetch("datos/casillas.json")).json(); } catch { CASILLAS = []; }
   window.addEventListener("hashchange", enrutar);
   document.addEventListener("click", (ev) => {
     const b = ev.target.closest("[data-nivel]");
