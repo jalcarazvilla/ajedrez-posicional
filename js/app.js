@@ -2,10 +2,10 @@
 import { Tablero, Chess, lineaSan, uciASan } from "./tablero.js";
 import { motor, aCp, textoEval } from "./motor.js";
 import { aplicarResultado, estadoElo, eloEjercicio, multiplicador, problemaDelDia, marcarDiario, rachaDiariaVigente, estadoDiario, hoy, CALIBRACION } from "./elo.js";
-import { rankingActivo, jugador, nombreValido, enviarElo, tabla, MINIMO, enviarPuntos, buscarClubes, clubPorId, rankingClubes, miembrosClub, crearClub, unirseClub, borrarJugador } from "./ranking.js";
+import { rankingActivo, jugador, nombreValido, enviarElo, tabla, MINIMO, enviarPuntos, listarClubes, clubPorId, rankingClubes, miembrosClub, unirseClub, borrarJugador } from "./ranking.js";
 
 // Súbela a la vez que versionName en movil/android/app/build.gradle.
-const VERSION_APP = "1.4.0";
+const VERSION_APP = "1.5.0";
 const app = document.getElementById("app");
 let POSICIONES = [];
 let CASILLAS = []; // ejercicios de "Encuentra la casilla" (datos/casillas.json)
@@ -994,21 +994,19 @@ function vistaPortada() {
 }
 
 // ---------- Ranking (jugadores y clubes) ----------
-const COLORES_CLUB = ["#8a5a2b", "#b03a2e", "#2f7d4f", "#1f5fa8", "#6a4fb3", "#0e7c8c", "#c46a1a", "#2b2622"];
-const PALABRAS_VACIAS = new Set(["club", "de", "del", "la", "el", "los", "las", "y", "ajedrez", "c.a.", "ca", "cda", "a.d.", "ad", "sociedad", "escuela", "círculo", "circulo", "chess"]);
-function iniciales(nombre) {
-  const p = nombre.split(/\s+/).filter((x) => x && !PALABRAS_VACIAS.has(x.toLowerCase()));
-  return ((p.length ? p : nombre.split(/\s+/)).slice(0, 3).map((x) => x[0]).join("") || "?").toUpperCase();
-}
-// Escudo automático: forma de escudo con el color del club y sus iniciales.
+const CORREO_CLUBES = "ajedrezposicional@gmail.com";
+// Escudo del club: su logo si lo tiene; si no, un escudo genérico con un caballo de ajedrez.
 function escudo(club, tam = 40) {
-  const ini = iniciales(club.nombre);
-  const fs = ini.length >= 3 ? 30 : 38;
+  if (club.logo) return `<img class="escudo logo-club" src="${h(club.logo)}" width="${tam}" height="${tam}" alt="" loading="lazy">`;
   return `<svg class="escudo" width="${tam}" height="${Math.round(tam * 1.15)}" viewBox="0 0 100 115" aria-hidden="true">
     <path d="M50 3 L95 18 V55 C95 85 72 104 50 112 C28 104 5 85 5 55 V18 Z" fill="${h(club.color || "#8a5a2b")}" stroke="rgba(0,0,0,.25)" stroke-width="3"/>
     <path d="M50 12 L86 24 V55 C86 79 68 95 50 102 C32 95 14 79 14 55 V24 Z" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="2.5"/>
-    <text x="50" y="66" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="800" font-size="${fs}" fill="#fff">${h(ini)}</text></svg>`;
+    <text x="50" y="76" text-anchor="middle" font-size="52" fill="#fff">♞</text></svg>`;
 }
+const enlaceAltaClub = () => `mailto:${CORREO_CLUBES}?subject=${encodeURIComponent("Alta de club en Ajedrez Posicional")}&body=${encodeURIComponent(
+  "Nombre del club:\nLocalidad:\nComunidad autónoma:\nCorreo de contacto del club:\n\n" +
+  "Adjunta el logo del club (PNG o JPG, lo más grande posible).\n\n" +
+  "Confirmo que el club nos da permiso para usar su nombre y su logo en la aplicación: SÍ / NO")}`;
 
 async function vistaRanking(pestana) {
   const gen = generacion;
@@ -1099,7 +1097,7 @@ async function vistaRanking(pestana) {
     });
     tablaClubes("mes");
     if (club) {
-      // Refresca nombre, color y miembros del club por si han cambiado.
+      // Refresca nombre, logo y miembros del club por si han cambiado.
       try {
         const c = await clubPorId(club.id);
         if (gen !== generacion || !c) return;
@@ -1169,79 +1167,42 @@ async function vistaRanking(pestana) {
   function buscador() {
     return `
       <h2>¿Juegas en un club?</h2>
-      <p class="meta">Busca tu club por nombre o ciudad y únete para sumar puntos con tus compañeros.</p>
-      <input id="buscar-club" class="campo-nombre" placeholder="Ej. Murcia, Club Ajedrez…" autocomplete="off">
-      <div id="resultados-club"></div>
-      <details class="desplegable" id="nuevo-club">
-        <summary>¿No está tu club? Añádelo</summary>
-        <div class="desplegable-cuerpo">
-          <form id="form-club" class="form-club">
-            <label>Nombre del club <input id="club-nombre" maxlength="60" required placeholder="Ej. Club de Ajedrez Ejemplo"></label>
-            <label>Ciudad <input id="club-ciudad" maxlength="40" required placeholder="Ej. Murcia"></label>
-            <span>Color del escudo</span>
-            <div class="colores-club">${COLORES_CLUB.map((c, i) => `<button type="button" data-color="${c}" class="${i ? "" : "elegido"}" style="background:${c}" aria-label="Color ${c}"></button>`).join("")}</div>
-            <div class="vista-escudo" id="vista-escudo"></div>
-            <button class="boton principal">Crear club y unirme</button>
-            <span id="crear-estado" class="meta"></span>
-          </form>
-        </div>
-      </details>`;
+      <p class="meta">Busca tu club y únete para sumar puntos con tus compañeros.</p>
+      <input id="buscar-club" class="campo-nombre" placeholder="Busca por nombre o localidad…" autocomplete="off">
+      <div id="resultados-club"><p class="pensando">Cargando clubes…</p></div>
+      <div class="aviso alta-club">¿No está tu club? <a href="${enlaceAltaClub()}">Pide que lo demos de alta</a>
+        enviando el nombre, la localidad, un correo de contacto y el logo a <b>${CORREO_CLUBES}</b>. Revisamos cada solicitud a mano.</div>`;
   }
-  function activarBuscador() {
+  async function activarBuscador() {
     const input = document.getElementById("buscar-club");
     const res = document.getElementById("resultados-club");
-    let espera, color = COLORES_CLUB[0];
-    input.oninput = () => {
-      clearTimeout(espera);
-      const texto = input.value.trim();
-      if (texto.length < 2) { res.innerHTML = ""; return; }
-      espera = setTimeout(async () => {
-        try {
-          const filas = await buscarClubes(texto);
-          if (gen !== generacion || input.value.trim() !== texto) return;
-          res.innerHTML = filas.length ? filas.map((c) => `
-            <div class="club-resultado">${escudo(c, 34)}
-              <span><b>${h(c.nombre)}</b><small>${h(c.ciudad)} · ${c.miembros} miembro${c.miembros === 1 ? "" : "s"}</small></span>
-              <button class="boton principal" data-club="${c.id}">Unirme</button></div>`).join("")
-            : `<p class="meta">No hay ningún club con ese nombre. Puedes añadirlo abajo.</p>`;
-          res.querySelectorAll("[data-club]").forEach((b) => {
-            b.onclick = async () => {
-              b.disabled = true;
-              try {
-                await unirseClub(leerProgreso(), estadoElo(leerProgreso()), b.dataset.club);
-                const p = leerProgreso(); p.club = filas.find((c) => c.id === b.dataset.club); guardarProgreso(p);
-                pintarClubes();
-              } catch (err) { b.disabled = false; b.insertAdjacentHTML("afterend", `<small class="error">${h(err.message)}</small>`); }
-            };
-          });
-        } catch { res.innerHTML = `<p class="meta">Sin conexión.</p>`; }
-      }, 300);
+    let todos = [];
+    const sinTildes = (t) => t.normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase();
+    const pintar = () => {
+      const q = sinTildes(input.value.trim());
+      const filas = todos.filter((c) => !q || sinTildes(`${c.nombre} ${c.ciudad} ${c.comunidad || ""}`).includes(q));
+      res.innerHTML = filas.length ? filas.map((c) => `
+        <div class="club-resultado">${escudo(c, 40)}
+          <span><b>${h(c.nombre)}</b><small>${h(c.ciudad)} · ${c.miembros} miembro${c.miembros === 1 ? "" : "s"}</small></span>
+          <button class="boton principal" data-club="${c.id}">Unirme</button></div>`).join("")
+        : `<p class="meta">No hay ningún club con ese nombre. Si es el tuyo, pide el alta abajo.</p>`;
+      res.querySelectorAll("[data-club]").forEach((b) => {
+        b.onclick = async () => {
+          b.disabled = true;
+          try {
+            await unirseClub(leerProgreso(), estadoElo(leerProgreso()), b.dataset.club);
+            const p = leerProgreso(); p.club = todos.find((c) => c.id === b.dataset.club); guardarProgreso(p);
+            pintarClubes();
+          } catch (err) { b.disabled = false; b.insertAdjacentHTML("afterend", `<small class="error">${h(err.message)}</small>`); }
+        };
+      });
     };
-    const nombre = document.getElementById("club-nombre"), ciudad = document.getElementById("club-ciudad");
-    const vista = () => { document.getElementById("vista-escudo").innerHTML = escudo({ nombre: nombre.value || "Mi Club", color }, 56); };
-    nombre.oninput = vista;
-    vista();
-    document.querySelectorAll(".colores-club button").forEach((b) => {
-      b.onclick = () => {
-        color = b.dataset.color;
-        document.querySelectorAll(".colores-club button").forEach((x) => x.classList.toggle("elegido", x === b));
-        vista();
-      };
-    });
-    document.getElementById("form-club").onsubmit = async (ev) => {
-      ev.preventDefault();
-      const est = document.getElementById("crear-estado");
-      const n = nombre.value.trim(), c = ciudad.value.trim();
-      if (n.length < 3 || c.length < 2) { est.textContent = "Escribe el nombre (3 letras o más) y la ciudad."; return; }
-      est.textContent = "Creando…";
-      try {
-        const id = await crearClub(leerProgreso(), estadoElo(leerProgreso()), n, c, color);
-        const p = leerProgreso(); p.club = { id, nombre: n, ciudad: c, color, miembros: 1 }; guardarProgreso(p);
-        pintarClubes();
-      } catch (err) {
-        est.textContent = /duplicate|unique|clubes_unico/.test(err.message) ? "Ese club ya existe en esa ciudad: búscalo arriba." : err.message;
-      }
-    };
+    input.oninput = pintar;
+    try {
+      todos = await listarClubes();
+      if (gen !== generacion) return;
+      pintar();
+    } catch { res.innerHTML = `<p class="meta">No se pudieron cargar los clubes (¿sin conexión?).</p>`; }
   }
 }
 

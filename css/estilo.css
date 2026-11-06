@@ -413,3 +413,8 @@ html[data-tablero="morado"] { --cas-clara: #efefef; --cas-oscura: #8877b7; }
 /* Encuentra la casilla */
 .titulo-casilla { font-size: 1.3rem; margin: 4px 0 8px; }
 .casilla-sol { font-family: ui-monospace, monospace; background: var(--acento-suave); padding: 1px 6px; border-radius: 5px; }
+
+/* Logos de los clubes */
+.logo-club { border-radius: 10px; object-fit: contain; background: #fff; box-shadow: 0 0 0 1px var(--borde); flex: none; }
+.alta-club { margin-top: 12px; }
+#resultados-club { max-height: 60vh; overflow-y: auto; }

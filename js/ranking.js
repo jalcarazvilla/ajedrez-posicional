@@ -78,6 +78,7 @@ async function asegurarJugador(prog, elo) {
 const q = encodeURIComponent;
 export const buscarClubes = (texto) =>
   leer(`clubes_lista?select=*&or=(nombre.ilike.*${q(texto)}*,ciudad.ilike.*${q(texto)}*)&order=miembros.desc&limit=20`);
+export const listarClubes = () => leer("clubes_lista?select=*&order=nombre.asc&limit=1000");
 export const clubPorId = async (id) => (await leer(`clubes_lista?select=*&id=eq.${q(id)}`))[0] || null;
 export const rankingClubes = (periodo) => leer(`ranking_clubes_${periodo === "anio" ? "anio" : "mes"}?select=*&order=puntos.desc&limit=100`);
 export const miembrosClub = (id) => leer(`miembros_club?select=*&club_id=eq.${q(id)}&order=puntos_mes.desc,elo.desc&limit=200`);
