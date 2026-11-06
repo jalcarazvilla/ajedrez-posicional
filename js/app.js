@@ -5,7 +5,7 @@ import { aplicarResultado, estadoElo, eloEjercicio, multiplicador, problemaDelDi
 import { rankingActivo, jugador, nombreValido, enviarElo, tabla, MINIMO, enviarPuntos, buscarClubes, clubPorId, rankingClubes, miembrosClub, crearClub, unirseClub, borrarJugador } from "./ranking.js";
 
 // Súbela a la vez que versionName en movil/android/app/build.gradle.
-const VERSION_APP = "1.2.0";
+const VERSION_APP = "1.3.0";
 const app = document.getElementById("app");
 let POSICIONES = [];
 let tablero = null;
@@ -364,7 +364,8 @@ function bloqueElo(c) {
 // Niveles de los ejercicios. El Elo es el marcador (solo cambia jugando); el nivel es lo que eliges entrenar.
 const TRAMOS = [
   { id: "auto", texto: "Automático", nota: "Se adapta a tu Elo" },
-  { id: "principiante", texto: "Principiante", nota: "Hasta 1400", min: 0, max: 1400 },
+  { id: "iniciacion", texto: "Iniciación", nota: "Hasta 1200", min: 0, max: 1200 },
+  { id: "principiante", texto: "Principiante", nota: "1200–1400", min: 1200, max: 1400 },
   { id: "aficionado", texto: "Aficionado", nota: "1400–1900", min: 1400, max: 1900 },
   { id: "club", texto: "Club", nota: "1900–2300", min: 1900, max: 2300 },
   { id: "maestro", texto: "Maestro", nota: "2300 o más", min: 2300, max: 9999 },
