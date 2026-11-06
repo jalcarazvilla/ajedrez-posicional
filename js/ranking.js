@@ -45,9 +45,62 @@ export async function enviarElo(prog, elo) {
 }
 
 export async function tabla(limite = 50) {
-  const r = await fetch(`${RANKING.url}/rest/v1/ranking?select=id,nombre,elo,ejercicios,mejor_racha&order=elo.desc&limit=${limite}`, { headers: cabeceras() });
-  if (!r.ok) throw new Error(`ranking ${r.status}`);
+  return leer(`ranking?select=id,nombre,elo,ejercicios,mejor_racha,club&order=elo.desc&limit=${limite}`);
+}
+
+// ---------- Clubes ----------
+async function leer(ruta) {
+  const r = await fetch(`${RANKING.url}/rest/v1/${ruta}`, { headers: cabeceras() });
+  if (!r.ok) throw new Error(`${ruta.split("?")[0]} ${r.status}`);
   return r.json();
+}
+// Llama a una función del servidor con la identidad del jugador. Si falla, lanza el mensaje del servidor.
+async function rpc(nombre, prog, datos = {}) {
+  const j = jugador(prog);
+  const r = await fetch(`${RANKING.url}/rest/v1/rpc/${nombre}`, {
+    method: "POST", headers: cabeceras(), body: JSON.stringify({ p_id: j.id, p_clave: j.clave, ...datos }),
+  });
+  const texto = await r.text();
+  if (!r.ok) {
+    let msg = `Error ${r.status}`;
+    try { msg = JSON.parse(texto).message || msg; } catch {}
+    throw new Error(msg);
+  }
+  return texto ? JSON.parse(texto) : null;
+}
+// El jugador tiene que existir en el servidor antes de unirse a un club o sumar puntos.
+async function asegurarJugador(prog, elo) {
+  const j = jugador(prog);
+  if (!j.nombre) j.nombre = "Jugador";
+  if ((await enviarElo(prog, elo)) === null) throw new Error("No se pudo conectar con el servidor.");
+}
+
+const q = encodeURIComponent;
+export const buscarClubes = (texto) =>
+  leer(`clubes_lista?select=*&or=(nombre.ilike.*${q(texto)}*,ciudad.ilike.*${q(texto)}*)&order=miembros.desc&limit=20`);
+export const clubPorId = async (id) => (await leer(`clubes_lista?select=*&id=eq.${q(id)}`))[0] || null;
+export const rankingClubes = (periodo) => leer(`ranking_clubes_${periodo === "anio" ? "anio" : "mes"}?select=*&order=puntos.desc&limit=100`);
+export const miembrosClub = (id) => leer(`miembros_club?select=*&club_id=eq.${q(id)}&order=puntos_mes.desc,elo.desc&limit=200`);
+
+export async function crearClub(prog, elo, nombre, ciudad, color) {
+  await asegurarJugador(prog, elo);
+  return rpc("crear_club", prog, { p_nombre: nombre, p_ciudad: ciudad, p_color: color });
+}
+export async function unirseClub(prog, elo, club) {
+  await asegurarJugador(prog, elo);
+  return rpc("unirse_club", prog, { p_club: club });
+}
+export const borrarJugador = (prog) => rpc("borrar_jugador", prog);
+
+// Envía los puntos pendientes (ejercicios resueltos por primera vez). Devuelve los que no se pudieron enviar.
+export async function enviarPuntos(prog, pendientes) {
+  if (!rankingActivo() || !jugador(prog).nombre) return pendientes;
+  const quedan = [];
+  for (const x of pendientes) {
+    try { await rpc("sumar_puntos", prog, { p_ejercicio: x.ejercicio, p_puntos: x.puntos }); }
+    catch (e) { if (!/límite|clave/.test(e.message)) quedan.push(x); }
+  }
+  return quedan;
 }
 
 export { MINIMO };

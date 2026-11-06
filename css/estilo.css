@@ -368,3 +368,44 @@ html[data-tablero="morado"] { --cas-clara: #efefef; --cas-oscura: #8877b7; }
 @keyframes destello { 0% { opacity: 0; } 12% { opacity: .55; } 35% { opacity: .45; } 100% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .destello-verde .tablero::after, .destello-amarillo .tablero::after, .destello-rojo .tablero::after { animation-duration: .01s; } }
 .version { text-align: center; font-size: 13px; margin-top: 18px; }
+
+/* Niveles */
+.titulo-seccion { font-size: 17px; margin: 22px 0 10px; }
+.tarjetas.niveles { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+.tarjeta.nivel { text-align: left; }
+.tarjeta.nivel .cuenta { color: var(--acento); font-weight: 600; }
+.sugerencia-nivel { margin: 8px 0; padding: 10px 12px; border-radius: 8px; background: var(--aviso-suave); border: 1px solid var(--aviso); display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; }
+.boton.peligro { border-color: var(--mal); color: var(--mal); }
+.elo-cambio small { color: var(--suave); }
+
+/* Pestañas del ranking */
+.pestanas { display: flex; gap: 6px; margin-bottom: 14px; }
+.pestanas a, .pestanas button {
+  flex: 1; text-align: center; text-decoration: none; padding: 9px 10px; border-radius: 10px; font: inherit; font-weight: 600;
+  border: 1.5px solid var(--borde); background: var(--panel); color: var(--suave); cursor: pointer;
+}
+.pestanas .activa { border-color: var(--acento); background: var(--acento-suave); color: var(--acento); }
+.pestanas.pequenas a, .pestanas.pequenas button { flex: 0 0 auto; padding: 6px 12px; font-size: 14px; }
+
+/* Clubes */
+.escudo { flex-shrink: 0; display: block; }
+.mi-club { display: flex; gap: 14px; align-items: center; }
+.mi-club h2 { margin: 0; }
+.mi-club .meta { margin: 2px 0 0; }
+.club-celda { display: inline-flex; align-items: center; gap: 8px; }
+.club-celda small, .club-resultado small { display: block; color: var(--suave); font-size: 12px; }
+.club-resultado { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--borde); }
+.club-resultado > span { flex: 1; min-width: 0; }
+#resultados-club { margin: 6px 0 4px; }
+.form-club { display: grid; gap: 10px; }
+.form-club label { display: grid; gap: 4px; font-weight: 600; font-size: 14px; }
+.form-club input { font: inherit; padding: 9px 10px; border-radius: 8px; border: 1.5px solid var(--borde); background: var(--panel); color: var(--texto); }
+.form-club > span { font-weight: 600; font-size: 14px; }
+.colores-club { display: flex; flex-wrap: wrap; gap: 8px; }
+.colores-club button { width: 32px; height: 32px; border-radius: 50%; border: 3px solid transparent; cursor: pointer; box-shadow: 0 0 0 1px var(--borde); }
+.colores-club button.elegido { border-color: var(--panel); box-shadow: 0 0 0 3px var(--acento); }
+.vista-escudo { display: flex; justify-content: center; }
+.error { color: var(--mal); display: block; }
+.explicacion-clubes { margin-top: 14px; }
+.lista.clubes td { vertical-align: middle; }
+.tarjeta.nivel small { display: block; }

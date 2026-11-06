@@ -2,9 +2,13 @@
 // Todo vive en el mismo objeto de progreso de localStorage que el resto de la app.
 
 export const ELO_INICIAL = 1500;
-const K_NOVATO = 40;      // primeros ejercicios: el Elo se ajusta rápido
+// Calibración: los primeros ejercicios mueven mucho el Elo para que cada uno llegue pronto a su sitio
+// aunque haya elegido mal el Elo de partida.
+const K_CALIBRACION = 80; // primeros CALIBRACION ejercicios
+export const CALIBRACION = 10;
+const K_NOVATO = 40;      // hasta el ejercicio NOVATO
 const K_NORMAL = 24;
-const NOVATO = 20;
+const NOVATO = 25;
 const ACIERTO = 0.7;      // a partir de este porcentaje el ejercicio cuenta como acierto para la racha
 const PASO_MULT = 0.1;    // cada acierto seguido a partir del segundo suma +0.1 al multiplicador
 const MULT_MAX = 2;
@@ -28,7 +32,8 @@ export function multiplicador(racha) {
 export function aplicarResultado(prog, rival, puntuacion) {
   const e = estadoElo(prog);
   const esperado = 1 / (1 + 10 ** ((rival - e.valor) / 400));
-  const k = e.partidas < NOVATO ? K_NOVATO : K_NORMAL;
+  const k = e.partidas < CALIBRACION ? K_CALIBRACION : e.partidas < NOVATO ? K_NOVATO : K_NORMAL;
+  const calibrando = e.partidas < CALIBRACION;
   const mult = multiplicador(e.racha);
   let delta = k * (puntuacion - esperado);
   if (delta > 0) delta *= mult; // el multiplicador premia, no castiga
@@ -41,7 +46,7 @@ export function aplicarResultado(prog, rival, puntuacion) {
   e.maximo = Math.max(e.maximo, e.valor);
   e.historial = [...e.historial, [Date.now(), e.valor]].slice(-200);
   prog.elo = e;
-  return { delta, valor: e.valor, racha: e.racha, mult, acierto, siguienteMult: multiplicador(e.racha) };
+  return { delta, valor: e.valor, racha: e.racha, mult, acierto, siguienteMult: multiplicador(e.racha), calibrando, partidas: e.partidas };
 }
 
 // ---------- Problema del día ----------
