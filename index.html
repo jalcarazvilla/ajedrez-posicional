@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ajedrez: Entrenador Posicional</title>
+  <meta name="description" content="Entrenamiento de comprensión posicional y planes a largo plazo">
+  <meta name="theme-color" content="#2b2622">
+  <link rel="stylesheet" href="vendor/chessground.base.css">
+  <link rel="stylesheet" href="vendor/chessground.brown.css">
+  <link rel="stylesheet" href="vendor/chessground.cburnett.css">
+  <link rel="stylesheet" href="css/estilo.css">
+  <link rel="stylesheet" href="css/piezas.css">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" id="icono-app" href="data:image/png;base64,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">
+  <link rel="apple-touch-icon" href="iconos/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Posicional">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+  <header class="cabecera">
+    <a class="marca" href="#/">Entrenador <span>Posicional</span></a>
+    <nav class="menu" id="menu" aria-label="Modos"></nav>
+    <span class="cabecera-derecha">
+      <a class="elo-cabecera" id="elo-cabecera" href="#/ranking" title="Tu Elo"></a>
+      <a class="ajustes-link" href="#/ajustes" title="Ajustes" aria-label="Ajustes">⚙</a>
+    </span>
+  </header>
+  <main id="app" class="app"></main>
+  <script type="module" src="js/app.js"></script>
+  <script>
+    if ("serviceWorker" in navigator && location.hostname !== "localhost" && location.hostname !== "127.0.0.1") {
+      navigator.serviceWorker.register("sw.js").catch(() => {});
+    }
+  </script>
+</body>
+</html>
