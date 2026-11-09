@@ -8,7 +8,7 @@ import { rankingActivo, jugador, nombreValido, enviarElo, tabla, MINIMO, enviarP
   peticionesAdmin, resolverAdmin } from "./ranking.js";
 
 // Súbela a la vez que versionName en movil/android/app/build.gradle.
-const VERSION_APP = "1.7.3";
+const VERSION_APP = "1.8.0";
 const app = document.getElementById("app");
 let POSICIONES = [];
 let CASILLAS = []; // ejercicios de "Encuentra la casilla" (datos/casillas.json)
@@ -479,11 +479,15 @@ function nombrePartida(p) {
 function cabeceraPosicion(p) {
   const lugar = [p.lugar, p.anio].filter(Boolean).join(" ");
   return `
-    ${p.plan && p.id === problemaDelDia(listaDiario())?.id ? `<span class="insignia-diario">📅 Problema del día</span>` : ""}
-    <h2>${h(nombrePartida(p))}</h2>
-    <div class="meta">${lugar ? h(lugar) + " · " : ""}${h(p.fuente)}</div>
-    <span class="turno ${turnoDe(p.fen)}">${nombreTurno(p.fen)}</span>
-    <span class="elo-ejercicio" title="Dificultad del ejercicio">Nivel ${eloEjercicio(p)}</span>`;
+    <div class="cabecera-posicion">
+      ${p.plan && p.id === problemaDelDia(listaDiario())?.id ? `<span class="etiqueta-mayus acento">Problema del día</span>` : ""}
+      <h2>${h(nombrePartida(p))}</h2>
+      <div class="meta">${lugar ? h(lugar) + " · " : ""}${h(p.fuente)}</div>
+      <div class="fila-turno">
+        <span class="turno ${turnoDe(p.fen)}">${nombreTurno(p.fen)}</span>
+        <span class="chip-nivel" title="Dificultad del ejercicio">Nivel ${eloEjercicio(p)}</span>
+      </div>
+    </div>`;
 }
 // Desplegable cerrado por defecto (Ajustes > Ejercicios permite tenerlos siempre abiertos).
 const abiertos = () => Boolean(leerProgreso().ajustes?.desplegados);
@@ -492,7 +496,7 @@ const desplegable = (id, titulo, contenido) => `
     <summary>${titulo}</summary><div class="desplegable-cuerpo">${contenido}</div>
   </details>`;
 const abrir = (id) => { const d = document.getElementById(id); if (d) d.open = true; };
-const concepto = (p) => `<p class="concepto">Idea clave: <b>${h(p.titulo)}</b></p>`;
+const concepto = (p) => `<p class="concepto"><span class="etiqueta-mayus acento">Idea clave</span><b>${h(p.titulo)}</b></p>`;
 // Análisis a fondo (solo en las posiciones revisadas): lectura de la posición e idea para recordar.
 const claves = (p) => (p.claves ? `
   <h3>Claves de la posición</h3>

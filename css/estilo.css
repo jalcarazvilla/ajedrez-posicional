@@ -540,3 +540,68 @@ a.panel:active, .modo-v2:active, .tarjeta:active, .opcion:not(:disabled):active,
 .peticion-admin p { margin: 0 0 6px; }
 .peticion-admin blockquote { margin: 0 0 8px; padding: 8px 12px; border-left: 3px solid var(--acento); background: var(--acento-suave); border-radius: 8px; font-size: 15px; }
 .botones-peticion { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* ===== Pantallas de ejercicio pulidas (v1.8.0) ===== */
+.cabecera-posicion { display: grid; gap: 4px; margin-bottom: 6px; }
+.cabecera-posicion h2 { font-size: 24px; margin: 0; }
+.cabecera-posicion .meta { margin: 0; }
+.fila-turno { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 6px; flex-wrap: wrap; }
+.chip-nivel { font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 4px 10px; border-radius: 99px; background: var(--acento-suave); color: var(--acento); }
+.concepto { display: grid; gap: 2px; margin: 10px 0 6px; }
+.concepto b { font-family: var(--f-titulo); font-weight: 400; font-size: 21px; line-height: 1.2; }
+.pregunta { font-weight: 700; }
+
+/* Resultado: icono, titular y Elo bien visibles */
+.resultado > p:first-child { display: flex; align-items: center; gap: 10px; margin-top: 0; font-size: 18px; }
+.resultado.bien > p:first-child::before, .resultado.mal > p:first-child::before {
+  flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center;
+  font-weight: 800; font-size: 16px; color: var(--sobre-acento);
+}
+.resultado.bien > p:first-child::before { content: "✓"; background: var(--bien); }
+.resultado.mal > p:first-child::before { content: "✕"; background: var(--mal); }
+.elo-cambio { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; }
+.elo-cambio > b { font-size: 20px; padding: 2px 10px; border-radius: 99px; background: var(--panel-2); }
+.elo-cambio.sube > b { color: var(--bien); background: var(--bien-suave); }
+.elo-cambio.baja > b { color: var(--mal); background: var(--mal-suave); }
+.elo-cambio small { flex-basis: 100%; }
+
+/* Botones de después de resolver: grandes y fáciles de pulsar en el móvil */
+#botones { position: relative; }
+#botones .boton { min-height: 48px; }
+@media (max-width: 600px) {
+  #botones { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  #botones .boton.principal { grid-column: 1 / -1; font-size: 17px; }
+  .ejercicio { gap: 14px; }
+  .panel#panel { padding: 16px; }
+}
+
+/* Controles de la partida bajo el tablero */
+.bajo-tablero .boton { min-width: 44px; min-height: 40px; padding: 6px 10px; }
+.bajo-tablero > span:last-child { display: inline-flex; gap: 6px; }
+
+/* ===== Ranking y clubes ===== */
+.pestanas { background: var(--panel-2); padding: 4px; border-radius: 14px; gap: 4px; }
+.pestanas a, .pestanas button { border: none; background: none; box-shadow: none; border-radius: 10px; }
+.pestanas .activa { background: var(--acento); color: var(--sobre-acento); box-shadow: none; }
+.pestanas.pequenas { display: inline-flex; }
+.lista { border-collapse: separate; border-spacing: 0; }
+.lista tbody tr td { border-bottom: 1px solid var(--borde); }
+.lista tbody tr:last-child td { border-bottom: none; }
+.lista tbody td:first-child { width: 2.6em; }
+.lista tbody tr:nth-child(-n+3) td:first-child { font-weight: 800; }
+.lista tbody tr:nth-child(1) td:first-child { color: #e9c45a; }
+.lista tbody tr:nth-child(2) td:first-child { color: #c3cbd6; }
+.lista tbody tr:nth-child(3) td:first-child { color: #d49a6a; }
+:root[data-tema="blanco"] .lista tbody tr:nth-child(1) td:first-child, :root[data-tema="madera"] .lista tbody tr:nth-child(1) td:first-child { color: #a67c00; }
+:root[data-tema="blanco"] .lista tbody tr:nth-child(2) td:first-child, :root[data-tema="madera"] .lista tbody tr:nth-child(2) td:first-child { color: #6b7686; }
+:root[data-tema="blanco"] .lista tbody tr:nth-child(3) td:first-child, :root[data-tema="madera"] .lista tbody tr:nth-child(3) td:first-child { color: #9c5a24; }
+.lista tr.yo td { background: var(--acento-suave); }
+.lista tr.yo td:first-child { box-shadow: inset 3px 0 0 var(--acento); border-radius: 8px 0 0 8px; }
+.lista tr.yo td:last-child { border-radius: 0 8px 8px 0; }
+.mi-club { padding: 4px 0 8px; }
+.mi-club h2 { font-size: 26px; }
+.club-resultado { padding: 10px 8px; border-radius: 12px; border-bottom: none; }
+.club-resultado + .club-resultado { border-top: 1px solid var(--borde); }
+@media (hover: hover) { .club-resultado:hover { background: var(--panel-2); } }
+.club-resultado b { font-size: 15px; }
+#buscar-club { margin: 6px 0 4px; }
