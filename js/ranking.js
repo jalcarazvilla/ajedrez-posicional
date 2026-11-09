@@ -93,6 +93,21 @@ export async function unirseClub(prog, elo, club) {
 }
 export const borrarJugador = (prog) => rpc("borrar_jugador", prog);
 
+// Clubes con administrador: pedir la entrada, ver el propio estado y, si eres administrador, aceptar o rechazar.
+export async function solicitarClub(prog, elo, club) {
+  await asegurarJugador(prog, elo);
+  return rpc("solicitar_club", prog, { p_club: club });
+}
+export const cancelarSolicitud = (prog) => rpc("cancelar_solicitud", prog);
+export const miClub = (prog) => rpc("mi_club", prog);
+export async function pedirAdmin(prog, elo, club, mensaje) {
+  await asegurarJugador(prog, elo);
+  return rpc("pedir_admin", prog, { p_club: club, p_mensaje: mensaje });
+}
+export const solicitudesPendientes = (prog) => rpc("solicitudes_pendientes", prog);
+export const resolverSolicitud = (prog, jugadorId, aceptar) => rpc("resolver_solicitud", prog, { p_jugador: jugadorId, p_aceptar: aceptar });
+export const expulsarMiembro = (prog, jugadorId) => rpc("expulsar_miembro", prog, { p_jugador: jugadorId });
+
 // Envía los puntos pendientes (ejercicios resueltos por primera vez). Devuelve los que no se pudieron enviar.
 export async function enviarPuntos(prog, pendientes) {
   if (!rankingActivo() || !jugador(prog).nombre) return pendientes;

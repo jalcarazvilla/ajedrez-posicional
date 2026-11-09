@@ -3,10 +3,11 @@ import { Tablero, Chess, lineaSan, uciASan } from "./tablero.js";
 import { Chessground } from "../vendor/chessground.js";
 import { motor, aCp, textoEval } from "./motor.js";
 import { aplicarResultado, estadoElo, eloEjercicio, multiplicador, problemaDelDia, marcarDiario, rachaDiariaVigente, estadoDiario, hoy, CALIBRACION } from "./elo.js";
-import { rankingActivo, jugador, nombreValido, enviarElo, tabla, MINIMO, enviarPuntos, listarClubes, clubPorId, rankingClubes, miembrosClub, unirseClub, borrarJugador } from "./ranking.js";
+import { rankingActivo, jugador, nombreValido, enviarElo, tabla, MINIMO, enviarPuntos, listarClubes, clubPorId, rankingClubes, miembrosClub, unirseClub, borrarJugador,
+  solicitarClub, cancelarSolicitud, miClub, pedirAdmin, solicitudesPendientes, resolverSolicitud, expulsarMiembro } from "./ranking.js";
 
 // Súbela a la vez que versionName en movil/android/app/build.gradle.
-const VERSION_APP = "1.6.4";
+const VERSION_APP = "1.7.0";
 const app = document.getElementById("app");
 let POSICIONES = [];
 let CASILLAS = []; // ejercicios de "Encuentra la casilla" (datos/casillas.json)
@@ -1088,6 +1089,9 @@ async function vistaRanking(pestana) {
   guardarProgreso(prog);
   const e = estadoElo(prog);
   const clubes = pestana === "clubes";
+  // Estado del jugador en los clubes (lo rellena pintarClubes al preguntar al servidor).
+  let estadoClub = { admin: [], admin_pedido: [], solicitud: null };
+  const soyAdmin = (id) => (estadoClub.admin || []).includes(id);
   app.innerHTML = `
     <section class="panel ranking">
       <div class="pestanas">
@@ -1150,6 +1154,18 @@ async function vistaRanking(pestana) {
 
   // ----- Clubes -----
   async function pintarClubes() {
+    let estado = { club_id: leerProgreso().club?.id || null, solicitud: null, admin: [], admin_pedido: [] };
+    if (leerProgreso().jugador?.id) {
+      try {
+        estado = await miClub(leerProgreso());
+        if (gen !== generacion) return;
+        const p = leerProgreso();
+        if (!estado.club_id) delete p.club;
+        else if (p.club?.id !== estado.club_id) p.club = (await clubPorId(estado.club_id)) || { id: estado.club_id, nombre: "Tu club", ciudad: "" };
+        guardarProgreso(p);
+      } catch {}
+    }
+    estadoClub = estado;
     const club = leerProgreso().club;
     cont.innerHTML = `
       <div id="mi-club">${club ? tarjetaMiClub(club) : buscador()}</div>
@@ -1206,13 +1222,66 @@ async function vistaRanking(pestana) {
     return `
       <div class="mi-club">
         ${escudo(c, 64)}
-        <div><h2>${h(c.nombre)}</h2><p class="meta">${h(c.ciudad)}${c.miembros ? ` · ${c.miembros} miembro${c.miembros === 1 ? "" : "s"}` : ""}</p></div>
+        <div><h2>${h(c.nombre)}</h2><p class="meta">${h(c.ciudad)}${c.miembros ? ` · ${c.miembros} miembro${c.miembros === 1 ? "" : "s"}` : ""}
+          ${soyAdmin(c.id) ? ` · <span class="insignia-admin">Administrador</span>` : ""}</p></div>
       </div>
+      ${soyAdmin(c.id) ? `<h3>Solicitudes para entrar</h3><div id="solicitudes"><p class="pensando">Cargando…</p></div>` : ""}
       <h3>Jugadores del club este mes</h3>
       <div id="miembros"><p class="pensando">Cargando…</p></div>
-      <p><button class="boton discreto" id="dejar-club">Cambiar de club</button> <span id="club-estado" class="meta"></span></p>`;
+      <p><button class="boton discreto" id="dejar-club">Cambiar de club</button> <span id="club-estado" class="meta"></span></p>
+      ${!c.abierto && !soyAdmin(c.id) ? formularioAdmin(c) : ""}`;
+  }
+  // Petición para ser administrador: la revisa el dueño de la app.
+  function formularioAdmin(c) {
+    if ((estadoClub.admin_pedido || []).includes(c.id)) return `<p class="meta">Has pedido ser administrador de este club. Te avisaremos cuando lo revisemos.</p>`;
+    return `<details class="desplegable" id="pedir-admin">
+      <summary>¿Eres directivo de este club? Pide ser administrador</summary>
+      <div class="desplegable-cuerpo">
+        <p class="meta">Los administradores aceptan o rechazan a quien pide entrar en el club. Revisamos cada petición a mano.</p>
+        <label class="campo-admin">Cuéntanos quién eres en el club (cargo, nombre, cómo comprobarlo)
+          <textarea id="mensaje-admin" maxlength="300" rows="3"></textarea></label>
+        <p><button class="boton principal" id="enviar-admin" data-club="${c.id}">Enviar petición</button> <span id="admin-estado" class="meta"></span></p>
+      </div></details>`;
+  }
+  function activarFormularioAdmin() {
+    const b = document.getElementById("enviar-admin");
+    if (!b) return;
+    b.onclick = async () => {
+      const msg = document.getElementById("mensaje-admin").value.trim();
+      const est = document.getElementById("admin-estado");
+      if (msg.length < 10) { est.textContent = "Escribe un poco más para que podamos comprobarlo."; return; }
+      b.disabled = true;
+      try {
+        await pedirAdmin(leerProgreso(), estadoElo(leerProgreso()), b.dataset.club, msg);
+        est.textContent = "Petición enviada ✓. La revisaremos pronto.";
+      } catch (err) { b.disabled = false; est.textContent = err.message; }
+    };
+  }
+  async function pintarSolicitudes(c) {
+    const caja = document.getElementById("solicitudes");
+    if (!caja) return;
+    try {
+      const filas = (await solicitudesPendientes(leerProgreso())).filter((f) => f.club_id === c.id);
+      if (gen !== generacion) return;
+      caja.innerHTML = filas.length ? filas.map((f) => `
+        <div class="club-resultado"><span><b>${h(f.nombre)}</b><small>Elo ${f.elo} · ${f.ejercicios} ejercicios</small></span>
+          <button class="boton principal" data-aceptar="${f.jugador_id}">Aceptar</button>
+          <button class="boton" data-rechazar="${f.jugador_id}">Rechazar</button></div>`).join("")
+        : `<p class="meta">No hay solicitudes pendientes.</p>`;
+      caja.querySelectorAll("[data-aceptar], [data-rechazar]").forEach((b) => {
+        b.onclick = async () => {
+          b.disabled = true;
+          try {
+            await resolverSolicitud(leerProgreso(), b.dataset.aceptar || b.dataset.rechazar, Boolean(b.dataset.aceptar));
+            pintarClubes();
+          } catch (err) { b.disabled = false; b.insertAdjacentHTML("afterend", `<small class="error">${h(err.message)}</small>`); }
+        };
+      });
+    } catch { caja.innerHTML = `<p class="meta">No se pudieron cargar las solicitudes.</p>`; }
   }
   async function activarMiClub(c) {
+    activarFormularioAdmin();
+    if (soyAdmin(c.id)) pintarSolicitudes(c);
     document.getElementById("dejar-club").onclick = async () => {
       if (!confirm("¿Dejar este club? Solo se puede cambiar de club una vez cada 30 días.")) return;
       try {
@@ -1228,9 +1297,17 @@ async function vistaRanking(pestana) {
       const m = document.getElementById("miembros");
       if (m) m.innerHTML = `
         <table class="lista">
-          <thead><tr><th>#</th><th>Jugador</th><th>Puntos</th><th>Elo</th></tr></thead>
-          <tbody>${filas.map((f, i) => `<tr class="${f.id === id ? "yo" : ""}"><td>${i + 1}</td><td>${h(f.nombre)}</td><td><b>${f.puntos_mes}</b></td><td>${f.elo}</td></tr>`).join("")}</tbody>
+          <thead><tr><th>#</th><th>Jugador</th><th>Puntos</th><th>Elo</th>${soyAdmin(c.id) ? "<th></th>" : ""}</tr></thead>
+          <tbody>${filas.map((f, i) => `<tr class="${f.id === id ? "yo" : ""}"><td>${i + 1}</td><td>${h(f.nombre)}</td><td><b>${f.puntos_mes}</b></td><td>${f.elo}</td>
+            ${soyAdmin(c.id) ? `<td>${f.id === id ? "" : `<button class="boton discreto" data-sacar="${f.id}" data-nombre="${h(f.nombre)}">Sacar</button>`}</td>` : ""}</tr>`).join("")}</tbody>
         </table>`;
+      m?.querySelectorAll("[data-sacar]").forEach((b) => {
+        b.onclick = async () => {
+          if (!confirm(`¿Sacar a ${b.dataset.nombre} del club?`)) return;
+          try { await expulsarMiembro(leerProgreso(), b.dataset.sacar); pintarClubes(); }
+          catch (err) { b.insertAdjacentHTML("afterend", `<small class="error">${h(err.message)}</small>`); }
+        };
+      });
     } catch {
       const m = document.getElementById("miembros");
       if (m) m.innerHTML = `<p class="meta">No se pudieron cargar los miembros.</p>`;
@@ -1240,7 +1317,8 @@ async function vistaRanking(pestana) {
   function buscador() {
     return `
       <h2>¿Juegas en un club?</h2>
-      <p class="meta">Busca tu club y únete para sumar puntos con tus compañeros.</p>
+      <p class="meta">Busca tu club y pide entrar: un administrador del club acepta tu solicitud. Si no tienes club, únete al club abierto de tu comunidad.</p>
+      <div id="mi-solicitud"></div>
       <input id="buscar-club" class="campo-nombre" placeholder="Busca por nombre o localidad…" autocomplete="off">
       <div id="resultados-club"><p class="pensando">Cargando clubes…</p></div>
       <div class="aviso alta-club">¿No está tu club? <a href="${enlaceAltaClub()}">Pide que lo demos de alta</a>
@@ -1254,17 +1332,26 @@ async function vistaRanking(pestana) {
     const pintar = () => {
       const q = sinTildes(input.value.trim());
       const filas = todos.filter((c) => !q || sinTildes(`${c.nombre} ${c.ciudad} ${c.comunidad || ""}`).includes(q));
-      res.innerHTML = filas.length ? filas.map((c) => `
+      const fila = (c) => `
         <div class="club-resultado">${escudo(c, 40)}
-          <span><b>${h(c.nombre)}</b><small>${h(c.ciudad)} · ${c.miembros} miembro${c.miembros === 1 ? "" : "s"}</small></span>
-          <button class="boton principal" data-club="${c.id}">Unirme</button></div>`).join("")
+          <span><b>${h(c.nombre)}</b><small>${h(c.ciudad)} · ${c.miembros} miembro${c.miembros === 1 ? "" : "s"}${!c.abierto && !c.tiene_admin ? " · aún sin administrador" : ""}</small></span>
+          ${c.abierto ? `<button class="boton principal" data-club="${c.id}">Unirme</button>`
+            : estadoClub.solicitud === c.id ? `<span class="meta">Solicitud enviada</span>`
+            : `<button class="boton" data-pedir="${c.id}">Pedir entrar</button>`}</div>`;
+      const abiertos = filas.filter((c) => c.abierto), cerrados = filas.filter((c) => !c.abierto);
+      res.innerHTML = filas.length
+        ? (abiertos.length ? `<h3>Clubes abiertos</h3>${abiertos.map(fila).join("")}` : "") +
+          (cerrados.length ? `<h3>Clubes federados</h3>${cerrados.map(fila).join("")}` : "")
         : `<p class="meta">No hay ningún club con ese nombre. Si es el tuyo, pide el alta abajo.</p>`;
-      res.querySelectorAll("[data-club]").forEach((b) => {
+      res.querySelectorAll("[data-club], [data-pedir]").forEach((b) => {
         b.onclick = async () => {
           b.disabled = true;
+          const clubId = b.dataset.club || b.dataset.pedir;
           try {
-            await unirseClub(leerProgreso(), estadoElo(leerProgreso()), b.dataset.club);
-            const p = leerProgreso(); p.club = todos.find((c) => c.id === b.dataset.club); guardarProgreso(p);
+            const r = await solicitarClub(leerProgreso(), estadoElo(leerProgreso()), clubId);
+            if (r === "dentro") {
+              const p = leerProgreso(); p.club = todos.find((c) => c.id === clubId); guardarProgreso(p);
+            }
             pintarClubes();
           } catch (err) { b.disabled = false; b.insertAdjacentHTML("afterend", `<small class="error">${h(err.message)}</small>`); }
         };
@@ -1273,6 +1360,17 @@ async function vistaRanking(pestana) {
     input.oninput = pintar;
     try {
       todos = await listarClubes();
+      const pedida = todos.find((c) => c.id === estadoClub.solicitud);
+      const caja = document.getElementById("mi-solicitud");
+      if (pedida && caja) {
+        caja.innerHTML = `<div class="aviso">Has pedido entrar en <b>${h(pedida.nombre)}</b>. ${pedida.tiene_admin
+          ? "Un administrador del club la revisará."
+          : "Este club aún no tiene administrador: tu solicitud esperará hasta que lo tenga."}
+          <button class="boton discreto" id="cancelar-solicitud">Cancelar solicitud</button></div>`;
+        document.getElementById("cancelar-solicitud").onclick = async () => {
+          try { await cancelarSolicitud(leerProgreso()); pintarClubes(); } catch {}
+        };
+      }
       if (gen !== generacion) return;
       pintar();
     } catch { res.innerHTML = `<p class="meta">No se pudieron cargar los clubes (¿sin conexión?).</p>`; }

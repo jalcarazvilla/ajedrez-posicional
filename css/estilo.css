@@ -522,3 +522,10 @@ a.panel:active, .modo-v2:active, .tarjeta:active, .opcion:not(:disabled):active,
 .ajuste > summary:focus-visible { outline: 2px solid var(--acento); outline-offset: -2px; border-radius: var(--radio); }
 .ajuste-cuerpo { padding: 0 18px 18px; border-top: 1px solid var(--borde); padding-top: 14px; }
 .ajuste-cuerpo > .meta:first-child { margin-top: 0; }
+
+/* Clubes con administrador (v1.7.0) */
+.insignia-admin { display: inline-block; font-size: 12px; font-weight: 800; padding: 2px 8px; border-radius: 99px; background: var(--acento-suave); color: var(--acento); }
+.campo-admin { display: grid; gap: 6px; font-weight: 600; font-size: 14px; }
+.campo-admin textarea { font: inherit; padding: 10px; border-radius: 10px; border: 1.5px solid var(--borde); background: var(--panel); color: var(--texto); resize: vertical; }
+#resultados-club h3 { margin: 14px 0 4px; }
+.club-resultado .boton { flex-shrink: 0; }
