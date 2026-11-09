@@ -472,3 +472,33 @@ select, input { border-radius: 10px; }
 .barra-progreso { height: 4px; border-radius: 4px; background: var(--borde); overflow: hidden; }
 .barra-progreso i { display: block; height: 100%; background: var(--acento); }
 @media (max-width: 600px) { .modos-v2 { grid-template-columns: 1fr 1fr; } .portada h1 { font-size: 30px; } }
+
+/* ===== Relieve en todo lo que se puede pulsar (v1.6.1) =====
+   Lo pulsable sube un poco sobre el fondo (degradado, brillo arriba y sombra); al tocarlo, baja. Los paneles informativos siguen planos. */
+:root {
+  --relieve: inset 0 1px 0 rgba(255, 255, 255, .07), 0 2px 0 rgba(0, 0, 0, .35), 0 8px 18px rgba(0, 0, 0, .32);
+  --relieve-alto: inset 0 1px 0 rgba(255, 255, 255, .09), 0 3px 0 rgba(0, 0, 0, .35), 0 14px 26px rgba(0, 0, 0, .38);
+  --relieve-pulsado: inset 0 2px 4px rgba(0, 0, 0, .3), 0 1px 0 rgba(0, 0, 0, .3);
+  --fondo-pulsable: linear-gradient(180deg, color-mix(in srgb, var(--panel-2) 88%, #fff 12%), var(--panel));
+}
+:root[data-tema="blanco"], :root[data-tema="madera"] {
+  --relieve: inset 0 1px 0 rgba(255, 255, 255, .9), 0 1px 0 rgba(20, 26, 51, .08), 0 6px 14px rgba(20, 26, 51, .10);
+  --relieve-alto: inset 0 1px 0 rgba(255, 255, 255, .9), 0 2px 0 rgba(20, 26, 51, .08), 0 12px 22px rgba(20, 26, 51, .14);
+  --relieve-pulsado: inset 0 2px 4px rgba(20, 26, 51, .12);
+  --fondo-pulsable: linear-gradient(180deg, #ffffff, var(--panel-2));
+}
+a.panel, .modo-v2, .tarjeta-elo-v2, .diario-v2, .tarjeta, .opcion:not(:disabled), .boton:not(.discreto):not(.principal), .veredicto, .vf button, .pestanas a, .pestanas button {
+  background: var(--fondo-pulsable);
+  box-shadow: var(--relieve);
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+}
+.boton.principal { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35), 0 2px 0 color-mix(in srgb, var(--acento) 55%, #000), 0 8px 18px rgba(0, 0, 0, .3); transition: transform .12s ease, box-shadow .12s ease; }
+@media (hover: hover) {
+  a.panel:hover, .modo-v2:hover, .tarjeta:hover, .opcion:not(:disabled):hover, .boton:not(.discreto):hover { transform: translateY(-2px); box-shadow: var(--relieve-alto); border-color: color-mix(in srgb, var(--acento) 55%, var(--borde)); }
+}
+a.panel:active, .modo-v2:active, .tarjeta:active, .opcion:not(:disabled):active, .boton:not(.discreto):active, .veredicto:active, .vf button:active { transform: translateY(1px); box-shadow: var(--relieve-pulsado); }
+/* Lo ya elegido o corregido conserva su color propio */
+.opcion.correcta, .opcion.incorrecta, .opcion.marcada, .tarjeta.elegida, .veredicto.marcada, .veredicto.correcta, .vf button.marcada, .vf button.correcta, .vf button.incorrecta, .pestanas .activa { background-image: none; }
+.pestanas .activa { box-shadow: var(--relieve-pulsado); }
+.modo-v2 .icono { padding: 7px; border-radius: 10px; background: var(--acento-suave); box-sizing: content-box; width: 22px; height: 22px; }
+@media (prefers-reduced-motion: reduce) { a.panel, .modo-v2, .tarjeta, .opcion, .boton { transition: none; } }
