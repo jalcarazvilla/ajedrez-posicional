@@ -6,7 +6,7 @@ import { aplicarResultado, estadoElo, eloEjercicio, multiplicador, problemaDelDi
 import { rankingActivo, jugador, nombreValido, enviarElo, tabla, MINIMO, enviarPuntos, listarClubes, clubPorId, rankingClubes, miembrosClub, unirseClub, borrarJugador } from "./ranking.js";
 
 // Súbela a la vez que versionName en movil/android/app/build.gradle.
-const VERSION_APP = "1.6.1";
+const VERSION_APP = "1.6.2";
 const app = document.getElementById("app");
 let POSICIONES = [];
 let CASILLAS = []; // ejercicios de "Encuentra la casilla" (datos/casillas.json)
@@ -227,52 +227,61 @@ function vistaBienvenida() {
 }
 
 // ---------- Ajustes ----------
+// Ajustes: cada sección es un desplegable cerrado con su valor actual a la derecha.
+const ajuste = (id, titulo, cuerpo) => `
+  <details class="panel ajuste" id="aj-${id}">
+    <summary><span class="ajuste-titulo">${titulo}</span><span class="ajuste-valor" data-valor="${id}"></span></summary>
+    <div class="ajuste-cuerpo">${cuerpo}</div>
+  </details>`;
+function refrescarValoresAjustes() {
+  const p = leerProgreso();
+  const aj = p.ajustes || {};
+  const tema = aj.tema in TEMAS_ANTIGUOS ? TEMAS_ANTIGUOS[aj.tema] : aj.tema || "";
+  const valores = {
+    nombre: jugador(p).nombre || "Sin nombre",
+    tema: TEMAS.find((t) => t.id === tema)?.texto,
+    tablero: TABLEROS.find((t) => t.id === (aj.tablero || ""))?.texto,
+    piezas: PIEZAS.find((t) => t.id === (aj.piezas || "cburnett"))?.texto,
+    nivel: tramoActual().texto,
+    club: p.club?.nombre || "Sin club",
+    ejercicios: aj.desplegados ? "Abiertos" : "Cerrados",
+    elo: String(estadoElo(p).valor),
+    cero: "",
+  };
+  app.querySelectorAll(".ajuste-valor").forEach((el) => { el.textContent = valores[el.dataset.valor] ?? ""; });
+}
+
 function vistaAjustes() {
   const p = leerProgreso();
   const aj = p.ajustes || {};
   const e = estadoElo(p);
   app.innerHTML = `
     <div class="asistente ajustes">
-      <section class="panel">
-        <h2>Tu nombre</h2>
-        <div class="elo-propio">
+      <h1>Perfil y ajustes</h1>
+      ${ajuste("nombre", "Tu nombre", `<div class="elo-propio">
           <input class="campo-nombre" id="nombre" maxlength="24" value="${h(jugador(p).nombre)}" placeholder="Tu nombre o apodo">
           <button class="boton principal" id="guardar-nombre">Guardar</button>
           <span id="nombre-estado" class="meta"></span>
-        </div>
-      </section>
-      <section class="panel"><h2>Colores</h2><div class="tarjetas" id="t-temas">${tarjetasTemas(aj.tema || "")}</div></section>
-      <section class="panel"><h2>Tablero</h2><div class="tarjetas tableros" id="t-tableros">${tarjetasTableros(aj.tablero || "")}</div></section>
-      <section class="panel"><h2>Piezas</h2><div class="tarjetas" id="t-piezas">${tarjetasPiezas(aj.piezas || "cburnett")}</div></section>
-      <section class="panel">
-        <h2>Nivel de los ejercicios</h2>
-        <p class="meta">Tu Elo no cambia al elegir nivel: solo cambia resolviendo. Con un nivel más fácil ganas menos puntos por acierto.</p>
-        <div class="tarjetas niveles" id="t-niveles">${tarjetasNiveles(tramoActual().id)}</div>
-      </section>
-      <section class="panel">
-        <h2>Club</h2>
-        <p class="meta">Únete a tu club para sumar puntos en el ranking de clubes.</p>
-        <a class="boton principal" href="#/ranking/clubes">${p.club ? `Tu club: ${h(p.club.nombre)}` : "Buscar mi club"}</a>
-      </section>
-      <section class="panel">
-        <h2>Ejercicios</h2>
-        <label class="interruptor"><input type="checkbox" id="desplegados" ${aj.desplegados ? "checked" : ""}>
-          <span>Mostrar el análisis de la posición y las opciones abiertos desde el principio</span></label>
-      </section>
-      <section class="panel">
-        <h2>Elo de partida</h2>
-        ${e.partidas ? `<p class="meta">Tu Elo es ${e.valor}. Ya has hecho ejercicios, así que ahora solo cambia resolviendo posiciones.</p>`
+        </div>`)}
+      ${ajuste("tema", "Colores", `<div class="tarjetas" id="t-temas">${tarjetasTemas(aj.tema || "")}</div>`)}
+      ${ajuste("tablero", "Tablero", `<div class="tarjetas tableros" id="t-tableros">${tarjetasTableros(aj.tablero || "")}</div>`)}
+      ${ajuste("piezas", "Piezas", `<div class="tarjetas" id="t-piezas">${tarjetasPiezas(aj.piezas || "cburnett")}</div>`)}
+      ${ajuste("nivel", "Nivel de los ejercicios", `<p class="meta">Tu Elo no cambia al elegir nivel: solo cambia resolviendo. Con un nivel más fácil ganas menos puntos por acierto.</p>
+        <div class="tarjetas niveles" id="t-niveles">${tarjetasNiveles(tramoActual().id)}</div>`)}
+      ${ajuste("club", "Club", `<p class="meta">Únete a tu club para sumar puntos en el ranking de clubes.</p>
+        <a class="boton principal" href="#/club">${p.club ? `Tu club: ${h(p.club.nombre)}` : "Buscar mi club"}</a>`)}
+      ${ajuste("ejercicios", "Ejercicios", `<label class="interruptor"><input type="checkbox" id="desplegados" ${aj.desplegados ? "checked" : ""}>
+          <span>Mostrar el análisis de la posición y las opciones abiertos desde el principio</span></label>`)}
+      ${ajuste("elo", "Elo de partida", `${e.partidas ? `<p class="meta">Tu Elo es ${e.valor}. Ya has hecho ejercicios, así que ahora solo cambia resolviendo posiciones.</p>`
           : `<div class="elo-propio"><input id="elo-libre" type="number" min="400" max="2800" step="10" value="${e.valor}">
-             <button class="boton" id="guardar-elo">Guardar</button><span id="elo-estado" class="meta"></span></div>`}
-      </section>
-      <section class="panel">
-        <h2>Empezar de cero</h2>
-        <p class="meta">Borra tu Elo, tus ejercicios hechos y tu puesto en el ranking, y vuelve a la bienvenida. Los colores y el tablero se conservan. No se puede deshacer.</p>
-        <button class="boton peligro" id="de-cero">Empezar de cero</button> <span id="de-cero-estado" class="meta"></span>
-      </section>
+             <button class="boton" id="guardar-elo">Guardar</button><span id="elo-estado" class="meta"></span></div>`}`)}
+      ${ajuste("cero", "Empezar de cero", `<p class="meta">Borra tu Elo, tus ejercicios hechos y tu puesto en el ranking, y vuelve a la bienvenida. Los colores y el tablero se conservan. No se puede deshacer.</p>
+        <button class="boton peligro" id="de-cero">Empezar de cero</button> <span id="de-cero-estado" class="meta"></span>`)}
       <p class="meta version">Versión ${VERSION_APP}</p>
     </div>`;
   activarNiveles(document.getElementById("t-niveles"));
+  refrescarValoresAjustes();
+  app.querySelector(".ajustes").addEventListener("click", () => setTimeout(refrescarValoresAjustes, 0));
   document.getElementById("de-cero").onclick = async () => {
     if (!confirm("¿Seguro? Se borrará todo tu progreso y tu puesto en el ranking.")) return;
     const q = leerProgreso();

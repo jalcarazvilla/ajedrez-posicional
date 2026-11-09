@@ -502,3 +502,23 @@ a.panel:active, .modo-v2:active, .tarjeta:active, .opcion:not(:disabled):active,
 .pestanas .activa { box-shadow: var(--relieve-pulsado); }
 .modo-v2 .icono { padding: 7px; border-radius: 10px; background: var(--acento-suave); box-sizing: content-box; width: 22px; height: 22px; }
 @media (prefers-reduced-motion: reduce) { a.panel, .modo-v2, .tarjeta, .opcion, .boton { transition: none; } }
+
+/* Ajustes en desplegables (v1.6.2) */
+.ajustes h1 { font-size: 30px; margin: 4px 0 14px; }
+.ajustes .ajuste + .ajuste { margin-top: 10px; }
+.ajuste { padding: 0; background: var(--fondo-pulsable); box-shadow: var(--relieve); }
+.ajuste > summary {
+  list-style: none; cursor: pointer; display: flex; align-items: center; gap: 10px; padding: 16px 18px; min-height: 56px; box-sizing: border-box;
+}
+.ajuste > summary::-webkit-details-marker { display: none; }
+.ajuste-titulo { font-weight: 700; font-size: 16px; flex: 1; }
+.ajuste-valor { color: var(--acento); font-weight: 700; font-size: 14px; text-align: right; max-width: 50%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ajuste > summary::after {
+  content: ""; width: 8px; height: 8px; border-right: 2px solid var(--suave); border-bottom: 2px solid var(--suave);
+  transform: rotate(45deg); margin: -4px 4px 0 4px; transition: transform .15s; flex-shrink: 0;
+}
+.ajuste[open] > summary::after { transform: rotate(-135deg); margin-top: 4px; }
+.ajuste[open] { box-shadow: var(--relieve-alto); }
+.ajuste > summary:focus-visible { outline: 2px solid var(--acento); outline-offset: -2px; border-radius: var(--radio); }
+.ajuste-cuerpo { padding: 0 18px 18px; border-top: 1px solid var(--borde); padding-top: 14px; }
+.ajuste-cuerpo > .meta:first-child { margin-top: 0; }
