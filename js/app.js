@@ -1,11 +1,12 @@
 // Entrenador Posicional: enrutado, modos de entrenamiento y progreso.
 import { Tablero, Chess, lineaSan, uciASan } from "./tablero.js";
+import { Chessground } from "../vendor/chessground.js";
 import { motor, aCp, textoEval } from "./motor.js";
 import { aplicarResultado, estadoElo, eloEjercicio, multiplicador, problemaDelDia, marcarDiario, rachaDiariaVigente, estadoDiario, hoy, CALIBRACION } from "./elo.js";
 import { rankingActivo, jugador, nombreValido, enviarElo, tabla, MINIMO, enviarPuntos, listarClubes, clubPorId, rankingClubes, miembrosClub, unirseClub, borrarJugador } from "./ranking.js";
 
 // Súbela a la vez que versionName en movil/android/app/build.gradle.
-const VERSION_APP = "1.5.2";
+const VERSION_APP = "1.5.3";
 const app = document.getElementById("app");
 let POSICIONES = [];
 let CASILLAS = []; // ejercicios de "Encuentra la casilla" (datos/casillas.json)
@@ -214,7 +215,9 @@ function vistaBienvenida() {
     fijarEloInicial(estado.elo);
     document.body.classList.remove("sin-menu");
     pintarCabecera();
-    location.hash = "#/";
+    let destino = "#/";
+    try { destino = sessionStorage.getItem("tras-bienvenida") || "#/"; sessionStorage.removeItem("tras-bienvenida"); } catch {}
+    location.hash = destino;
   }
 }
 
@@ -1242,6 +1245,36 @@ function vistaPosiciones() {
   };
 }
 
+// ---------- Análisis revisados (apartado de prueba, sin entrada en el menú: se llega por enlace) ----------
+function vistaRevisadas() {
+  const lista = POSICIONES.filter((p) => p.claves);
+  const prog = leerProgreso();
+  const hecho = (m, id) => (prog[m]?.[id] ? " ✓" : "");
+  app.innerHTML = `
+    <section class="panel revisadas">
+      <h2>Análisis revisados</h2>
+      <p class="meta">Posiciones de nivel alto con el análisis reescrito a fondo: claves de la posición, por qué funciona la jugada, qué pasó en la partida e idea para recordar. Están en prueba: si ves algo mejorable, dínoslo con el botón «¿Ves un error en esta posición?».</p>
+      <div class="rejilla-revisadas">${lista.map((p, i) => `
+        <article class="tarjeta-revisada">
+          <div class="mini-tablero" data-i="${i}"></div>
+          <div class="info-revisada">
+            <h3>${h(p.titulo)}</h3>
+            <p class="meta">${h(nombrePartida(p))}${p.anio ? `, ${h(p.anio)}` : ""} · juegan las ${turnoDe(p.fen) === "w" ? "blancas" : "negras"} · nivel ${p.elo}</p>
+            <p class="botones-revisada">
+              <a class="boton principal" href="#/plan/${p.id}">Plan${hecho("plan", p.id)}</a>
+              <a class="boton" href="#/evalua/${p.id}">Evalúa${hecho("evalua", p.id)}</a>
+              <a class="boton" href="#/adivina/${p.id}">Jugada${hecho("adivina", p.id)}</a>
+            </p>
+          </div>
+        </article>`).join("")}
+      </div>
+    </section>`;
+  app.querySelectorAll(".mini-tablero").forEach((el) => {
+    const p = lista[+el.dataset.i];
+    Chessground(el, { fen: p.fen, orientation: orientacion(p.fen), viewOnly: true, coordinates: false });
+  });
+}
+
 // ---------- Enrutado ----------
 function enrutar() {
   generacion++;
@@ -1250,10 +1283,14 @@ function enrutar() {
   if (tablero && !["plan", "adivina", "evalua", "casilla"].includes(modo)) { tablero.destruir(); tablero = null; }
   // Primera vez: el asistente de bienvenida antes que nada.
   // (?demo en la URL lo salta: lo usa el previsualizador)
-  if (!leerProgreso().perfil && modo !== "bienvenida" && !new URLSearchParams(location.search).has("demo")) { location.replace("#/bienvenida"); return; }
+  if (!leerProgreso().perfil && modo !== "bienvenida" && !new URLSearchParams(location.search).has("demo")) {
+    // Si llegó por un enlace directo (p. ej. #/revisadas), vuelve allí al terminar la bienvenida.
+    if (modo) try { sessionStorage.setItem("tras-bienvenida", location.hash); } catch {}
+    location.replace("#/bienvenida"); return;
+  }
   if (modo !== "bienvenida") document.body.classList.remove("sin-menu");
   ({ casilla: vistaCasilla, plan: vistaPlan, adivina: vistaAdivina, evalua: vistaEvalua, posiciones: vistaPosiciones, ranking: vistaRanking,
-     bienvenida: vistaBienvenida, ajustes: vistaAjustes }[modo] || vistaPortada)(decodeURIComponent(id));
+     bienvenida: vistaBienvenida, ajustes: vistaAjustes, revisadas: vistaRevisadas }[modo] || vistaPortada)(decodeURIComponent(id));
   window.scrollTo(0, 0);
 }
 
