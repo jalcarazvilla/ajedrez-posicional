@@ -605,3 +605,27 @@ a.panel:active, .modo-v2:active, .tarjeta:active, .opcion:not(:disabled):active,
 @media (hover: hover) { .club-resultado:hover { background: var(--panel-2); } }
 .club-resultado b { font-size: 15px; }
 #buscar-club { margin: 6px 0 4px; }
+
+/* Ajustes para móviles estrechos (v1.8.1) */
+.elo-cambio > b { font-size: inherit; padding: 0; background: none; border-radius: 0; }
+.elo-cambio > b:first-child { font-size: 20px; padding: 2px 10px; border-radius: 99px; background: var(--panel-2); }
+@media (max-width: 600px) {
+  .cabecera { flex-wrap: nowrap; gap: 8px; }
+  .marca { font-size: 18px; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+  .cabecera-derecha { order: 0; flex-shrink: 0; }
+  .elo-cabecera { padding: 4px 10px; gap: 4px; }
+  .elo-cabecera b { font-size: 16px; }
+  .elo-cabecera .puesto { display: none; }
+}
+@media (max-width: 380px) {
+  .elo-cabecera .racha, .elo-cabecera .elo-etq { display: none; }
+}
+.elo-cambio.sube > b:not(:first-child), .elo-cambio.baja > b:not(:first-child) { background: none; color: inherit; padding: 0; font-size: inherit; }
+/* «¿Quién está mejor?» en móviles estrechos: 2 + 1 + 2 para que no se salga de la pantalla */
+.veredictos { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.veredicto { overflow-wrap: anywhere; }
+@media (max-width: 440px) {
+  .veredictos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .veredicto:nth-child(3) { grid-column: 1 / -1; }
+  .veredicto { padding: 10px 6px; font-size: 14px; }
+}
