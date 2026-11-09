@@ -22,3 +22,6 @@ Las piezas (cburnett) son de Colin M.L. Burnett, licencia GPLv2+.
 | rhosgfx | RhosGFX | CC0 1.0 |
 
 Todos permiten uso comercial. No se han incluido juegos con licencias "no comercial" (CC BY-NC-SA) ni "freeware" sin licencia clara.
+
+## Fuentes (vendor/fuentes)
+DM Serif Display (Colophon Foundry) y Manrope (Mikhail Sharanda), con licencia SIL Open Font License 1.1. Descargadas de Google Fonts.

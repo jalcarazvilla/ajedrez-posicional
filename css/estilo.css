@@ -1,37 +1,48 @@
+/* ===== Temas de color =====
+   Por defecto: «Azul» (azul tinta y latón). Ajustes > Apariencia cambia el tema con data-tema en <html>. */
 :root {
-  --fondo: #f4f1ec;
-  --panel: #ffffff;
-  --texto: #2b2622;
-  --suave: #6f665e;
-  --borde: #e2dcd3;
-  --acento: #8a5a2b;
-  --acento-suave: #f3e8dc;
-  --bien: #2f7d4f;
-  --bien-suave: #e4f2ea;
-  --mal: #b03a2e;
-  --mal-suave: #f8e5e2;
-  --aviso: #9a6b00;
-  --aviso-suave: #fbf1d9;
-  --radio: 10px;
-  --sombra: 0 1px 2px rgba(0, 0, 0, .06), 0 4px 14px rgba(0, 0, 0, .05);
+  --fondo: #0e1522; --panel: #172133; --panel-2: #1e2a40; --barra: #0b111c;
+  --texto: #eef1f6; --suave: #9aa6ba; --borde: #263450;
+  --acento: #d4ad5a; --acento-suave: rgba(212, 173, 90, .14); --sobre-acento: #121a28;
+  --bien: #5fc28a; --bien-suave: rgba(95, 194, 138, .14); --mal: #f07b6d; --mal-suave: rgba(240, 123, 109, .14);
+  --aviso: #f0b44c; --aviso-suave: rgba(240, 180, 76, .14);
+  --radio: 16px; --sombra: none;
+  --f-titulo: "DM Serif Display", Georgia, "Times New Roman", serif;
+  --f-texto: Manrope, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color-scheme: dark;
 }
-@media (prefers-color-scheme: dark) {
-  :root {
-    --fondo: #1d1a17;
-    --panel: #282420;
-    --texto: #ece6df;
-    --suave: #a99f95;
-    --borde: #3b352f;
-    --acento: #d9a066;
-    --acento-suave: #3a2f24;
-    --bien: #6cc391;
-    --bien-suave: #20352a;
-    --mal: #ec8679;
-    --mal-suave: #3d2622;
-    --aviso: #e7bd5c;
-    --aviso-suave: #3a3120;
-    --sombra: none;
-  }
+:root[data-tema="azul-naranja"] { --acento: #ff7a1a; --acento-suave: rgba(255, 122, 26, .15); --sobre-acento: #1a1208; }
+:root[data-tema="verde"] {
+  --fondo: #10241c; --panel: #173328; --panel-2: #1d3e31; --barra: #0c1c16; --texto: #eef5ef; --suave: #a7bfb1; --borde: #24493a;
+  --acento: #ff8a66; --acento-suave: rgba(255, 138, 102, .15); --sobre-acento: #10241c; --bien: #8fd694; --bien-suave: rgba(143, 214, 148, .15);
+}
+:root[data-tema="negro"] {
+  --fondo: #0b0b0c; --panel: #161618; --panel-2: #1f1f22; --barra: #070708; --texto: #f1f1f1; --suave: #a3a3a8; --borde: #2b2b30;
+  --acento: #e9b949; --acento-suave: rgba(233, 185, 73, .14); --sobre-acento: #111111;
+}
+:root[data-tema="naranja"] {
+  --fondo: #1b120b; --panel: #26190f; --panel-2: #312114; --barra: #140d08; --texto: #fbefe5; --suave: #c7ac98; --borde: #3d2a1b;
+  --acento: #ff7a1a; --acento-suave: rgba(255, 122, 26, .16); --sobre-acento: #1b120b;
+}
+:root[data-tema="burdeos"] {
+  --fondo: #1d0e14; --panel: #2a141d; --panel-2: #361a26; --barra: #16090f; --texto: #f8eaee; --suave: #c3a2ad; --borde: #47222f;
+  --acento: #e9b26b; --acento-suave: rgba(233, 178, 107, .15); --sobre-acento: #1d0e14;
+}
+:root[data-tema="morado"] {
+  --fondo: #151229; --panel: #1f1a3a; --panel-2: #29234a; --barra: #100d21; --texto: #efedfa; --suave: #a9a3c8; --borde: #332c5c;
+  --acento: #b69cff; --acento-suave: rgba(182, 156, 255, .15); --sobre-acento: #151229;
+}
+:root[data-tema="blanco"] {
+  --fondo: #f5f7fc; --panel: #ffffff; --panel-2: #eef1f8; --barra: #ffffff; --texto: #141a33; --suave: #5b6380; --borde: #e2e6f0;
+  --acento: #2f54eb; --acento-suave: #e8edff; --sobre-acento: #ffffff;
+  --bien: #16a36a; --bien-suave: #e3f6ec; --mal: #d2402f; --mal-suave: #fbe7e4; --aviso: #b4530a; --aviso-suave: #fff1e4;
+  --sombra: 0 2px 10px rgba(20, 26, 51, .06); color-scheme: light;
+}
+:root[data-tema="madera"] {
+  --fondo: #f4f1ec; --panel: #ffffff; --panel-2: #f3eee6; --barra: #ffffff; --texto: #2b2622; --suave: #6f665e; --borde: #e2dcd3;
+  --acento: #8a5a2b; --acento-suave: #f3e8dc; --sobre-acento: #ffffff;
+  --bien: #2f7d4f; --bien-suave: #e4f2ea; --mal: #b03a2e; --mal-suave: #f8e5e2; --aviso: #9a6b00; --aviso-suave: #fbf1d9;
+  --sombra: 0 1px 2px rgba(0, 0, 0, .06), 0 4px 14px rgba(0, 0, 0, .05); color-scheme: light;
 }
 
 * { box-sizing: border-box; }
@@ -40,7 +51,7 @@ html, body { margin: 0; }
 body {
   background: var(--fondo);
   color: var(--texto);
-  font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font: 16px/1.55 var(--f-texto);
   -webkit-text-size-adjust: 100%;
 }
 a { color: var(--acento); }
@@ -111,8 +122,7 @@ button { font: inherit; }
   padding: 8px 14px; border-radius: 8px; border: 1px solid var(--borde); background: var(--panel); color: var(--texto); cursor: pointer;
 }
 .boton:hover { border-color: var(--acento); }
-.boton.principal { background: var(--acento); border-color: var(--acento); color: #fff; }
-@media (prefers-color-scheme: dark) { .boton.principal { color: #1d1a17; } }
+.boton.principal { background: var(--acento); border-color: var(--acento); color: var(--sobre-acento); font-weight: 700; }
 .boton.discreto { border: none; background: none; color: var(--suave); text-decoration: underline; padding: 8px 4px; }
 .boton:disabled { opacity: .5; cursor: default; }
 
@@ -201,30 +211,6 @@ select { font: inherit; padding: 6px 8px; border-radius: 8px; border: 1px solid 
 .lista tr.yo td { background: var(--acento-suave); font-weight: 600; }
 @media (max-width: 600px) { .cabecera { gap: 8px; } .elo-cabecera { order: 2; } .menu { order: 3; width: 100%; } }
 
-/* Temas de color (Ajustes > Apariencia). Sin data-tema se usa el de madera, claro u oscuro según el sistema. */
-:root[data-tema="madera-claro"] {
-  --fondo: #f4f1ec; --panel: #ffffff; --texto: #2b2622; --suave: #6f665e; --borde: #e2dcd3;
-  --acento: #8a5a2b; --acento-suave: #f3e8dc; --bien: #2f7d4f; --bien-suave: #e4f2ea; --mal: #b03a2e; --mal-suave: #f8e5e2;
-  --aviso: #9a6b00; --aviso-suave: #fbf1d9; --sombra: 0 1px 2px rgba(0,0,0,.06), 0 4px 14px rgba(0,0,0,.05);
-}
-:root[data-tema="noche"] {
-  --fondo: #0f172a; --panel: #1e293b; --texto: #e2e8f0; --suave: #94a3b8; --borde: #334155;
-  --acento: #60a5fa; --acento-suave: #1e3a5f; --bien: #4ade80; --bien-suave: #14432a; --mal: #f87171; --mal-suave: #4c1d1d;
-  --aviso: #fbbf24; --aviso-suave: #3f2d0a; --sombra: none;
-}
-:root[data-tema="torneo"] {
-  --fondo: #eef3ef; --panel: #ffffff; --texto: #1c2b22; --suave: #5f6f65; --borde: #d3ddd6;
-  --acento: #2f7d4f; --acento-suave: #ddefe3; --bien: #2f7d4f; --bien-suave: #e4f2ea; --mal: #b03a2e; --mal-suave: #f8e5e2;
-  --aviso: #9a6b00; --aviso-suave: #fbf1d9; --sombra: 0 1px 2px rgba(0,0,0,.06), 0 4px 14px rgba(0,0,0,.05);
-}
-:root[data-tema="pizarra"] {
-  --fondo: #121212; --panel: #1e1e1e; --texto: #ececec; --suave: #a0a0a0; --borde: #333333;
-  --acento: #e0a84f; --acento-suave: #3a2f1e; --bien: #6cc391; --bien-suave: #1e3528; --mal: #ec8679; --mal-suave: #3d2622;
-  --aviso: #e7bd5c; --aviso-suave: #3a3120; --sombra: none;
-}
-:root[data-tema="noche"] .boton.principal, :root[data-tema="pizarra"] .boton.principal { color: #111; }
-:root[data-tema="madera-claro"] .boton.principal, :root[data-tema="torneo"] .boton.principal { color: #fff; }
-
 /* Colores del tablero */
 html[data-tablero="verde"] cg-board { background: repeating-conic-gradient(#769656 0 25%, #eeeed2 0 50%) 0 0 / 25% 25%; }
 html[data-tablero="azul"] cg-board { background: repeating-conic-gradient(#8ca2ad 0 25%, #dee3e6 0 50%) 0 0 / 25% 25%; }
@@ -237,17 +223,6 @@ html[data-tablero="morado"] cg-board { background: repeating-conic-gradient(#887
 .cabecera { padding-top: max(10px, env(safe-area-inset-top)); padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right)); }
 .app { padding-bottom: max(16px, env(safe-area-inset-bottom)); }
 
-:root[data-tema="oceano"] {
-  --fondo: #eef5f7; --panel: #ffffff; --texto: #12303a; --suave: #55707a; --borde: #cfe0e6;
-  --acento: #0e7c8c; --acento-suave: #d8eff2; --bien: #2f8a5b; --bien-suave: #e1f3e9; --mal: #d0574a; --mal-suave: #fbe6e3;
-  --aviso: #c46a1a; --aviso-suave: #fcecdc; --sombra: 0 1px 2px rgba(0,0,0,.06), 0 4px 14px rgba(0,0,0,.05);
-}
-:root[data-tema="lavanda"] {
-  --fondo: #f5f3fa; --panel: #ffffff; --texto: #2a2440; --suave: #6c6585; --borde: #ddd8ea;
-  --acento: #6a4fb3; --acento-suave: #ece6f8; --bien: #2f7d4f; --bien-suave: #e4f2ea; --mal: #b03a2e; --mal-suave: #f8e5e2;
-  --aviso: #a8790a; --aviso-suave: #f8efd6; --sombra: 0 1px 2px rgba(0,0,0,.06), 0 4px 14px rgba(0,0,0,.05);
-}
-:root[data-tema="oceano"] .boton.principal, :root[data-tema="lavanda"] .boton.principal { color: #fff; }
 
 /* Bienvenida y ajustes */
 body.sin-menu .menu { display: none; }
@@ -425,8 +400,75 @@ html[data-tablero="morado"] { --cas-clara: #efefef; --cas-oscura: #8877b7; }
 /* Apartado de prueba: análisis revisados */
 .rejilla-revisadas { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin-top: 16px; }
 .tarjeta-revisada { display: grid; gap: 10px; align-content: start; border: 1px solid var(--borde, rgba(127,127,127,.25)); border-radius: 10px; padding: 12px; min-width: 0; }
-.mini-tablero { width: 100%; aspect-ratio: 1; max-width: 100%; }
+.tablero-mini { width: 100%; aspect-ratio: 1; max-width: 100%; border-radius: 10px; overflow: hidden; }
 .info-revisada h3 { margin: 0 0 4px; font-size: 1.05rem; }
 .info-revisada .meta { margin: 0 0 8px; }
 .botones-revisada { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; }
 .botones-revisada .boton { padding: 6px 12px; font-size: .9rem; text-decoration: none; }
+
+/* ===== Estilo «Torneo» (v1.6): tipografía, superficies y navegación ===== */
+h1, h2, .marca, .titulo-serif { font-family: var(--f-titulo); font-weight: 400; letter-spacing: .005em; }
+.panel h2 { font-size: 22px; line-height: 1.2; }
+.panel h3, .etiqueta-mayus { font-family: var(--f-texto); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; color: var(--suave); }
+.cabecera { background: var(--fondo); border-bottom: 1px solid var(--borde); padding-block: 10px; }
+.marca { font-size: 21px; font-weight: 400; }
+.elo-cabecera { background: transparent; border: 1px solid var(--borde); padding: 5px 12px; }
+.elo-cabecera b { font-weight: 800; }
+.panel { border-radius: var(--radio); }
+.boton { border-radius: 12px; padding: 10px 16px; font-weight: 600; background: var(--panel-2); }
+.opcion { border-radius: 12px; background: var(--panel-2); border-color: var(--borde); padding: 12px 14px; }
+.opcion.correcta { background: var(--bien-suave); }
+.opcion.incorrecta { background: var(--mal-suave); }
+.resultado { border-radius: 14px; padding: 14px; border: 1px solid transparent; }
+.resultado.bien { border-color: color-mix(in srgb, var(--bien) 45%, transparent); }
+.resultado.mal { border-color: color-mix(in srgb, var(--mal) 45%, transparent); }
+.desplegable { border-radius: 14px; border-width: 1px; }
+.tarjeta { border-radius: 14px; border-width: 1.5px; }
+.veredicto, .vf button { border-radius: 10px; background: var(--panel-2); }
+.motor, .historial li { background: var(--panel-2); }
+.aviso { border-radius: 12px; }
+.idea-recordar { border-left-color: var(--acento); background: var(--acento-suave); border-radius: 12px; }
+.zona-tablero .tablero { border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, .35); }
+:root[data-tema="blanco"] .zona-tablero .tablero, :root[data-tema="madera"] .zona-tablero .tablero { box-shadow: 0 6px 20px rgba(20, 26, 51, .12); }
+select, input { border-radius: 10px; }
+
+/* Menú: en el escritorio, enlaces sencillos en la cabecera; en el móvil, barra inferior de 5 secciones */
+.menu a { border: none; background: none; min-width: 64px; }
+.menu a:hover { color: var(--acento); }
+.menu a.activo { background: var(--acento-suave); color: var(--acento); }
+@media (max-width: 600px) {
+  .menu { grid-template-columns: repeat(5, 1fr); background: var(--barra); border-top: 1px solid var(--borde); box-shadow: none; padding-top: 6px; }
+  .menu a { padding: 6px 0; font-size: 11px; font-weight: 700; }
+  .menu a.activo { background: none; }
+  .app { padding-bottom: calc(84px + env(safe-area-inset-bottom)); }
+}
+
+/* Portada */
+.portada .fecha { margin: 6px 0 0; }
+.portada h1 { font-size: 34px; line-height: 1.1; margin: 2px 0 16px; }
+.inicio-rejilla { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; }
+.tarjeta-elo-v2 { display: grid; gap: 10px; text-decoration: none; color: var(--texto); background: linear-gradient(160deg, var(--panel-2), var(--panel)); }
+.tarjeta-elo-v2 .fila { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; }
+.tarjeta-elo-v2 .elo-grande { font-family: var(--f-titulo); font-weight: 400; font-size: 56px; line-height: 1; margin: 2px 0; }
+.tarjeta-elo-v2 .semana { font-weight: 700; font-size: 14px; }
+.tarjeta-elo-v2 .semana.sube { color: var(--bien); } .tarjeta-elo-v2 .semana.baja { color: var(--mal); }
+.racha-dias { text-align: right; font-weight: 800; font-size: 18px; display: grid; justify-items: end; gap: 2px; }
+.racha-dias small { font-size: 12px; font-weight: 600; color: var(--suave); }
+.racha-dias span { display: inline-flex; align-items: center; gap: 6px; }
+.grafica-elo { width: 100%; height: 48px; display: block; }
+.grafica-elo .area { fill: var(--acento-suave); }
+.grafica-elo .linea-elo { fill: none; stroke: var(--acento); stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.diario-v2 { display: flex; gap: 14px; align-items: center; text-decoration: none; color: var(--texto); }
+.diario-v2 .tablero-mini { width: 108px; flex-shrink: 0; }
+.diario-v2 h2 { font-size: 21px; margin: 2px 0 4px; }
+.diario-v2 .meta { margin: 0; }
+.diario-v2.hecho .etiqueta-mayus { color: var(--bien); }
+.etiqueta-mayus.acento { color: var(--acento); }
+.modos-v2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; }
+.modo-v2 { display: grid; gap: 6px; align-content: start; text-decoration: none; color: var(--texto); padding: 14px; }
+.modo-v2 b { font-size: 15px; }
+.modo-v2 small { color: var(--suave); line-height: 1.35; }
+.modo-v2 .icono { color: var(--acento); }
+.barra-progreso { height: 4px; border-radius: 4px; background: var(--borde); overflow: hidden; }
+.barra-progreso i { display: block; height: 100%; background: var(--acento); }
+@media (max-width: 600px) { .modos-v2 { grid-template-columns: 1fr 1fr; } .portada h1 { font-size: 30px; } }

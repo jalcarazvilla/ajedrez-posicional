@@ -6,7 +6,7 @@ import { aplicarResultado, estadoElo, eloEjercicio, multiplicador, problemaDelDi
 import { rankingActivo, jugador, nombreValido, enviarElo, tabla, MINIMO, enviarPuntos, listarClubes, clubPorId, rankingClubes, miembrosClub, unirseClub, borrarJugador } from "./ranking.js";
 
 // Súbela a la vez que versionName en movil/android/app/build.gradle.
-const VERSION_APP = "1.5.3";
+const VERSION_APP = "1.6.0";
 const app = document.getElementById("app");
 let POSICIONES = [];
 let CASILLAS = []; // ejercicios de "Encuentra la casilla" (datos/casillas.json)
@@ -48,14 +48,18 @@ function registrar(modo, pos, puntos, maximo) {
 // ---------- Apariencia (tema de color y tablero) ----------
 // muestras: fondo, panel, acento y color de acierto de cada paleta (para las tarjetas de elección).
 const TEMAS = [
-  { id: "", texto: "Madera", nota: "Claro u oscuro según el móvil", muestras: ["#f4f1ec", "#2b2622", "#8a5a2b", "#2f7d4f"] },
-  { id: "madera-claro", texto: "Madera clara", nota: "Siempre claro", muestras: ["#f4f1ec", "#ffffff", "#8a5a2b", "#2f7d4f"] },
-  { id: "torneo", texto: "Torneo", nota: "Verde y blanco", muestras: ["#eef3ef", "#ffffff", "#2f7d4f", "#9a6b00"] },
-  { id: "oceano", texto: "Océano", nota: "Turquesa y coral", muestras: ["#eef5f7", "#ffffff", "#0e7c8c", "#d0574a"] },
-  { id: "lavanda", texto: "Lavanda", nota: "Violeta y oro", muestras: ["#f5f3fa", "#ffffff", "#6a4fb3", "#a8790a"] },
-  { id: "noche", texto: "Noche", nota: "Azul oscuro", muestras: ["#0f172a", "#1e293b", "#60a5fa", "#4ade80"] },
-  { id: "pizarra", texto: "Pizarra", nota: "Negro y ámbar", muestras: ["#121212", "#1e1e1e", "#e0a84f", "#6cc391"] },
+  { id: "", texto: "Azul", nota: "Azul tinta y latón", muestras: ["#0e1522", "#172133", "#d4ad5a", "#eef1f6"] },
+  { id: "azul-naranja", texto: "Azul y naranja", nota: "Azul tinta y naranja", muestras: ["#0e1522", "#172133", "#ff7a1a", "#eef1f6"] },
+  { id: "verde", texto: "Verde", nota: "Verde bosque y coral", muestras: ["#10241c", "#173328", "#ff8a66", "#eef5ef"] },
+  { id: "negro", texto: "Negro", nota: "Negro y oro", muestras: ["#0b0b0c", "#161618", "#e9b949", "#f1f1f1"] },
+  { id: "naranja", texto: "Naranja", nota: "Brasa y naranja", muestras: ["#1b120b", "#26190f", "#ff7a1a", "#fbefe5"] },
+  { id: "burdeos", texto: "Burdeos", nota: "Granate y miel", muestras: ["#1d0e14", "#2a141d", "#e9b26b", "#f8eaee"] },
+  { id: "morado", texto: "Morado", nota: "Violeta noche", muestras: ["#151229", "#1f1a3a", "#b69cff", "#efedfa"] },
+  { id: "blanco", texto: "Blanco", nota: "Claro y azul", muestras: ["#f5f7fc", "#ffffff", "#2f54eb", "#141a33"] },
+  { id: "madera", texto: "Madera", nota: "Claro y cálido", muestras: ["#f4f1ec", "#ffffff", "#8a5a2b", "#2b2622"] },
 ];
+// Temas de versiones anteriores → el más parecido de los actuales.
+const TEMAS_ANTIGUOS = { noche: "", pizarra: "negro", torneo: "blanco", oceano: "blanco", lavanda: "morado", "madera-claro": "madera" };
 const TABLEROS = [
   { id: "", texto: "Madera", muestras: ["#f0d9b5", "#b58863"] },
   { id: "verde", texto: "Verde", muestras: ["#eeeed2", "#769656"] },
@@ -84,15 +88,16 @@ const NIVELES = [
 function aplicarApariencia() {
   const aj = leerProgreso().ajustes || {};
   const url = new URLSearchParams(location.search);
-  const tema = url.has("tema") ? url.get("tema") : aj.tema || "";
+  let tema = url.has("tema") ? url.get("tema") : aj.tema || "";
+  if (tema in TEMAS_ANTIGUOS) tema = TEMAS_ANTIGUOS[tema];
   const tablero = url.has("tablero") ? url.get("tablero") : aj.tablero || "";
   const piezas = url.has("piezas") ? url.get("piezas") : aj.piezas || "cburnett";
   const raiz = document.documentElement;
   tema ? raiz.setAttribute("data-tema", tema) : raiz.removeAttribute("data-tema");
   tablero ? raiz.setAttribute("data-tablero", tablero) : raiz.removeAttribute("data-tablero");
   raiz.setAttribute("data-piezas", piezas);
-  const color = getComputedStyle(raiz).getPropertyValue("--panel").trim();
-  document.querySelector('meta[name="theme-color"]')?.setAttribute("content", color || "#2b2622");
+  const color = getComputedStyle(raiz).getPropertyValue("--fondo").trim();
+  document.querySelector('meta[name="theme-color"]')?.setAttribute("content", color || "#0e1522");
 }
 function guardarAjuste(clave, valor) {
   const p = leerProgreso();
@@ -308,16 +313,25 @@ const ICONOS = {
   evalua: '<path d="M12 4v16M6 20h12M5 7h14"/><path d="M5 7l-3 6a3 3 0 006 0zM19 7l-3 6a3 3 0 006 0z"/>',
   casilla: '<rect x="4" y="4" width="16" height="16" rx="1.5"/><path d="M12 4v16M4 12h16"/><rect x="12" y="4" width="8" height="8" fill="currentColor" stroke="none" opacity=".35"/>',
   ranking: '<path d="M8 4h8v5a4 4 0 01-8 0z"/><path d="M8 6H5a3 3 0 003 4M16 6h3a3 3 0 01-3 4M12 13v4M8 21h8M9.5 17h5l.5 4h-6z"/>',
+  entrenar: '<rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/>',
+  club: '<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M12 8v8M8.5 11h7"/>',
+  perfil: '<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/>',
+  racha: '<path d="M12 22c4 0 7-3 7-7 0-4-3-6-4-9-1 3-3 4-4 4 0-3-1-5-3-7 0 4-5 7-5 12 0 4 4 7 9 7z"/>',
 };
 const icono = (n) => `<svg class="icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONOS[n]}</svg>`;
 const MENU = [
   { modo: "", icono: "inicio", texto: "Inicio" },
-  { modo: "casilla", icono: "casilla", texto: "Casilla" },
-  { modo: "plan", icono: "plan", texto: "Plan" },
-  { modo: "adivina", icono: "adivina", texto: "Jugada" },
-  { modo: "evalua", icono: "evalua", texto: "Evalúa" },
+  { modo: "entrenar", icono: "entrenar", texto: "Entrenar" },
   { modo: "ranking", icono: "ranking", texto: "Ranking" },
+  { modo: "club", icono: "club", texto: "Club" },
+  { modo: "ajustes", icono: "perfil", texto: "Perfil" },
 ];
+// Qué sección del menú se ilumina en cada pantalla.
+function seccionMenu(modo, id) {
+  if (["casilla", "plan", "adivina", "evalua", "posiciones", "revisadas", "entrenar"].includes(modo)) return "entrenar";
+  if (modo === "club" || (modo === "ranking" && id === "clubes")) return "club";
+  return modo;
+}
 function pintarMenu() {
   document.getElementById("menu").innerHTML = MENU.map((m) =>
     `<a href="#/${m.modo}" data-modo="${m.modo}">${icono(m.icono)}<span>${m.texto}</span></a>`).join("");
@@ -949,54 +963,99 @@ function vistaEvalua(id) {
 }
 
 // ---------- Portada ----------
-function vistaPortada() {
+// Gráfica pequeña con la evolución del Elo (últimos 40 ejercicios).
+function graficaElo(historial) {
+  const pts = (historial || []).slice(-40).map((x) => x[1]);
+  if (pts.length < 2) return "";
+  const min = Math.min(...pts), max = Math.max(...pts), rango = Math.max(max - min, 20);
+  const W = 300, H = 48;
+  const d = pts.map((v, i) => `${i ? "L" : "M"}${((i / (pts.length - 1)) * W).toFixed(1)} ${(H - 4 - ((v - min) / rango) * (H - 10)).toFixed(1)}`).join(" ");
+  return `<svg class="grafica-elo" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="Evolución de tu Elo: de ${pts[0]} a ${pts[pts.length - 1]}">
+    <path class="area" d="${d} L${W} ${H} L0 ${H} Z"/><path class="linea-elo" d="${d}"/></svg>`;
+}
+// Cuánto ha cambiado el Elo en los últimos 7 días.
+function cambioSemana(e) {
+  const hist = e.historial || [];
+  if (!hist.length) return 0;
+  const hace = Date.now() - 7 * 864e5;
+  const previos = hist.filter((x) => x[0] <= hace);
+  const base = previos.length ? previos[previos.length - 1][1] : (e.inicial ?? hist[0][1]);
+  return e.valor - base;
+}
+// Recuadros de los modos de entrenamiento (portada y Entrenar).
+function tarjetasModos(conDescripcion) {
   const prog = leerProgreso();
   const hechas = (m) => Object.keys(prog[m] || {}).length;
-  const pct = (m) => {
-    const v = Object.values(prog[m] || {});
-    if (!v.length) return "–";
-    return Math.round((v.reduce((s, x) => s + x.mejor / x.maximo, 0) / v.length) * 100) + "%";
-  };
   const n = (f) => POSICIONES.filter(f).length;
+  const modos = [
+    CASILLAS.length && { modo: "casilla", titulo: "Encuentra la casilla", desc: "Dobles ataques, horquillas, piezas sin defensa y mates en una.", total: CASILLAS.length },
+    { modo: "plan", titulo: "El plan", desc: "Elige el plan correcto entre cuatro y entiende por qué los demás fallan.", total: n((p) => p.plan) },
+    { modo: "adivina", titulo: "Adivina la jugada", desc: "Juega como el maestro. Stockfish puntúa tus alternativas.", total: n((p) => p.partida?.jugadas) },
+    { modo: "evalua", titulo: "Evalúa", desc: "Estructura, piezas y casillas débiles: ¿quién está mejor y por qué?", total: n((p) => p.evaluacion) },
+  ].filter(Boolean);
+  return modos.map((m) => {
+    const hecho = hechas(m.modo);
+    return `<a class="panel modo-v2" href="#/${m.modo}">${icono(m.modo)}<b>${m.titulo}</b>
+      ${conDescripcion ? `<small>${m.desc}</small>` : ""}<small>${hecho} de ${m.total}</small>
+      <span class="barra-progreso"><i style="width:${Math.min(100, Math.round((hecho / m.total) * 100))}%"></i></span></a>`;
+  }).join("");
+}
+
+function vistaPortada() {
+  const prog = leerProgreso();
   const e = estadoElo(prog);
   const diario = problemaDelDia(listaDiario());
   const diarioHecho = estadoDiario(prog).ultimo === hoy();
   const dias = rachaDiariaVigente(prog);
   const t = tramoActual();
+  const hora = new Date().getHours();
+  const saludo = hora < 14 ? "Buenos días" : hora < 21 ? "Buenas tardes" : "Buenas noches";
+  const nombre = jugador(prog).nombre;
+  const fecha = new Date().toLocaleDateString("es-ES", { weekday: "long", day: "numeric", month: "long" });
+  const semana = cambioSemana(e);
   app.innerHTML = `
     <section class="portada">
-      <h1>${jugador(prog).nombre ? `Hola, ${h(jugador(prog).nombre)}` : "Entrena tu comprensión posicional"}</h1>
-      <p class="lema">${POSICIONES.length} posiciones de partidas magistrales, comprobadas con Stockfish 19.</p>
-      <div class="resumen-jugador">
-        ${diario ? `<a class="panel diario ${diarioHecho ? "hecho" : ""}" href="#/plan/${diario.id}">
-          <span class="insignia-diario">📅 Problema del día</span>
-          <h2>${diarioHecho ? "Hecho por hoy ✓" : "Resuelve el de hoy"}</h2>
-          <p>${h(nombrePartida(diario))} · nivel ${eloEjercicio(diario)}</p>
-          <p>${dias ? `🔥 ${dias} día${dias > 1 ? "s" : ""} seguido${dias > 1 ? "s" : ""}` : "Empieza una racha de días"}</p></a>` : ""}
-        <a class="panel tarjeta-elo" href="#/ranking">
-          <span class="elo-grande">${e.valor}</span><span class="elo-etq">Elo</span>
-          <p>${e.partidas} ejercicio${e.partidas === 1 ? "" : "s"} · máximo ${e.maximo} · mejor racha ${e.mejorRacha}</p>
-          <p>${e.racha >= 2 ? `🔥 ${e.racha} aciertos seguidos: el siguiente vale <b>x${multiplicador(e.racha).toFixed(1)}</b>` : "Acierta dos seguidos y el tercero suma más (x1.1, x1.2…)"}</p>
-          <p class="ver-ranking">Ver ranking →</p></a>
+      <p class="etiqueta-mayus fecha">${h(fecha)}</p>
+      <h1>${saludo}${nombre ? `, ${h(nombre)}` : ""}</h1>
+      <div class="inicio-rejilla">
+        <a class="panel tarjeta-elo-v2" href="#/ranking">
+          <div class="fila">
+            <div>
+              <span class="etiqueta-mayus">Tu Elo posicional</span>
+              <div class="elo-grande">${e.valor}</div>
+              <span class="semana ${semana > 0 ? "sube" : semana < 0 ? "baja" : ""}">${semana ? `${signo(semana)} esta semana` : `${e.partidas} ejercicio${e.partidas === 1 ? "" : "s"}`}</span>
+            </div>
+            <div class="racha-dias"><span>${icono("racha")}${dias} día${dias === 1 ? "" : "s"}</span><small>Racha diaria</small></div>
+          </div>
+          ${graficaElo(e.historial)}
+          <span class="meta" style="margin:0">${e.racha >= 2 ? `${e.racha} aciertos seguidos: el siguiente vale <b>x${multiplicador(e.racha).toFixed(1)}</b>` : `Máximo ${e.maximo} · mejor racha ${e.mejorRacha}`}</span>
+        </a>
+        ${diario ? `<a class="panel diario-v2 ${diarioHecho ? "hecho" : ""}" href="#/plan/${diario.id}">
+          <div class="tablero-mini" id="mini-diario"></div>
+          <div>
+            <span class="etiqueta-mayus acento">${diarioHecho ? "Hecho por hoy ✓" : "Problema del día"}</span>
+            <h2>${h(nombrePartida(diario))}</h2>
+            <p class="meta">Juegan las ${turnoDe(diario.fen) === "w" ? "blancas" : "negras"} · nivel ${eloEjercicio(diario)}</p>
+          </div></a>` : ""}
       </div>
-      <h2 class="titulo-seccion">Nivel de los ejercicios</h2>
-      <div class="tarjetas niveles" id="niveles">${tarjetasNiveles(t.id)}</div>
-      <div class="modos">
-        ${CASILLAS.length ? `<a class="panel modo" href="#/casilla">${icono("casilla")}<h2>Encuentra la casilla</h2>
-          <p>Para empezar: dobles ataques, horquillas, piezas sin defensa y mates en una.</p>
-          <p>${hechas("casilla")}/${CASILLAS.length} hechas · acierto ${pct("casilla")}</p></a>` : ""}
-        <a class="panel modo" href="#/plan">${icono("plan")}<h2>Encuentra el plan</h2>
-          <p>Elige el plan correcto entre cuatro y lee por qué los demás fallan.</p>
-          <p>${hechas("plan")}/${n((p) => p.plan)} hechas · acierto ${pct("plan")}</p></a>
-        <a class="panel modo" href="#/adivina">${icono("adivina")}<h2>Adivina la jugada</h2>
-          <p>Juega como el maestro. Stockfish puntúa tus alternativas.</p>
-          <p>${hechas("adivina")}/${n((p) => p.partida?.jugadas)} hechas · media ${pct("adivina")}</p></a>
-        <a class="panel modo" href="#/evalua">${icono("evalua")}<h2>Evalúa desequilibrios</h2>
-          <p>Estructura, piezas, casillas débiles: ¿quién está mejor y por qué?</p>
-          <p>${hechas("evalua")}/${n((p) => p.evaluacion)} hechas · media ${pct("evalua")}</p></a>
-      </div>
-      <p class="meta apariencia"><a href="#/posiciones">Ver todas las posiciones →</a> · Colores, tablero y piezas: <a href="#/ajustes">Ajustes ⚙</a></p>
+      <h2 class="titulo-seccion etiqueta-mayus">Entrenar · ${h(t.texto || "")}</h2>
+      <div class="modos-v2">${tarjetasModos(false)}</div>
       <p class="meta version">Versión ${VERSION_APP}</p>
+    </section>`;
+  const mini = document.getElementById("mini-diario");
+  if (mini) Chessground(mini, { fen: diario.fen, orientation: orientacion(diario.fen), viewOnly: true, coordinates: false });
+}
+
+function vistaEntrenar() {
+  const t = tramoActual();
+  app.innerHTML = `
+    <section class="portada">
+      <h1>Entrenar</h1>
+      <h2 class="titulo-seccion etiqueta-mayus">Nivel de los ejercicios</h2>
+      <div class="tarjetas niveles" id="niveles">${tarjetasNiveles(t.id)}</div>
+      <h2 class="titulo-seccion etiqueta-mayus">Modos</h2>
+      <div class="modos-v2">${tarjetasModos(true)}</div>
+      <p class="meta" style="margin-top:16px"><a href="#/posiciones">Ver todas las posiciones →</a></p>
     </section>`;
   activarNiveles(document.getElementById("niveles"));
 }
@@ -1256,7 +1315,7 @@ function vistaRevisadas() {
       <p class="meta">Posiciones de nivel alto con el análisis reescrito a fondo: claves de la posición, por qué funciona la jugada, qué pasó en la partida e idea para recordar. Están en prueba: si ves algo mejorable, dínoslo con el botón «¿Ves un error en esta posición?».</p>
       <div class="rejilla-revisadas">${lista.map((p, i) => `
         <article class="tarjeta-revisada">
-          <div class="mini-tablero" data-i="${i}"></div>
+          <div class="tablero-mini" data-i="${i}"></div>
           <div class="info-revisada">
             <h3>${h(p.titulo)}</h3>
             <p class="meta">${h(nombrePartida(p))}${p.anio ? `, ${h(p.anio)}` : ""} · juegan las ${turnoDe(p.fen) === "w" ? "blancas" : "negras"} · nivel ${p.elo}</p>
@@ -1269,7 +1328,7 @@ function vistaRevisadas() {
         </article>`).join("")}
       </div>
     </section>`;
-  app.querySelectorAll(".mini-tablero").forEach((el) => {
+  app.querySelectorAll(".tablero-mini").forEach((el) => {
     const p = lista[+el.dataset.i];
     Chessground(el, { fen: p.fen, orientation: orientacion(p.fen), viewOnly: true, coordinates: false });
   });
@@ -1279,7 +1338,8 @@ function vistaRevisadas() {
 function enrutar() {
   generacion++;
   const [, modo = "", id = ""] = location.hash.split("/");
-  document.querySelectorAll(".menu a").forEach((a) => a.classList.toggle("activo", a.dataset.modo === modo));
+  const seccion = seccionMenu(modo, id);
+  document.querySelectorAll(".menu a").forEach((a) => a.classList.toggle("activo", a.dataset.modo === seccion));
   if (tablero && !["plan", "adivina", "evalua", "casilla"].includes(modo)) { tablero.destruir(); tablero = null; }
   // Primera vez: el asistente de bienvenida antes que nada.
   // (?demo en la URL lo salta: lo usa el previsualizador)
@@ -1290,7 +1350,8 @@ function enrutar() {
   }
   if (modo !== "bienvenida") document.body.classList.remove("sin-menu");
   ({ casilla: vistaCasilla, plan: vistaPlan, adivina: vistaAdivina, evalua: vistaEvalua, posiciones: vistaPosiciones, ranking: vistaRanking,
-     bienvenida: vistaBienvenida, ajustes: vistaAjustes, revisadas: vistaRevisadas }[modo] || vistaPortada)(decodeURIComponent(id));
+     bienvenida: vistaBienvenida, ajustes: vistaAjustes, revisadas: vistaRevisadas,
+     entrenar: vistaEntrenar, club: () => vistaRanking("clubes") }[modo] || vistaPortada)(decodeURIComponent(id));
   window.scrollTo(0, 0);
 }
 
