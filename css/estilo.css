@@ -529,3 +529,14 @@ a.panel:active, .modo-v2:active, .tarjeta:active, .opcion:not(:disabled):active,
 .campo-admin textarea { font: inherit; padding: 10px; border-radius: 10px; border: 1.5px solid var(--borde); background: var(--panel); color: var(--texto); resize: vertical; }
 #resultados-club h3 { margin: 14px 0 4px; }
 .club-resultado .boton { flex-shrink: 0; }
+
+/* Información legal */
+.enlaces-legales { margin: 0; padding-left: 1.1em; display: grid; gap: 8px; }
+.aviso-legal { text-align: center; margin: 14px 0 0; font-size: 13px; }
+
+/* Panel del dueño de la app */
+.panel-dueno { border-color: var(--acento); }
+.peticion-admin + .peticion-admin { border-top: 1px solid var(--borde); margin-top: 12px; padding-top: 12px; }
+.peticion-admin p { margin: 0 0 6px; }
+.peticion-admin blockquote { margin: 0 0 8px; padding: 8px 12px; border-left: 3px solid var(--acento); background: var(--acento-suave); border-radius: 8px; font-size: 15px; }
+.botones-peticion { display: flex; gap: 8px; flex-wrap: wrap; }

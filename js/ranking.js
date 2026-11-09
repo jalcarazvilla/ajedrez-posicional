@@ -107,6 +107,9 @@ export async function pedirAdmin(prog, elo, club, mensaje) {
 export const solicitudesPendientes = (prog) => rpc("solicitudes_pendientes", prog);
 export const resolverSolicitud = (prog, jugadorId, aceptar) => rpc("resolver_solicitud", prog, { p_jugador: jugadorId, p_aceptar: aceptar });
 export const expulsarMiembro = (prog, jugadorId) => rpc("expulsar_miembro", prog, { p_jugador: jugadorId });
+// Solo para el dueño de la app: peticiones para ser administrador de club.
+export const peticionesAdmin = (prog) => rpc("peticiones_admin", prog);
+export const resolverAdmin = (prog, club, jugadorId, aprobar) => rpc("resolver_admin", prog, { p_club: club, p_jugador: jugadorId, p_aprobar: aprobar });
 
 // Envía los puntos pendientes (ejercicios resueltos por primera vez). Devuelve los que no se pudieron enviar.
 export async function enviarPuntos(prog, pendientes) {

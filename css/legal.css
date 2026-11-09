@@ -1,0 +1,27 @@
+/* Páginas legales (privacidad, condiciones, borrar datos). Mismos colores que el tema azul de la app. */
+:root {
+  --fondo: #0e1522; --panel: #172133; --texto: #eef1f6; --suave: #b3bdcc; --borde: #263450; --acento: #d4ad5a;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--fondo); color: var(--texto);
+  font: 16px/1.65 Manrope, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right));
+}
+main { max-width: 720px; margin: 0 auto; padding-block: 28px 64px; }
+h1, h2 { font-family: "DM Serif Display", Georgia, serif; font-weight: 400; line-height: 1.2; text-wrap: balance; }
+h1 { font-size: 34px; margin: 8px 0 4px; }
+h2 { font-size: 23px; margin: 34px 0 8px; }
+p, li { max-width: 68ch; }
+ul { padding-left: 1.2em; }
+li + li { margin-top: 6px; }
+a { color: var(--acento); }
+a:focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; }
+.volver { display: inline-block; margin-bottom: 8px; font-weight: 700; text-decoration: none; }
+.fecha, .nota { color: var(--suave); }
+.caja { background: var(--panel); border: 1px solid var(--borde); border-radius: 14px; padding: 14px 18px; }
+table { width: 100%; border-collapse: collapse; font-size: 15px; }
+th, td { text-align: left; vertical-align: top; padding: 8px 6px; border-bottom: 1px solid var(--borde); }
+th { color: var(--suave); font-size: 13px; text-transform: uppercase; letter-spacing: .08em; }
+.tabla { overflow-x: auto; }

@@ -4,10 +4,11 @@ import { Chessground } from "../vendor/chessground.js";
 import { motor, aCp, textoEval } from "./motor.js";
 import { aplicarResultado, estadoElo, eloEjercicio, multiplicador, problemaDelDia, marcarDiario, rachaDiariaVigente, estadoDiario, hoy, CALIBRACION } from "./elo.js";
 import { rankingActivo, jugador, nombreValido, enviarElo, tabla, MINIMO, enviarPuntos, listarClubes, clubPorId, rankingClubes, miembrosClub, unirseClub, borrarJugador,
-  solicitarClub, cancelarSolicitud, miClub, pedirAdmin, solicitudesPendientes, resolverSolicitud, expulsarMiembro } from "./ranking.js";
+  solicitarClub, cancelarSolicitud, miClub, pedirAdmin, solicitudesPendientes, resolverSolicitud, expulsarMiembro,
+  peticionesAdmin, resolverAdmin } from "./ranking.js";
 
 // Súbela a la vez que versionName en movil/android/app/build.gradle.
-const VERSION_APP = "1.7.0";
+const VERSION_APP = "1.7.2";
 const app = document.getElementById("app");
 let POSICIONES = [];
 let CASILLAS = []; // ejercicios de "Encuentra la casilla" (datos/casillas.json)
@@ -181,6 +182,7 @@ function vistaBienvenida() {
           ${estado.paso > 0 ? `<button class="boton" id="atras">Atrás</button>` : "<span></span>"}
           <button class="boton principal" id="siguiente">${estado.paso === total - 1 ? "¡Empezar a entrenar!" : "Siguiente"}</button>
         </div>
+        ${estado.paso === total - 1 ? `<p class="meta aviso-legal">Al empezar aceptas las <a href="condiciones.html">condiciones de uso</a> y la <a href="privacidad.html">política de privacidad</a>.</p>` : ""}
       </section>`;
     if (estado.paso === 0) {
       const inp = document.getElementById("nombre");
@@ -247,6 +249,7 @@ function refrescarValoresAjustes() {
     club: p.club?.nombre || "Sin club",
     ejercicios: aj.desplegados ? "Abiertos" : "Cerrados",
     elo: String(estadoElo(p).valor),
+    legal: "",
     cero: "",
   };
   app.querySelectorAll(".ajuste-valor").forEach((el) => { el.textContent = valores[el.dataset.valor] ?? ""; });
@@ -276,6 +279,12 @@ function vistaAjustes() {
       ${ajuste("elo", "Elo de partida", `${e.partidas ? `<p class="meta">Tu Elo es ${e.valor}. Ya has hecho ejercicios, así que ahora solo cambia resolviendo posiciones.</p>`
           : `<div class="elo-propio"><input id="elo-libre" type="number" min="400" max="2800" step="10" value="${e.valor}">
              <button class="boton" id="guardar-elo">Guardar</button><span id="elo-estado" class="meta"></span></div>`}`)}
+      ${ajuste("legal", "Información legal", `<ul class="enlaces-legales">
+          <li><a href="privacidad.html">Política de privacidad</a></li>
+          <li><a href="condiciones.html">Condiciones de uso</a></li>
+          <li><a href="borrar-cuenta.html">Cómo borrar tus datos</a></li>
+          <li><a href="https://github.com/jalcarazvilla/ajedrez-posicional" target="_blank" rel="noopener">Código fuente y licencias</a></li>
+        </ul>`)}
       ${ajuste("cero", "Empezar de cero", `<p class="meta">Borra tu Elo, tus ejercicios hechos y tu puesto en el ranking, y vuelve a la bienvenida. Los colores y el tablero se conservan. No se puede deshacer.</p>
         <button class="boton peligro" id="de-cero">Empezar de cero</button> <span id="de-cero-estado" class="meta"></span>`)}
       <p class="meta version">Versión ${VERSION_APP}</p>
@@ -1068,7 +1077,7 @@ function vistaEntrenar() {
 }
 
 // ---------- Ranking (jugadores y clubes) ----------
-const CORREO_CLUBES = "ajedrezposicional@gmail.com";
+const CORREO_CLUBES = "positionalchesstrainer@gmail.com";
 // Escudo del club: su logo si lo tiene; si no, un escudo genérico con un caballo de ajedrez.
 function escudo(club, tam = 40) {
   if (club.logo) return `<img class="escudo logo-club" src="${h(club.logo)}" width="${tam}" height="${tam}" alt="" loading="lazy">`;
@@ -1168,6 +1177,9 @@ async function vistaRanking(pestana) {
     estadoClub = estado;
     const club = leerProgreso().club;
     cont.innerHTML = `
+      ${estado.dueno ? `<details class="desplegable panel-dueno" id="panel-dueno" open>
+        <summary>Peticiones de administrador <span id="n-peticiones"></span></summary>
+        <div class="desplegable-cuerpo" id="peticiones-admin"><p class="pensando">Cargando…</p></div></details>` : ""}
       <div id="mi-club">${club ? tarjetaMiClub(club) : buscador()}</div>
       <h2 class="titulo-seccion">Ranking de clubes</h2>
       <div class="pestanas pequenas" id="periodo">
@@ -1178,6 +1190,7 @@ async function vistaRanking(pestana) {
         La puntuación del club es la media de sus <b>5 mejores jugadores</b>: no gana el club más grande, sino el que mejor entrena.
         🏆 Pronto: premios para los mejores clubes del mes y del año.</p>`;
     if (club) activarMiClub(club); else activarBuscador();
+    if (estado.dueno) pintarPeticionesAdmin();
     document.querySelectorAll("#periodo button").forEach((b) => {
       b.onclick = () => {
         document.querySelectorAll("#periodo button").forEach((x) => x.classList.toggle("activa", x === b));
@@ -1256,6 +1269,34 @@ async function vistaRanking(pestana) {
         est.textContent = "Petición enviada ✓. La revisaremos pronto.";
       } catch (err) { b.disabled = false; est.textContent = err.message; }
     };
+  }
+  // Panel del dueño de la app: aprobar o rechazar a quien pide administrar un club.
+  async function pintarPeticionesAdmin() {
+    const caja = document.getElementById("peticiones-admin");
+    if (!caja) return;
+    try {
+      const filas = await peticionesAdmin(leerProgreso());
+      if (gen !== generacion) return;
+      document.getElementById("n-peticiones").textContent = filas.length ? `(${filas.length})` : "";
+      if (!filas.length) document.getElementById("panel-dueno").open = false;
+      caja.innerHTML = filas.length ? filas.map((f, i) => `
+        <div class="peticion-admin">
+          <p><b>${h(f.jugador)}</b> quiere administrar <b>${h(f.club)}</b><br>
+            <small class="meta">Elo ${f.elo} · ${f.ejercicios} ejercicios · ${new Date(f.creado).toLocaleDateString("es-ES")}</small></p>
+          <blockquote>${h(f.mensaje || "Sin mensaje")}</blockquote>
+          <p class="botones-peticion"><button class="boton principal" data-i="${i}" data-aprobar="1">Aprobar</button>
+            <button class="boton" data-i="${i}" data-aprobar="0">Rechazar</button></p>
+        </div>`).join("") : `<p class="meta">No hay peticiones pendientes.</p>`;
+      caja.querySelectorAll("[data-aprobar]").forEach((b) => {
+        b.onclick = async () => {
+          const f = filas[+b.dataset.i];
+          if (b.dataset.aprobar === "0" && !confirm(`¿Rechazar a ${f.jugador} como administrador de ${f.club}?`)) return;
+          b.disabled = true;
+          try { await resolverAdmin(leerProgreso(), f.club_id, f.jugador_id, b.dataset.aprobar === "1"); pintarPeticionesAdmin(); }
+          catch (err) { b.disabled = false; b.insertAdjacentHTML("afterend", `<small class="error">${h(err.message)}</small>`); }
+        };
+      });
+    } catch { caja.innerHTML = `<p class="meta">No se pudieron cargar las peticiones.</p>`; }
   }
   async function pintarSolicitudes(c) {
     const caja = document.getElementById("solicitudes");
