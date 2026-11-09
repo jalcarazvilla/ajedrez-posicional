@@ -6,7 +6,7 @@ import { aplicarResultado, estadoElo, eloEjercicio, multiplicador, problemaDelDi
 import { rankingActivo, jugador, nombreValido, enviarElo, tabla, MINIMO, enviarPuntos, listarClubes, clubPorId, rankingClubes, miembrosClub, unirseClub, borrarJugador } from "./ranking.js";
 
 // Súbela a la vez que versionName en movil/android/app/build.gradle.
-const VERSION_APP = "1.6.3";
+const VERSION_APP = "1.6.4";
 const app = document.getElementById("app");
 let POSICIONES = [];
 let CASILLAS = []; // ejercicios de "Encuentra la casilla" (datos/casillas.json)
@@ -879,6 +879,7 @@ function vistaEvalua(id) {
   app.innerHTML = plantillaEjercicio(`
     ${cabeceraPosicion(p)}
     ${desplegable("d-analisis", "Ver análisis de la posición", `<p class="contexto">${txt(p.contexto)}</p>`)}
+    ${desplegable("d-preguntas", "Ver preguntas", `
     <h3>1. ¿Verdadero o falso?</h3>
     <div id="afirmaciones">${afirm.map((a, k) => `
       <div class="afirmacion" data-k="${k}">
@@ -888,7 +889,7 @@ function vistaEvalua(id) {
     </div>
     <h3>2. ¿Quién está mejor?</h3>
     <div class="veredictos">${VEREDICTOS.map((v) => `<button class="veredicto" data-v="${v.id}">${v.texto}</button>`).join("")}</div>
-    <div class="botones"><button class="boton principal" id="comprobar" disabled>Comprobar</button></div>
+    <div class="botones"><button class="boton principal" id="comprobar" disabled>Comprobar</button></div>`)}
     <div id="resultado"></div>
     <div id="motor"></div>
     <div class="botones" id="botones" hidden>
