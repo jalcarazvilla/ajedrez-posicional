@@ -8,7 +8,7 @@ import { rankingActivo, jugador, nombreValido, enviarElo, tabla, MINIMO, enviarP
   peticionesAdmin, resolverAdmin } from "./ranking.js";
 
 // Súbela a la vez que versionName en movil/android/app/build.gradle.
-const VERSION_APP = "1.7.2";
+const VERSION_APP = "1.7.3";
 const app = document.getElementById("app");
 let POSICIONES = [];
 let CASILLAS = []; // ejercicios de "Encuentra la casilla" (datos/casillas.json)
