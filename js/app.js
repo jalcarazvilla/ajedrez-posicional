@@ -6,7 +6,7 @@ import { aplicarResultado, estadoElo, eloEjercicio, multiplicador, problemaDelDi
 import { rankingActivo, jugador, nombreValido, enviarElo, tabla, MINIMO, enviarPuntos, listarClubes, clubPorId, rankingClubes, miembrosClub, unirseClub, borrarJugador } from "./ranking.js";
 
 // Súbela a la vez que versionName en movil/android/app/build.gradle.
-const VERSION_APP = "1.6.2";
+const VERSION_APP = "1.6.3";
 const app = document.getElementById("app");
 let POSICIONES = [];
 let CASILLAS = []; // ejercicios de "Encuentra la casilla" (datos/casillas.json)
@@ -405,12 +405,8 @@ const FIJOS = TRAMOS.filter((t) => t.max);
 const tramoDeElo = (elo) => FIJOS.find((t) => elo >= t.min && elo < t.max) || FIJOS[FIJOS.length - 1];
 
 function tarjetasNiveles(actual) {
-  return TRAMOS.map((t) => {
-    const todas = [...POSICIONES, ...CASILLAS];
-    const n = t.max ? todas.filter((p) => eloEjercicio(p) >= t.min && eloEjercicio(p) < t.max).length : todas.length;
-    return `<button type="button" class="tarjeta nivel ${t.id === actual ? "elegida" : ""}" data-tramo="${t.id}">
-      <b>${t.texto}</b><small>${t.nota}</small><small class="cuenta">${n} ejercicios</small></button>`;
-  }).join("");
+  return TRAMOS.map((t) => `<button type="button" class="tarjeta nivel ${t.id === actual ? "elegida" : ""}" data-tramo="${t.id}">
+      <b>${t.texto}</b><small>${t.nota}</small></button>`).join("");
 }
 function activarNiveles(cont) {
   cont.querySelectorAll("[data-tramo]").forEach((b) => {
