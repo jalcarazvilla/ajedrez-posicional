@@ -5,7 +5,7 @@ import { aplicarResultado, estadoElo, eloEjercicio, multiplicador, problemaDelDi
 import { rankingActivo, jugador, nombreValido, enviarElo, tabla, MINIMO, enviarPuntos, listarClubes, clubPorId, rankingClubes, miembrosClub, unirseClub, borrarJugador } from "./ranking.js";
 
 // Súbela a la vez que versionName en movil/android/app/build.gradle.
-const VERSION_APP = "1.5.0";
+const VERSION_APP = "1.5.1";
 const app = document.getElementById("app");
 let POSICIONES = [];
 let CASILLAS = []; // ejercicios de "Encuentra la casilla" (datos/casillas.json)
@@ -461,6 +461,11 @@ const desplegable = (id, titulo, contenido) => `
   </details>`;
 const abrir = (id) => { const d = document.getElementById(id); if (d) d.open = true; };
 const concepto = (p) => `<p class="concepto">Idea clave: <b>${h(p.titulo)}</b></p>`;
+// Análisis a fondo (solo en las posiciones revisadas): lectura de la posición e idea para recordar.
+const claves = (p) => (p.claves ? `
+  <h3>Claves de la posición</h3>
+  <dl class="ficha claves">${p.claves.map((c) => `<dt>${h(c.etiqueta)}</dt><dd>${txt(c.texto)}</dd>`).join("")}</dl>` : "") +
+  (p.idea ? `<p class="idea-recordar"><b>Para recordar:</b> ${txt(p.idea)}</p>` : "");
 
 // Ilumina el tablero entero: verde (buena), amarillo (imprecisión) o rojo (error).
 function destello(tipo) {
@@ -641,7 +646,7 @@ function vistaPlan(id) {
         ${bloqueElo(cambio)}
         ${concepto(p)}
         <p>${txt(p.plan.explicacion)}</p>
-      </div>`;
+      </div>${claves(p)}`;
     tablero.flechas([...(p.plan.flechas || []), ...flechasExtra]);
     document.getElementById("botones").hidden = false;
     controlesPartida(p, document.getElementById("bajo-tablero"));
@@ -788,7 +793,7 @@ function vistaAdivina(id) {
         ${bloqueElo(cambio)}
         ${concepto(p)}
         <p>${txt(p.partida.comentario || "")}</p>
-      </div>`;
+      </div>${claves(p)}`;
   }
 }
 
@@ -923,14 +928,14 @@ function vistaEvalua(id) {
         ${concepto(p)}
         <p>${txt(ev.resumen)}</p>
       </div>
-      <h3>Ficha de la posición</h3>
+      ${p.claves ? claves(p) : `<h3>Ficha de la posición</h3>
       <dl class="ficha">
         <dt>Estructura de peones</dt><dd>${txt(f.estructura)}</dd>
         <dt>Piezas</dt><dd>${txt(f.piezas)}</dd>
         <dt>Casillas y columnas</dt><dd>${txt(f.casillas)}</dd>
         <dt>Seguridad del rey</dt><dd>${txt(f.rey)}</dd>
         <dt>Plan</dt><dd>${txt(f.plan)}</dd>
-      </dl>`;
+      </dl>`}`;
     tablero.flechas(ev.flechas || p.plan?.flechas || []);
     document.getElementById("botones").hidden = false;
     controlesPartida(p, document.getElementById("bajo-tablero"));

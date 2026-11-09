@@ -418,3 +418,6 @@ html[data-tablero="morado"] { --cas-clara: #efefef; --cas-oscura: #8877b7; }
 .logo-club { border-radius: 10px; object-fit: contain; background: #fff; box-shadow: 0 0 0 1px var(--borde); flex: none; }
 .alta-club { margin-top: 12px; }
 #resultados-club { max-height: 60vh; overflow-y: auto; }
+
+/* Análisis revisados: idea para recordar */
+.idea-recordar { margin-top: 12px; padding: 10px 12px; border-left: 3px solid var(--acento, #d39b4a); background: rgba(211,155,74,.08); border-radius: 6px; }
