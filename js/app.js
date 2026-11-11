@@ -6,14 +6,16 @@ import { aplicarResultado, estadoElo, eloEjercicio, multiplicador, problemaDelDi
 import { rankingActivo, jugador, nombreValido, enviarElo, tabla, MINIMO, enviarPuntos, listarClubes, clubPorId, rankingClubes, miembrosClub, unirseClub, borrarJugador,
   solicitarClub, cancelarSolicitud, miClub, pedirAdmin, solicitudesPendientes, resolverSolicitud, expulsarMiembro,
   peticionesAdmin, resolverAdmin } from "./ranking.js";
+import { crearAmigos } from "./amigos.js";
 
 // Súbela a la vez que versionName en movil/android/app/build.gradle.
-const VERSION_APP = "1.9.1";
+const VERSION_APP = "1.10.0";
 const app = document.getElementById("app");
 let POSICIONES = [];
 let CASILLAS = []; // ejercicios de "Encuentra la casilla" (datos/casillas.json)
 let tablero = null;
 let generacion = 0; // invalida tareas asíncronas de vistas anteriores
+let amigos = null;  // panel de amigos (js/amigos.js)
 
 // ---------- Progreso (localStorage, opcional) ----------
 const CLAVE = "entrenador-posicional-v1";
@@ -335,6 +337,8 @@ const ICONOS = {
   entrenar: '<rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/>',
   club: '<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M12 8v8M8.5 11h7"/>',
   perfil: '<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/>',
+  amigos: '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0113 0"/><circle cx="17" cy="9" r="2.8"/><path d="M15.5 14.2A5.5 5.5 0 0121.5 20"/>',
+  enlace: '<path d="M10 14a4 4 0 005.7 0l3-3a4 4 0 00-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 00-5.7 0l-3 3a4 4 0 005.7 5.7l1-1"/>',
   racha: '<path d="M12 22c4 0 7-3 7-7 0-4-3-6-4-9-1 3-3 4-4 4 0-3-1-5-3-7 0 4-5 7-5 12 0 4 4 7 9 7z"/>',
 };
 const icono = (n) => `<svg class="icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONOS[n]}</svg>`;
@@ -349,6 +353,7 @@ const MENU = [
 function seccionMenu(modo, id) {
   if (["casilla", "plan", "adivina", "evalua", "posiciones", "revisadas", "entrenar"].includes(modo)) return "entrenar";
   if (modo === "club" || (modo === "ranking" && id === "clubes")) return "club";
+  if (modo === "amigo") return "ranking";
   return modo;
 }
 function pintarMenu() {
@@ -1058,10 +1063,12 @@ function vistaPortada() {
             <p class="meta">Juegan las ${turnoDe(diario.fen) === "w" ? "blancas" : "negras"} · nivel ${eloEjercicio(diario)}</p>
           </div></a>` : ""}
       </div>
+      ${rankingActivo() ? `<div class="panel amigos-portada" id="amigos-portada"></div>` : ""}
       <h2 class="titulo-seccion etiqueta-mayus">Entrenar · ${h(t.texto || "")}</h2>
       <div class="modos-v2">${tarjetasModos(false)}</div>
       <p class="meta version">Versión ${VERSION_APP}</p>
     </section>`;
+  amigos?.resumenPortada(document.getElementById("amigos-portada"));
   const mini = document.getElementById("mini-diario");
   if (mini) Chessground(mini, { fen: diario.fen, orientation: orientacion(diario.fen), viewOnly: true, coordinates: false });
 }
@@ -1102,13 +1109,15 @@ async function vistaRanking(pestana) {
   guardarProgreso(prog);
   const e = estadoElo(prog);
   const clubes = pestana === "clubes";
+  const deAmigos = pestana === "amigos";
   // Estado del jugador en los clubes (lo rellena pintarClubes al preguntar al servidor).
   let estadoClub = { admin: [], admin_pedido: [], solicitud: null };
   const soyAdmin = (id) => (estadoClub.admin || []).includes(id);
   app.innerHTML = `
     <section class="panel ranking">
       <div class="pestanas">
-        <a href="#/ranking" class="${clubes ? "" : "activa"}">Jugadores</a>
+        <a href="#/ranking" class="${clubes || deAmigos ? "" : "activa"}">Jugadores</a>
+        <a href="#/ranking/amigos" class="${deAmigos ? "activa" : ""}">Amigos</a>
         <a href="#/ranking/clubes" class="${clubes ? "activa" : ""}">Clubes</a>
       </div>
       <div id="contenido-ranking"></div>
@@ -1118,6 +1127,7 @@ async function vistaRanking(pestana) {
     cont.innerHTML = `<div class="aviso">El ranking online todavía no está conectado. Tu Elo se guarda en este dispositivo.</div>`;
     return;
   }
+  if (deAmigos) return amigos?.pintarComparativa(cont, "semana", gen, () => generacion);
   return clubes ? pintarClubes() : pintarJugadores();
 
   function pintarJugadores() {
@@ -1500,7 +1510,8 @@ function enrutar() {
   if (modo !== "bienvenida") document.body.classList.remove("sin-menu");
   ({ casilla: vistaCasilla, plan: vistaPlan, adivina: vistaAdivina, evalua: vistaEvalua, posiciones: vistaPosiciones, ranking: vistaRanking,
      bienvenida: vistaBienvenida, ajustes: vistaAjustes, revisadas: vistaRevisadas,
-     entrenar: vistaEntrenar, club: () => vistaRanking("clubes") }[modo] || vistaPortada)(decodeURIComponent(id));
+     entrenar: vistaEntrenar, club: () => vistaRanking("clubes"),
+     amigo: (x) => amigos ? amigos.vistaAmigo(app, x, generacion, () => generacion) : vistaPortada() }[modo] || vistaPortada)(decodeURIComponent(id));
   window.scrollTo(0, 0);
 }
 
@@ -1525,6 +1536,9 @@ async function iniciar() {
   aplicarApariencia();
   pintarMenu();
   pintarCabecera();
+  amigos = crearAmigos({ leerProgreso, guardarProgreso, estadoElo, h, icono, sincronizarRanking, alCambiar: () => {
+    if (location.hash.startsWith("#/ranking/amigos") || ["", "#", "#/"].includes(location.hash)) enrutar();
+  } });
   enrutar();
 }
 iniciar();

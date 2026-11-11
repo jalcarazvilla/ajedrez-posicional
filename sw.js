@@ -1,6 +1,6 @@
 // Service worker: permite usar la app sin conexión una vez cargada.
-const VERSION = "v29";
-const PROPIOS = ["./", "index.html", "css/estilo.css", "css/piezas.css", "js/app.js", "js/tablero.js", "js/motor.js", "js/elo.js", "js/ranking.js", "js/config.js",
+const VERSION = "v30";
+const PROPIOS = ["./", "index.html", "css/estilo.css", "css/piezas.css", "js/app.js", "js/tablero.js", "js/motor.js", "js/elo.js", "js/ranking.js", "js/amigos.js", "js/config.js",
   "datos/posiciones.json", "datos/casillas.json",
   "vendor/chessground.js", "vendor/chess.js", "vendor/stockfish.js", "vendor/chessground.base.css", "vendor/chessground.brown.css", "vendor/chessground.cburnett.css", "vendor/fuentes/fuentes.css", "vendor/fuentes/DMSerifDisplay-latin.woff2", "vendor/fuentes/Manrope-latin.woff2", "icono.svg", "manifest.webmanifest",
   "iconos/icono-192.png", "iconos/icono-512.png", "iconos/icono-maskable-512.png", "iconos/apple-touch-icon.png"];

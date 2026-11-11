@@ -629,3 +629,88 @@ a.panel:active, .modo-v2:active, .tarjeta:active, .opcion:not(:disabled):active,
   .veredicto:nth-child(3) { grid-column: 1 / -1; }
   .veredicto { padding: 10px 6px; font-size: 14px; }
 }
+
+/* ===== Amigos ===== */
+.boton-amigos {
+  position: relative; display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 99px;
+  border: 1px solid var(--borde); background: transparent; color: var(--texto); cursor: pointer; font-size: 14px; font-weight: 600;
+}
+.boton-amigos:hover { border-color: var(--acento); color: var(--acento); }
+.boton-amigos .icono { width: 20px; height: 20px; }
+.boton-amigos .insignia {
+  position: absolute; top: -6px; right: -6px; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 99px;
+  background: var(--mal); color: #fff; font-size: 11px; font-weight: 800; line-height: 18px; text-align: center;
+}
+.boton-amigos .punto-verde { position: absolute; top: 2px; right: 2px; }
+.punto-verde, .punto-gris, .punto-nada { display: inline-block; width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+.punto-verde { background: var(--bien); box-shadow: 0 0 0 2px var(--fondo); }
+.punto-gris { background: var(--suave); opacity: .6; }
+.punto-nada { background: transparent; }
+td .punto-verde, td .punto-nada { margin-right: 7px; vertical-align: 1px; }
+@media (max-width: 900px) { .boton-amigos .solo-escritorio { display: none; } .boton-amigos { padding: 6px; } }
+
+.fondo-cajon { position: fixed; inset: 0; background: rgba(0, 0, 0, .45); opacity: 0; transition: opacity .25s ease; z-index: 60; }
+.fondo-cajon.abierto { opacity: 1; }
+.cajon-amigos {
+  position: fixed; top: 0; right: 0; bottom: 0; width: min(380px, 92vw); z-index: 61; overflow-y: auto;
+  background: var(--panel); border-left: 1px solid var(--borde); box-shadow: -12px 0 40px rgba(0, 0, 0, .35);
+  padding: 16px 16px calc(24px + env(safe-area-inset-bottom)); transform: translateX(105%); transition: transform .25s ease;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.cajon-amigos.abierto { transform: none; }
+body.con-cajon { overflow: hidden; }
+@media (prefers-reduced-motion: reduce) { .cajon-amigos, .fondo-cajon { transition: none; } }
+.cajon-cabecera { display: flex; align-items: center; justify-content: space-between; }
+.cajon-cabecera h2 { margin: 0; font-size: 26px; }
+.cajon-amigos .cerrar { background: none; border: none; color: var(--suave); font-size: 28px; line-height: 1; cursor: pointer; padding: 4px 8px; }
+.cajon-amigos h3 { margin: 6px 0 0; }
+.fila-form { display: flex; gap: 8px; }
+.fila-form input {
+  flex: 1; min-width: 0; font: inherit; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--borde);
+  background: var(--panel-2); color: var(--texto);
+}
+.fila-form input:focus { outline: 2px solid var(--acento); outline-offset: 1px; }
+.boton.invitar { display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+.boton.invitar .icono { width: 18px; height: 18px; }
+.boton.mini { padding: 6px 12px; font-size: 14px; border-radius: 10px; }
+.boton.ancho { display: block; text-align: center; text-decoration: none; }
+.grupo-amigos summary { display: flex; align-items: center; gap: 8px; cursor: pointer; font-weight: 700; padding: 6px 0; list-style: none; }
+.grupo-amigos summary::-webkit-details-marker { display: none; }
+.grupo-amigos summary::after { content: "▾"; margin-left: auto; color: var(--suave); transition: transform .2s; }
+.grupo-amigos:not([open]) summary::after { transform: rotate(-90deg); }
+.grupo-amigos summary b { color: var(--suave); font-weight: 600; }
+.lista-amigos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 6px; }
+.cajon-amigos > * { min-width: 0; }
+.fila-amigo {
+  display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 12px; background: var(--panel-2); border: 1px solid var(--borde);
+}
+.fila-amigo .datos { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.fila-amigo .datos b, .fila-amigo .datos small { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fila-amigo small { color: var(--suave); font-size: 12.5px; }
+.fila-amigo .cifras { display: flex; flex-direction: column; align-items: flex-end; font-variant-numeric: tabular-nums; }
+.fila-amigo .acciones { display: flex; gap: 6px; }
+.fila-amigo .mas { background: none; border: none; color: var(--suave); font-size: 20px; cursor: pointer; padding: 0 2px; opacity: .6; }
+.fila-amigo .mas:hover { opacity: 1; color: var(--mal); }
+.sube { color: var(--bien) !important; }
+.baja { color: var(--mal) !important; }
+.avatar {
+  position: relative; width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0; display: grid; place-items: center;
+  background: var(--acento-suave); color: var(--acento); font-weight: 800;
+}
+.avatar.on::after {
+  content: ""; position: absolute; right: -1px; bottom: -1px; width: 11px; height: 11px; border-radius: 50%;
+  background: var(--bien); box-shadow: 0 0 0 2px var(--panel-2);
+}
+.avatar.grande { width: 64px; height: 64px; font-size: 28px; }
+.amigos-portada { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; margin-top: 14px; }
+.amigos-portada > a, .amigos-portada > span { display: inline-flex; align-items: center; gap: 10px; color: var(--texto); text-decoration: none; min-width: 0; }
+.amigos-portada .icono { width: 22px; height: 22px; color: var(--acento); flex-shrink: 0; }
+.amigos-portada .boton { display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0; }
+.segmentado { display: flex; flex-wrap: wrap; gap: 4px; background: var(--panel-2); padding: 4px; border-radius: 12px; margin-bottom: 12px; }
+.segmentado button { flex: 1; border: none; background: none; color: var(--suave); padding: 7px 10px; border-radius: 9px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+.segmentado button.activo { background: var(--panel); color: var(--texto); box-shadow: var(--relieve-pulsado, none); }
+.resumen-amigos { font-size: 18px; margin: 4px 0 12px; }
+.resumen-amigos b { color: var(--acento); }
+.invitacion { max-width: 520px; margin: 0 auto; display: grid; gap: 14px; }
+.tarjeta-jugador { display: flex; align-items: center; gap: 16px; }
+.tarjeta-jugador h1 { margin: 0; }

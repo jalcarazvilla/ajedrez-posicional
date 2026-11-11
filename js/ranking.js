@@ -122,4 +122,16 @@ export async function enviarPuntos(prog, pendientes) {
   return quedan;
 }
 
+// ---------- Amigos ----------
+export const latido = (prog, mostrar) => rpc("latido", prog, { p_mostrar: mostrar });
+export const misAmigos = (prog) => rpc("mis_amigos", prog);
+export const buscarJugadores = (prog, texto) => rpc("buscar_jugadores", prog, { p_texto: texto });
+export const verJugador = (prog, otro) => rpc("ver_jugador", prog, { p_otro: otro });
+export async function pedirAmistad(prog, elo, amigo) {
+  await asegurarJugador(prog, elo);
+  return rpc("pedir_amistad", prog, { p_amigo: amigo });
+}
+export const responderAmistad = (prog, amigo, aceptar) => rpc("responder_amistad", prog, { p_amigo: amigo, p_aceptar: aceptar });
+export const quitarAmigo = (prog, amigo) => rpc("quitar_amigo", prog, { p_amigo: amigo });
+
 export { MINIMO };
